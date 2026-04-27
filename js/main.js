@@ -161,41 +161,6 @@
     });
   });
 
-  /* ── Exit intent popup ───────────────────────────────────── */
-  const popup = document.getElementById('exit-popup');
-  if (popup) {
-    let shown = false;
-    const STORAGE_KEY = 'tud_exit_shown';
-
-    // Don't show if already shown this session
-    if (sessionStorage.getItem(STORAGE_KEY)) shown = true;
-
-    function showPopup() {
-      if (shown) return;
-      shown = true;
-      sessionStorage.setItem(STORAGE_KEY, '1');
-      popup.classList.add('visible');
-      document.body.style.overflow = 'hidden';
-    }
-    function hidePopup() {
-      popup.classList.remove('visible');
-      document.body.style.overflow = '';
-    }
-
-    // Trigger on mouse leaving viewport toward top
-    document.addEventListener('mouseleave', (e) => {
-      if (e.clientY < 10 && !shown) showPopup();
-    });
-
-    // Close on overlay or X click
-    popup.querySelector('.exit-overlay')?.addEventListener('click', hidePopup);
-    popup.querySelector('.exit-close')?.addEventListener('click', hidePopup);
-
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') hidePopup();
-    });
-  }
 
   /* ── Smooth scroll for anchor links ─────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
