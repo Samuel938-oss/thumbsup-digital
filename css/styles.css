@@ -474,10 +474,22 @@ p { color: var(--text-2); }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 60% 20%, rgba(0,180,216,0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(6,214,160,0.07) 0%, transparent 55%),
-    var(--bg-0);
+  background-image: url('../assets/images/hero-bg.jpeg');
+  background-size: cover;
+  background-position: right center;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10,14,26,0.98) 0%,
+    rgba(10,14,26,0.95) 25%,
+    rgba(10,14,26,0.82) 50%,
+    rgba(10,14,26,0.55) 72%,
+    rgba(10,14,26,0.30) 100%
+  );
 }
 .hero-grid {
   position: absolute;
@@ -494,23 +506,24 @@ p { color: var(--text-2); }
   z-index: 1;
   max-width: var(--container);
   margin: 0 auto;
-  padding: 72px 24px 80px;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  padding: 80px 24px 96px;
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 48px;
+  max-width: 760px;
+  margin-left: max(24px, calc((100vw - var(--container)) / 2 + 24px));
 }
 .hero-content {}
 .hero-content .badge { margin-bottom: 20px; }
 .hero-content .display-1 {
   margin-bottom: 20px;
-  font-size: clamp(1.9rem, 2.7vw, 2.75rem);
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
 }
 .hero-content p {
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.75;
   margin-bottom: 36px;
-  max-width: 540px;
+  max-width: 580px;
 }
 .hero-actions {
   display: flex;
@@ -1479,8 +1492,8 @@ footer {
   .section       { padding: 72px 0; }
   .section-header { margin-bottom: 48px; }
 
-  .hero-inner    { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; }
-  .hero-visual   { order: -1; }
+  .hero-inner    { padding: 60px 24px 72px; margin-left: 0; }
+  .hero-bg::after { background: linear-gradient(to bottom, rgba(10,14,26,0.96) 0%, rgba(10,14,26,0.88) 60%, rgba(10,14,26,0.80) 100%); }
   .chat-mockup   { max-width: 320px; }
   .hero-trust    { flex-wrap: wrap; gap: 16px; }
 
