@@ -753,20 +753,47 @@ p { color: var(--text-2); }
   flex-direction: column;
   gap: 16px;
   transition: var(--t-med) var(--ease);
+  position: relative;
+  overflow: hidden;
 }
-.problem-card:hover {
-  border-color: rgba(239,68,68,0.3);
-  transform: translateY(-3px);
+.problem-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--t-med) var(--ease);
+  pointer-events: none;
 }
+/* Card 1 — green (missed call) */
+.problem-card--green { border-color: rgba(34,197,94,0.15); }
+.problem-card--green::before { background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(34,197,94,0.02)); }
+.problem-card--green:hover   { border-color: rgba(34,197,94,0.45); transform: translateY(-4px); box-shadow: var(--shadow-card), 0 0 40px rgba(34,197,94,0.12); }
+.problem-card--green:hover::before { opacity: 1; }
+.problem-card--green .problem-icon { background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.25); color: #22C55E; }
+.problem-card--green .problem-loss { color: #22C55E; }
+/* Card 2 — blue (night visitor) */
+.problem-card--blue { border-color: rgba(79,142,247,0.15); }
+.problem-card--blue::before { background: linear-gradient(135deg, rgba(79,142,247,0.08), rgba(79,142,247,0.02)); }
+.problem-card--blue:hover   { border-color: rgba(79,142,247,0.45); transform: translateY(-4px); box-shadow: var(--shadow-card), 0 0 40px rgba(79,142,247,0.12); }
+.problem-card--blue:hover::before { opacity: 1; }
+.problem-card--blue .problem-icon { background: rgba(79,142,247,0.1); border-color: rgba(79,142,247,0.25); color: #4F8EF7; }
+.problem-card--blue .problem-loss { color: #4F8EF7; }
+/* Card 3 — amber (reviews) */
+.problem-card--amber { border-color: rgba(245,158,11,0.15); }
+.problem-card--amber::before { background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(245,158,11,0.02)); }
+.problem-card--amber:hover   { border-color: rgba(245,158,11,0.45); transform: translateY(-4px); box-shadow: var(--shadow-card), 0 0 40px rgba(245,158,11,0.12); }
+.problem-card--amber:hover::before { opacity: 1; }
+.problem-card--amber .problem-icon { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.25); color: #F59E0B; }
+.problem-card--amber .problem-loss { color: #F59E0B; }
+
 .problem-icon {
   width: 48px; height: 48px;
   border-radius: var(--r-md);
-  background: rgba(239,68,68,0.1);
-  border: 1px solid rgba(239,68,68,0.2);
+  border: 1px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f87171;
 }
 .problem-card h3 { font-size: 1.05rem; }
 .problem-card p  { font-size: 0.9rem; }
@@ -779,7 +806,6 @@ p { color: var(--text-2); }
   border-top: 1px solid var(--border);
   font-size: 0.8rem;
   font-weight: 600;
-  color: #f87171;
 }
 
 /* ── Solution / Bots ──────────────────────────────────────── */
