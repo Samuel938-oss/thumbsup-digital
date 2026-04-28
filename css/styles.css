@@ -166,11 +166,11 @@ p { color: var(--text-2); }
 .btn-primary {
   background: var(--grad);
   color: #fff;
-  box-shadow: 0 4px 20px rgba(0,180,216,0.3);
+  box-shadow: 0 4px 20px rgba(0,180,216,0.35);
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0,180,216,0.45);
+  box-shadow: 0 8px 32px rgba(0,180,216,0.50);
 }
 .btn-primary:active { transform: translateY(0); }
 
@@ -236,7 +236,7 @@ p { color: var(--text-2); }
 .card:hover {
   border-color: var(--border-acc);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-card), 0 0 40px rgba(0,180,216,0.10);
+  box-shadow: var(--shadow-card), 0 0 40px rgba(0,180,216,0.12);
 }
 .card:hover::before { opacity: 1; }
 
@@ -256,8 +256,8 @@ p { color: var(--text-2); }
   font-weight: 600;
   letter-spacing: 0.03em;
 }
-.badge-blue  { background: var(--blue-dim);  color: var(--blue); border: 1px solid rgba(0,180,216,0.2); }
-.badge-teal  { background: var(--teal-dim);  color: var(--teal); border: 1px solid rgba(6,214,160,0.2); }
+.badge-blue  { background: var(--blue-dim);  color: var(--blue); border: 1px solid rgba(0,180,216,0.25); }
+.badge-teal  { background: var(--teal-dim);  color: var(--teal); border: 1px solid rgba(6,214,160,0.25); }
 .badge-pop   { background: var(--grad); color: #fff; }
 
 /* ── Navigation ───────────────────────────────────────────── */
@@ -301,7 +301,7 @@ p { color: var(--text-2); }
   transition: box-shadow var(--t-fast) var(--ease);
 }
 .nav-logo:hover .nav-logo-border {
-  box-shadow: 0 0 20px rgba(0,180,216,0.4);
+  box-shadow: 0 0 20px rgba(0,180,216,0.45);
 }
 .nav-logo-border img {
   height: 70px;
@@ -563,6 +563,33 @@ p { color: var(--text-2); }
   height: 28px;
   background: var(--border);
 }
+.hero-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hero-location-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+.hero-location-cities {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.hero-city {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--teal);
+  background: rgba(6,214,160,0.08);
+  border: 1px solid rgba(6,214,160,0.2);
+  border-radius: 20px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
 
 /* ── Chat Mockup ──────────────────────────────────────────── */
 .hero-visual {
@@ -728,7 +755,7 @@ p { color: var(--text-2); }
 }
 .orb-blue {
   width: 400px; height: 400px;
-  background: rgba(0,180,216,0.12);
+  background: rgba(0,180,216,0.15);
   top: -100px; right: -80px;
 }
 .orb-teal {
@@ -834,7 +861,7 @@ p { color: var(--text-2); }
   width: 52px; height: 52px;
   border-radius: var(--r-lg);
   background: var(--blue-dim);
-  border: 1px solid rgba(0,180,216,0.2);
+  border: 1px solid rgba(0,180,216,0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -911,7 +938,7 @@ p { color: var(--text-2); }
   background: var(--grad);
   border-color: transparent;
   color: #fff;
-  box-shadow: 0 0 24px rgba(0,180,216,0.35);
+  box-shadow: 0 0 24px rgba(0,180,216,0.40);
 }
 .timeline-item:hover .timeline-dot svg { stroke: #fff; }
 .timeline-day {
@@ -1061,7 +1088,20 @@ p { color: var(--text-2); }
 .plan-setup {
   font-size: 0.82rem;
   color: var(--text-3);
-  margin-bottom: 24px;
+  margin-bottom: 10px;
+}
+.plan-first-month {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--teal);
+  background: rgba(6,214,160,0.08);
+  border: 1px solid rgba(6,214,160,0.22);
+  border-radius: 6px;
+  padding: 4px 10px;
+  margin-bottom: 20px;
 }
 .plan-divider {
   height: 1px;
@@ -1086,7 +1126,7 @@ p { color: var(--text-2); }
   width: 18px; height: 18px;
   border-radius: 50%;
   background: var(--teal-dim);
-  border: 1px solid rgba(6,214,160,0.25);
+  border: 1px solid rgba(6,214,160,0.30);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1111,6 +1151,7 @@ p { color: var(--text-2); }
   width: 100%;
   border-radius: var(--r-2xl);
   object-fit: cover;
+  object-position: right center;
   aspect-ratio: 4/3;
   border: 1px solid var(--border);
 }
@@ -1259,12 +1300,20 @@ footer {
 .page-hero {
   padding: 160px 0 80px;
   background: var(--bg-0);
-  border-bottom: 1px solid var(--border);
   position: relative;
   overflow: hidden;
   text-align: center;
 }
 .page-hero .hero-bg { opacity: 0.6; }
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 180px;
+  background: linear-gradient(to bottom, transparent, var(--bg-0));
+  pointer-events: none;
+  z-index: 0;
+}
 .page-hero .container { position: relative; z-index: 1; }
 .page-hero .display-1 { margin-bottom: 16px; }
 .page-hero p { max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
@@ -1286,7 +1335,7 @@ footer {
   width: 20px; height: 20px;
   border-radius: 50%;
   background: var(--blue-dim);
-  border: 1px solid rgba(0,180,216,0.2);
+  border: 1px solid rgba(0,180,216,0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1313,6 +1362,51 @@ footer {
   transition: var(--t-fast) var(--ease);
 }
 .tech-badge:hover { border-color: var(--border-acc); color: var(--blue); }
+
+/* ── Tech Logos Grid ─────────────────────────────────────── */
+.tech-logos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+.tech-logo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 130px;
+  transition: var(--t-med) var(--ease);
+  cursor: default;
+}
+.tech-logo-card:hover {
+  border-color: var(--border-acc);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card), 0 0 30px rgba(0,180,216,0.12);
+}
+.tech-logo-img {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tech-logo-img img { width: 36px; height: 36px; object-fit: contain; }
+.tech-logo-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.tech-logo-desc {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  text-align: center;
+  line-height: 1.4;
+}
 
 /* ── Pricing Page ─────────────────────────────────────────── */
 .plan-card-full {
@@ -1436,7 +1530,7 @@ footer {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(0,180,216,0.12);
+  box-shadow: 0 0 0 3px rgba(0,180,216,0.15);
 }
 .form-group select { cursor: pointer; }
 .form-group select option { background: var(--surface); }
@@ -1467,7 +1561,7 @@ footer {
   width: 44px; height: 44px;
   border-radius: var(--r-md);
   background: var(--blue-dim);
-  border: 1px solid rgba(0,180,216,0.2);
+  border: 1px solid rgba(0,180,216,0.25);
   display: flex;
   align-items: center;
   justify-content: center;
