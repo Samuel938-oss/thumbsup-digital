@@ -895,6 +895,54 @@ p { color: var(--text-2); }
   padding: 0 2px;
 }
 
+/* ── Bot Tier (dual-plan Bot 02 card) ─────────────────────── */
+.bot-tiers {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+}
+.bot-tier {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 16px;
+}
+.bot-tier:first-child { padding-left: 0; }
+.bot-tier:last-child  { padding-right: 0; }
+.bot-tier-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 3px 10px;
+  width: fit-content;
+}
+.bot-tier-badge--growth {
+  color: var(--teal);
+  background: rgba(6,214,160,0.08);
+  border-color: rgba(6,214,160,0.25);
+}
+.bot-tier-divider {
+  width: 1px;
+  background: var(--border);
+  align-self: stretch;
+  flex-shrink: 0;
+  margin: 0 4px;
+}
+.bot-icon--growth {
+  background: rgba(6,214,160,0.1);
+  border-color: rgba(6,214,160,0.25);
+  color: var(--teal);
+}
+
 /* ── How It Works ─────────────────────────────────────────── */
 #how-it-works { background: var(--bg-0); }
 .timeline {
@@ -1035,9 +1083,12 @@ p { color: var(--text-2); }
 #pricing-preview { background: var(--bg-0); }
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   align-items: start;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .plan-card {
   background: var(--surface);
@@ -1503,6 +1554,49 @@ footer {
 .comparison-table td:nth-child(3) { color: var(--text-3); }
 .comparison-table tr:hover td { background: var(--surface); }
 
+/* ── Dual Compare Grid ─────────────────────────────────────── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+.compare-block {
+  padding: 0;
+  overflow: hidden;
+}
+.compare-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-1);
+}
+.compare-plan-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+.compare-plan-price {
+  font-size: 1.05rem;
+  font-weight: 800;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.compare-block .comparison-table th,
+.compare-block .comparison-table td {
+  padding: 11px 16px;
+  font-size: 0.82rem;
+}
+@media (max-width: 860px) {
+  .compare-grid { grid-template-columns: 1fr; }
+}
+
 /* ── Contact Page ─────────────────────────────────────────── */
 .contact-grid {
   display: grid;
@@ -1651,4 +1745,74 @@ footer {
   .cta-actions   { flex-direction: column; width: 100%; }
   .cta-actions .btn { width: 100%; justify-content: center; max-width: 360px; }
   .plan-card-full { padding: 28px 24px; }
+}
+
+/* ── Ticker Strip ──────────────────────────────────────────── */
+.ticker-strip {
+  position: relative;
+  background: var(--bg-1);
+  overflow: hidden;
+  padding: 13px 0;
+  isolation: isolate;
+}
+.ticker-strip::before,
+.ticker-strip::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--blue) 25%, var(--teal) 50%, var(--blue) 75%, transparent 100%);
+  background-size: 200% 100%;
+  animation: ticker-border-flow 4s linear infinite;
+}
+.ticker-strip::before { top: 0; }
+.ticker-strip::after  { bottom: 0; animation-direction: reverse; }
+@keyframes ticker-border-flow {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+.ticker-track {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+}
+.ticker-inner {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: ticker-scroll 70s linear infinite;
+  will-change: transform;
+}
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.ticker-city { color: var(--text-1); }
+.ticker-city svg { color: var(--teal); flex-shrink: 0; }
+.ticker-tool { color: var(--blue); }
+.ticker-tool svg { color: var(--blue); flex-shrink: 0; }
+.ticker-sep {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--teal);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-inner,
+  .ticker-strip::before,
+  .ticker-strip::after { animation: none; }
 }
