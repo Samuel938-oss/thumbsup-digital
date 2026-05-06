@@ -79,6 +79,19 @@
     fadeEls.forEach(el => el.classList.add('visible'));
   }
 
+  /* ── pageshow: handle bfcache restores and back navigation ─── */
+  window.addEventListener('pageshow', function (e) {
+    // On bfcache restore the page snaps back to wherever the user was.
+    // Scroll to top so no section is skipped or sitting above the viewport.
+    if (e.persisted) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    // Force every still-hidden fade-up element visible regardless of cause.
+    document.querySelectorAll('.fade-up').forEach(function (el) {
+      el.classList.add('visible');
+    });
+  });
+
   /* ── Counter animation ───────────────────────────────────── */
   function animateCounter(el) {
     const target = parseFloat(el.dataset.target);
