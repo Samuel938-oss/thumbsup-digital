@@ -24,6 +24,28 @@
   </script>
 
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    @media (max-width: 640px) {
+      .compare-block .comparison-table {
+        width: 100%;
+        table-layout: fixed;
+      }
+      .compare-block .comparison-table th,
+      .compare-block .comparison-table td {
+        font-size: 0.75rem;
+        word-wrap: break-word;
+        white-space: normal;
+      }
+      .compare-block .comparison-table th:first-child,
+      .compare-block .comparison-table td:first-child {
+        width: 40%;
+      }
+      .compare-block .comparison-table th:not(:first-child),
+      .compare-block .comparison-table td:not(:first-child) {
+        width: 30%;
+      }
+    }
+  </style>
 </head>
 <body>
 
