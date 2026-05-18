@@ -24,9 +24,6 @@
     gtag('js', new Date()); gtag('config', 'G-TW6WSBNVEM');
   </script>
 
-  <!-- Calendly widget CSS -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -106,10 +103,19 @@
         <p style="margin-bottom:28px;font-size:0.95rem;line-height:1.7;">Pick a time that works for you. On the call, I'll ask a few questions about your business, show you the AI working in real time on your phone, and give you an honest recommendation — no pitch, no pressure.</p>
 
         <div class="calendly-widget-wrap" style="border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--border-acc);">
-          <!-- Calendly inline widget -->
-          <div class="calendly-inline-widget"
-               data-url="https://calendly.com/samuel-thumbsupdigital/30min?hide_gdpr_banner=1&background_color=111827&text_color=E2E8F0&primary_color=00B4D8"
-               style="min-width:100%;height:660px;"></div>
+          <iframe
+            src="https://api.thumbsupdigital.tech/widget/bookings/thumbsup/strategy-call"
+            style="width:100%;height:900px;border:none;overflow:hidden;"
+            scrolling="no"
+            id="ghl_calendar_iframe"
+          ></iframe>
+          <script>
+            window.addEventListener("message", function(e) {
+              if (e.data && e.data.type === "ghl:calendar:height") {
+                document.getElementById("ghl_calendar_iframe").style.height = e.data.value + "px";
+              }
+            });
+          </script>
         </div>
       </div>
 
@@ -251,8 +257,6 @@
   .visually-hidden { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
 </style>
 
-<!-- Calendly widget JS -->
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script src="js/main.js"></script>
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a0787c3f7ab41bf964bd302"></script>
 </body>
