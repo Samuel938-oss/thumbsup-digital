@@ -105,15 +105,21 @@
         <div class="calendly-widget-wrap" style="border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--border-acc);">
           <iframe
             src="https://api.thumbsupdigital.tech/widget/bookings/thumbsup/strategy-call"
-            style="width:100%;height:900px;border:none;overflow:hidden;"
-            scrolling="no"
+            style="width:100%;min-height:900px;border:none;overflow:auto;"
+            scrolling="yes"
             id="ghl_calendar_iframe"
           ></iframe>
           <script>
             window.addEventListener("message", function(e) {
-              if (e.data && e.data.type === "ghl:calendar:height") {
-                document.getElementById("ghl_calendar_iframe").style.height = e.data.value + "px";
-              }
+              var iframe = document.getElementById("ghl_calendar_iframe");
+              if (!iframe || !e.data) return;
+              var d = e.data;
+              var h = null;
+              if (d.type === "ghl:calendar:height")   h = d.value;
+              else if (d.type === "setHeight")         h = d.value;
+              else if (d.action === "setHeight")       h = d.value;
+              else if (typeof d === "number")          h = d;
+              if (h && h > 0) iframe.style.height = h + "px";
             });
           </script>
         </div>
