@@ -290,11 +290,11 @@
           <div class="bot-tier">
             <span class="bot-tier-badge">Starter</span>
             <h4 style="font-size:1rem;font-weight:700;color:var(--white);margin:4px 0;">Missed-Call Text-Back</h4>
-            <p style="font-size:0.85rem;line-height:1.6;color:var(--text-2);">A call goes unanswered — an SMS fires within 60 seconds. The AI qualifies the lead and books the appointment, all over text.</p>
+            <p style="font-size:0.85rem;line-height:1.6;color:var(--text-2);">A call goes unanswered — an SMS fires within 60 seconds. Aria, the AI assistant, continues the conversation via SMS, collects the client's name, and books the appointment — all over text.</p>
             <div class="feature-list" style="margin-top:8px;">
               <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>SMS in 60s, every time</span></div>
-              <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>AI qualifies and books</span></div>
-              <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Works via call forwarding</span></div>
+              <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Aria collects name and books via SMS</span></div>
+              <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Runs transparently in the background</span></div>
               <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Warm, branded tone</span></div>
             </div>
           </div>
@@ -330,18 +330,15 @@
             <h3 style="font-size:1.35rem;">Smart Booking & Review System</h3>
           </div>
         </div>
-        <p style="font-size:1rem;line-height:1.8;margin-bottom:20px;">The moment a client books an appointment, Bot 03 takes over — automatically. It sends a booking confirmation SMS right away, then waits until the day before to send a reminder. No more no-shows. No more forgotten appointments.</p>
-        <p style="font-size:1rem;line-height:1.8;margin-bottom:20px;">One hour after the appointment ends, the client receives a review request: <em style="color:var(--text-2);">"How was your visit today? Reply 1–5."</em> If they reply 4 or 5, they're instantly sent your Google review link. If they reply 1, 2, or 3, you get a private alert so you can follow up before anything negative goes public.</p>
-        <p style="font-size:1rem;line-height:1.8;margin-bottom:20px;">If a client doesn't reply at all, the system detects the no-response and sends a gentle follow-up or reschedule offer — so even quiet clients stay in your pipeline instead of disappearing quietly.</p>
-        <p style="font-size:1rem;line-height:1.8;margin-bottom:28px;">The result: 10 to 30 new Google reviews per month, a lower no-show rate, and zero manual follow-up on your end. It all runs automatically, on every single appointment, every single time.</p>
+        <p style="font-size:1rem;line-height:1.8;margin-bottom:20px;">The moment a client books an appointment, Bot 03 fires instantly — sending a confirmation SMS to the client and an internal alert directly to you. No more wondering if a booking came through.</p>
+        <p style="font-size:1rem;line-height:1.8;margin-bottom:20px;">24 hours before the appointment, an automated reminder SMS goes out. Aria reads the reply using AI intent detection — detecting a Yes, No, or emoji. If the client confirms, the appointment is locked. One hour after the visit ends, a Google review link is sent automatically. If the client wants to reschedule, Aria sends a rescheduling SMS with a direct booking link and offers to handle it entirely over text.</p>
+        <p style="font-size:1rem;line-height:1.8;margin-bottom:28px;">If there's no reply in 5 hours, a follow-up SMS goes out automatically — so no client quietly slips away. Every step runs on its own, on every appointment, every single time.</p>
         <div class="feature-list">
-          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Booking confirmation SMS fires the moment an appointment is created</span></div>
-          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Day-before reminder sent automatically — reduces no-shows</span></div>
-          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Review request SMS fires 1 hour after appointment ends</span></div>
-          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>4–5 star replies go straight to your Google review link</span></div>
-          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>1–3 star replies alert you privately — protect your reputation</span></div>
-          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>No-reply path sends a follow-up or reschedule offer automatically</span></div>
-          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>10–30 new Google reviews generated per month, on average</span></div>
+          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Booking confirmation SMS fires instantly + internal alert to business owner</span></div>
+          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Day-before reminder with AI intent detection — reads Yes / No / emoji</span></div>
+          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Confirmed clients get a Google review link 1 hour after visit</span></div>
+          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Reschedule requests handled by Aria via SMS with direct booking link</span></div>
+          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>No reply in 5 hours → follow-up SMS sent automatically</span></div>
         </div>
       </div>
       <div class="fade-up fade-up-delay-2">
@@ -350,32 +347,28 @@
           <div style="display:flex;flex-direction:column;gap:12px;">
             <div style="display:flex;align-items:center;gap:14px;">
               <div style="width:36px;height:36px;background:var(--blue-dim);border:1px solid rgba(0,180,216,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:var(--blue);flex-shrink:0;">1</div>
-              <div style="font-size:0.85rem;color:var(--text-1);">Customer books appointment — system triggers instantly</div>
+              <div style="font-size:0.85rem;color:var(--text-1);">Client books — confirmation SMS sent instantly + internal alert to you</div>
             </div>
             <div style="display:flex;align-items:center;gap:14px;">
               <div style="width:36px;height:36px;background:var(--blue-dim);border:1px solid rgba(0,180,216,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:var(--blue);flex-shrink:0;">2</div>
-              <div style="font-size:0.85rem;color:var(--text-1);">Booking confirmation SMS sent immediately</div>
+              <div style="font-size:0.85rem;color:var(--text-1);">Day before appointment — reminder SMS with AI intent detection</div>
             </div>
             <div style="display:flex;align-items:center;gap:14px;">
               <div style="width:36px;height:36px;background:var(--blue-dim);border:1px solid rgba(0,180,216,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:var(--blue);flex-shrink:0;">3</div>
-              <div style="font-size:0.85rem;color:var(--text-1);">Day-before reminder sent automatically</div>
-            </div>
-            <div style="display:flex;align-items:center;gap:14px;">
-              <div style="width:36px;height:36px;background:var(--blue-dim);border:1px solid rgba(0,180,216,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:var(--blue);flex-shrink:0;">4</div>
-              <div style="font-size:0.85rem;color:var(--text-1);">Appointment completed — review request fires in 1 hour</div>
+              <div style="font-size:0.85rem;color:var(--text-1);">Appointment completed — Google review link sent automatically 1 hour later</div>
             </div>
             <div style="padding-left:50px;display:flex;flex-direction:column;gap:8px;">
               <div style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:rgba(6,214,160,0.10);border:1px solid rgba(6,214,160,0.25);border-radius:var(--r-md);">
                 <div style="width:28px;height:28px;background:var(--teal-dim);border:1px solid rgba(6,214,160,0.35);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:var(--teal);flex-shrink:0;">A</div>
-                <div style="font-size:0.82rem;color:var(--teal);font-weight:600;">Replies 4–5 ★ → Google review link sent instantly</div>
+                <div style="font-size:0.82rem;color:var(--teal);font-weight:600;">Confirms → review SMS fires 1 hour after visit</div>
               </div>
-              <div style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);border-radius:var(--r-md);">
-                <div style="width:28px;height:28px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:#f87171;flex-shrink:0;">B</div>
-                <div style="font-size:0.82rem;color:#f87171;font-weight:600;">Replies 1–3 → private alert sent to you first</div>
+              <div style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:rgba(0,180,216,0.07);border:1px solid rgba(0,180,216,0.18);border-radius:var(--r-md);">
+                <div style="width:28px;height:28px;background:var(--blue-dim);border:1px solid rgba(0,180,216,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:var(--blue);flex-shrink:0;">B</div>
+                <div style="font-size:0.82rem;color:var(--blue);font-weight:600;">Wants to reschedule → rescheduling SMS + Aria handles via text</div>
               </div>
               <div style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.18);border-radius:var(--r-md);">
                 <div style="width:28px;height:28px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:#f59e0b;flex-shrink:0;">C</div>
-                <div style="font-size:0.82rem;color:#f59e0b;font-weight:600;">No reply → follow-up or reschedule offer sent automatically</div>
+                <div style="font-size:0.82rem;color:#f59e0b;font-weight:600;">No reply → follow-up SMS sent after 5 hours</div>
               </div>
             </div>
           </div>
@@ -393,21 +386,21 @@
               <div style="width:36px;height:36px;background:var(--blue-dim);border:1px solid rgba(0,180,216,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:var(--blue);flex-shrink:0;margin-top:2px;">1</div>
               <div>
                 <div style="font-size:0.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Day 1</div>
-                <div style="font-size:0.85rem;color:var(--text-1);">Thank you message + aftercare instructions for their specific treatment</div>
+                <div style="font-size:0.85rem;color:var(--text-1);">Treatment-specific aftercare SMS sent immediately after appointment — a different message for each treatment (Botox, Lip Filler, Cheek Filler, HydraFacial, Microneedling, Laser, Chemical Peel)</div>
               </div>
             </div>
             <div style="display:flex;align-items:flex-start;gap:14px;">
               <div style="width:36px;height:36px;background:var(--blue-dim);border:1px solid rgba(0,180,216,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:var(--blue);flex-shrink:0;margin-top:2px;">7</div>
               <div>
                 <div style="font-size:0.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Day 7</div>
-                <div style="font-size:0.85rem;color:var(--text-1);">Content highlighting a complementary service tailored to what they booked</div>
+                <div style="font-size:0.85rem;color:var(--text-1);">Educational email about a complementary service — tailored to what they had done</div>
               </div>
             </div>
             <div style="display:flex;align-items:flex-start;gap:14px;">
               <div style="width:36px;height:36px;background:var(--teal-dim);border:1px solid rgba(6,214,160,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:var(--teal);flex-shrink:0;margin-top:2px;">14</div>
               <div>
                 <div style="font-size:0.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Day 14</div>
-                <div style="font-size:0.85rem;color:var(--text-1);">Re-booking prompt with a direct link — brings them back before they go quiet</div>
+                <div style="font-size:0.85rem;color:var(--text-1);">Re-booking SMS with a direct booking link — client can also reply with a preferred date and Aria handles it</div>
               </div>
             </div>
             <div style="margin-top:8px;padding:14px;background:rgba(6,214,160,0.10);border:1px solid rgba(6,214,160,0.25);border-radius:var(--r-md);font-size:0.8rem;color:var(--teal);font-weight:600;">
@@ -429,9 +422,9 @@
         <p style="font-size:1rem;line-height:1.8;margin-bottom:24px;">After every appointment, your clients don't just leave — they enter a 3-part automated sequence that keeps your business top of mind, educates them on what else you offer, and pulls them back before they go quiet.</p>
         <p style="font-size:1rem;line-height:1.8;margin-bottom:28px;">Each message fires automatically based on the appointment date. No manual work. No follow-up you have to remember to send. It runs on every single appointment, every single time.</p>
         <div class="feature-list">
-          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Treatment-specific aftercare sent within 24 hours</span></div>
-          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Day 7 complementary service highlight drives upsells</span></div>
-          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Day 14 re-booking prompt with a direct calendar link</span></div>
+          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Treatment-specific aftercare SMS sent immediately after visit</span></div>
+          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Day 7 educational email on a complementary service</span></div>
+          <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Day 14 re-booking SMS — reply with a date and Aria handles it</span></div>
           <div class="feature-item"><span class="feature-item-icon" aria-hidden="true">✓</span><span>Stops automatically if they reply or rebook at any point</span></div>
         </div>
       </div>
