@@ -1842,13 +1842,3 @@ footer {
   .ticker-strip::before,
   .ticker-strip::after { animation: none; }
 }
-
-/* ── Add-Ons section: always fully visible, no animation state can hide it ─ */
-#add-ons,
-#add-ons * {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-  transition: none !important;
-  animation: none !important;
-}
