@@ -1728,6 +1728,9 @@ footer {
   .nav-hamburger { display: flex; }
 
   #sticky-bar p  { display: none; }
+  .sticky-divider { display: none; }
+  .sticky-phone-secondary { display: none; }
+  .sticky-phone-label { display: none; }
 
   .exit-card     { padding: 36px 24px; }
   .page-hero     { padding: 120px 0 60px; }
@@ -1843,114 +1846,71 @@ footer {
   .ticker-strip::after { animation: none; }
 }
 
-/* ── Phone Demo Strip ─────────────────────────────────────── */
-.demo-strip {
-  background: #F4F7FA;
-  padding: 56px 0;
-  border-top: 1px solid #E2E8F0;
-  border-bottom: 1px solid #E2E8F0;
+/* ── Sticky Bar — Phone CTAs ──────────────────────────────── */
+.sticky-divider {
+  width: 1px;
+  height: 30px;
+  background: var(--border);
+  flex-shrink: 0;
+  align-self: center;
 }
 
-.demo-strip-inner {
+.sticky-phones {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 32px;
-  text-align: center;
+  gap: 6px;
 }
 
-.demo-strip-heading {
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
-  font-weight: 700;
-  color: #0D1117;
-  margin-bottom: 10px;
-  line-height: 1.25;
-}
-
-.demo-strip-sub {
-  font-size: 1rem;
-  color: #4A5568;
-  max-width: 560px;
-  margin: 0 auto;
-  line-height: 1.65;
-}
-
-.demo-strip-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.demo-btn {
+.sticky-phone-btn {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 28px;
-  border-radius: var(--r-lg);
+  gap: 8px;
+  padding: 6px 11px;
+  border-radius: var(--r-md);
   text-decoration: none;
-  font-family: inherit;
   transition: var(--t-fast) var(--ease);
-  min-width: 280px;
-  cursor: pointer;
+  border: 1px solid transparent;
+  line-height: 1;
 }
 
-.demo-btn-icon {
-  flex-shrink: 0;
-}
+.sticky-phone-btn svg { color: var(--blue); flex-shrink: 0; }
 
-.demo-btn-content {
+.sticky-phone-inner {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 3px;
+  gap: 2px;
 }
 
-.demo-btn-label {
-  font-size: 0.92rem;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.demo-btn-sub {
-  font-size: 0.85rem;
+.sticky-phone-label {
+  font-size: 0.67rem;
   font-weight: 500;
-  opacity: 0.82;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
 }
 
-.demo-btn-solid {
-  background: #1E3A5F;
-  color: #fff;
-  border: 2px solid #1E3A5F;
-  box-shadow: 0 4px 16px rgba(30,58,95,0.22);
+.sticky-phone-num {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
 }
 
-.demo-btn-solid:hover {
-  background: #254a78;
-  border-color: #254a78;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(30,58,95,0.32);
+.sticky-phone-btn--primary {
+  background: var(--blue-dim);
+  border-color: var(--border-acc);
 }
 
-.demo-btn-solid:active { transform: translateY(0); }
-
-.demo-btn-outline-navy {
-  background: #fff;
-  color: #1E3A5F;
-  border: 2px solid #1E3A5F;
+.sticky-phone-btn--primary:hover {
+  background: rgba(0,180,216,0.2);
 }
 
-.demo-btn-outline-navy:hover {
-  background: #EBF0F7;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(30,58,95,0.12);
+.sticky-phone-btn--ghost {
+  border-color: var(--border);
 }
 
-.demo-btn-outline-navy:active { transform: translateY(0); }
-
-@media (max-width: 640px) {
-  .demo-strip { padding: 48px 0; }
-  .demo-strip-actions { flex-direction: column; width: 100%; }
-  .demo-btn { min-width: unset; width: 100%; }
-  .demo-btn-content { align-items: center; }
+.sticky-phone-btn--ghost:hover {
+  border-color: var(--border-acc);
+  background: var(--blue-dim);
 }
