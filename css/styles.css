@@ -1842,3 +1842,115 @@ footer {
   .ticker-strip::before,
   .ticker-strip::after { animation: none; }
 }
+
+/* ── Phone Demo Strip ─────────────────────────────────────── */
+.demo-strip {
+  background: #F4F7FA;
+  padding: 56px 0;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.demo-strip-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+}
+
+.demo-strip-heading {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  color: #0D1117;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.demo-strip-sub {
+  font-size: 1rem;
+  color: #4A5568;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.demo-strip-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 28px;
+  border-radius: var(--r-lg);
+  text-decoration: none;
+  font-family: inherit;
+  transition: var(--t-fast) var(--ease);
+  min-width: 280px;
+  cursor: pointer;
+}
+
+.demo-btn-icon {
+  flex-shrink: 0;
+}
+
+.demo-btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.demo-btn-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.demo-btn-sub {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.82;
+}
+
+.demo-btn-solid {
+  background: #1E3A5F;
+  color: #fff;
+  border: 2px solid #1E3A5F;
+  box-shadow: 0 4px 16px rgba(30,58,95,0.22);
+}
+
+.demo-btn-solid:hover {
+  background: #254a78;
+  border-color: #254a78;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30,58,95,0.32);
+}
+
+.demo-btn-solid:active { transform: translateY(0); }
+
+.demo-btn-outline-navy {
+  background: #fff;
+  color: #1E3A5F;
+  border: 2px solid #1E3A5F;
+}
+
+.demo-btn-outline-navy:hover {
+  background: #EBF0F7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(30,58,95,0.12);
+}
+
+.demo-btn-outline-navy:active { transform: translateY(0); }
+
+@media (max-width: 640px) {
+  .demo-strip { padding: 48px 0; }
+  .demo-strip-actions { flex-direction: column; width: 100%; }
+  .demo-btn { min-width: unset; width: 100%; }
+  .demo-btn-content { align-items: center; }
+}
