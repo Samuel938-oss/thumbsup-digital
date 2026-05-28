@@ -43,7 +43,7 @@
       <a href="portfolio.html">Our Work</a>
       <a href="contact.html">Contact</a>
     </div>
-    <a href="https://api.thumbsupdigital.tech/widget/bookings/thumbsup/strategy-call" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-cta desktop">Book a Free Call</a>
+    <a href="#contact" class="btn btn-primary btn-sm nav-cta desktop">Start Your Project</a>
     <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -56,7 +56,7 @@
   <a href="about.html">About</a>
   <a href="portfolio.html">Our Work</a>
   <a href="contact.html">Contact</a>
-  <a href="https://api.thumbsupdigital.tech/widget/bookings/thumbsup/strategy-call" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Call</a>
+  <a href="#contact" class="btn btn-primary">Start Your Project</a>
 </div>
 
 <!-- ── Page Hero ───────────────────────────────────────────── -->
@@ -71,7 +71,7 @@
 </section>
 
 <!-- ── Contact Main ────────────────────────────────────────── -->
-<section class="section" aria-labelledby="contact-main-heading">
+<section id="contact" class="section" aria-labelledby="contact-main-heading">
   <div class="container">
     <h2 class="visually-hidden" id="contact-main-heading">Contact Options</h2>
 
@@ -93,41 +93,8 @@
       </div>
     </div>
 
-    <!-- Calendly + Form -->
-    <div class="contact-grid">
-
-      <!-- Left: Calendly embed -->
-      <div class="fade-up">
-        <span class="section-label">Best Option</span>
-        <h2 class="display-2" style="margin-bottom:12px;">Book a <span class="gradient-text">15-Min Strategy Call</span></h2>
-        <p style="margin-bottom:28px;font-size:0.95rem;line-height:1.7;">Pick a time that works for you. On the call, I'll ask a few questions about your business, show you the AI working in real time on your phone, and give you an honest recommendation — no pitch, no pressure.</p>
-
-        <div class="calendly-widget-wrap" style="border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--border-acc);">
-          <iframe
-            src="https://api.thumbsupdigital.tech/widget/bookings/thumbsup/strategy-call"
-            style="width:100%;min-height:900px;border:none;overflow:auto;"
-            scrolling="yes"
-            id="ghl_calendar_iframe"
-          ></iframe>
-          <script>
-            window.addEventListener("message", function(e) {
-              var iframe = document.getElementById("ghl_calendar_iframe");
-              if (!iframe || !e.data) return;
-              var d = e.data;
-              var h = null;
-              if (d.type === "ghl:calendar:height")   h = d.value;
-              else if (d.type === "setHeight")         h = d.value;
-              else if (d.action === "setHeight")       h = d.value;
-              else if (typeof d === "number")          h = d;
-              if (h && h > 0) iframe.style.height = h + "px";
-            });
-          </script>
-        </div>
-      </div>
-
-      <!-- Right: Contact form -->
-      <div class="fade-up fade-up-delay-2">
-        <span class="section-label">Prefer to Write?</span>
+    <!-- Contact Form -->
+    <div style="max-width:700px;margin:0 auto;" class="fade-up">
         <h2 class="display-2" style="margin-bottom:12px;">Send a <span class="gradient-text">Message</span></h2>
         <p style="margin-bottom:28px;font-size:0.95rem;line-height:1.7;">Fill out the form and I'll reach out personally within 24 hours to answer your questions or schedule a call at a time that works for you.</p>
 
@@ -205,8 +172,6 @@
         <div style="margin-top:16px;padding:16px 20px;background:var(--blue-dim);border:1px solid rgba(0,180,216,0.25);border-radius:var(--r-md);">
           <p style="font-size:0.85rem;color:var(--text-1);line-height:1.6;margin:0;"><strong style="color:var(--blue);">My promise:</strong> You'll hear back from me personally within 24 hours — not an assistant, not a bot. Me. If I can't help you, I'll tell you that too.</p>
         </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -242,7 +207,7 @@
         <a href="portfolio.html">Our Work</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact Us</a>
-        <a href="https://api.thumbsupdigital.tech/widget/bookings/thumbsup/strategy-call" target="_blank" rel="noopener">Book a Free Call</a>
+        <a href="#contact">Start Your Project</a>
       </div>
 
       <div class="footer-col">
