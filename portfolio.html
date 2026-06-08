@@ -92,56 +92,6 @@
   </div>
 </section>
 
-<!-- ── Portfolio Grid ──────────────────────────────────────── -->
-<section class="section" aria-labelledby="portfolio-heading">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="section-label">Portfolio</span>
-      <h2 class="display-2" id="portfolio-heading">Sites We've <span class="gradient-text">Built</span></h2>
-      <p>Click any project to visit the live website.</p>
-    </div>
-
-    <div class="portfolio-grid">
-
-      <!-- Card 1 — Cary Glow -->
-      <a href="https://cary-glow.vercel.app/" target="_blank" rel="noopener" class="portfolio-card fade-up fade-up-delay-1" aria-label="Cary Glow — visit live site">
-        <div class="portfolio-preview">
-          <div class="portfolio-browser-bar">
-            <span class="browser-dot"></span>
-            <span class="browser-dot"></span>
-            <span class="browser-dot"></span>
-            <span class="browser-url">cary-glow.vercel.app</span>
-          </div>
-          <div class="portfolio-screenshot" style="position:relative;overflow:hidden;">
-            <iframe
-              src="https://cary-glow.vercel.app/"
-              style="width:1280px;height:900px;border:none;pointer-events:none;transform:scale(0.35);transform-origin:top left;display:block;"
-              loading="lazy"
-              scrolling="no"
-              tabindex="-1"
-              title="Cary Glow website preview"
-            ></iframe>
-          </div>
-        </div>
-        <div class="portfolio-info">
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">Demo Site</span>
-            <span class="portfolio-tag">AI Chatbot</span>
-            <span class="portfolio-tag">Booking Automation</span>
-          </div>
-          <h3 class="portfolio-title">Cary Glow</h3>
-          <p class="portfolio-desc">Full AI system with chatbot, missed-call text-back, and review automation. Cary, NC.</p>
-          <span class="portfolio-link">
-            Visit Site
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </div>
-      </a>
-
-
-    </div>
-  </div>
-</section>
 
 <!-- ── Comparison Table ────────────────────────────────────── -->
 <section class="section" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="compare-heading">
@@ -187,8 +137,8 @@
       <h2 class="display-2" id="plans-heading">Simple Pricing. <span class="gradient-text">No Surprises.</span></h2>
     </div>
 
-    <div style="display:flex;justify-content:center;" class="fade-up">
-      <div class="plan-card popular" style="max-width:480px;width:100%;">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:24px;" class="fade-up">
+      <div class="plan-card popular" style="max-width:460px;width:100%;">
         <div style="text-align:center;margin-bottom:24px;">
           <div style="font-size:2.6rem;font-weight:800;color:var(--white);line-height:1;">$100</div>
           <div style="font-size:0.9rem;color:var(--text-2);margin-top:4px;">one-time setup fee</div>
@@ -209,6 +159,24 @@
         <p style="font-size:0.83rem;color:var(--text-2);text-align:center;margin-bottom:20px;">5-day delivery. Month-to-month after the first 3 months.</p>
         <a href="https://api.thumbsupdigital.tech/widget/bookings/thumbsup/strategy-call" target="_blank" rel="noopener" class="btn btn-primary" style="text-align:center;justify-content:center;">Start Today</a>
       </div>
+
+      <!-- Website Only Plan -->
+      <div class="plan-card" style="max-width:300px;width:100%;">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px;">Website Only</div>
+        <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:4px;">
+          <span style="font-size:2rem;font-weight:800;color:var(--white);line-height:1;">$97</span>
+          <span style="font-size:0.9rem;color:var(--text-2);">/month</span>
+        </div>
+        <div style="font-size:0.8rem;color:var(--text-3);margin-bottom:20px;">no setup fee</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features" style="margin-bottom:24px;">
+          <li class="plan-feature"><span class="plan-feature-icon" aria-hidden="true">✓</span>Custom 5-page website</li>
+          <li class="plan-feature"><span class="plan-feature-icon" aria-hidden="true">✓</span>Built in GHL Funnels</li>
+          <li class="plan-feature"><span class="plan-feature-icon" aria-hidden="true">✓</span>Mobile-optimized, fast-loading</li>
+        </ul>
+        <a href="contact.html#contact" class="btn btn-ghost" style="text-align:center;justify-content:center;width:100%;">Get a Website →</a>
+      </div>
+
     </div>
 
   </div>
