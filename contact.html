@@ -88,17 +88,16 @@
         <div style="width:44px;height:44px;background:var(--teal-dim);border:1px solid rgba(6,214,160,0.25);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .92H5a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/></svg>
         </div>
-        <strong style="display:block;font-size:0.9rem;color:var(--white);margin-bottom:4px;">24-Hour Response</strong>
-        <p style="font-size:0.82rem;">Send a message — I personally reply within 24 hours.</p>
+        <strong style="display:block;font-size:0.9rem;color:var(--white);margin-bottom:4px;">Book Directly in My Calendar</strong>
+        <p style="font-size:0.82rem;">Pick a time that works for you and book a call directly in my calendar — instantly.</p>
       </div>
     </div>
 
-    <!-- Contact + Calendar — single card, divided -->
-    <div class="card fade-up" style="max-width:1180px;margin:0 auto;padding:44px;">
-    <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+    <!-- Contact + Calendar grid -->
+    <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1120px;margin:0 auto;align-items:start;">
 
     <!-- Contact Form -->
-    <div class="contact-col contact-col-left">
+    <div class="fade-up">
         <h2 class="display-2" style="margin-bottom:12px;">Send a <span class="gradient-text">Message</span></h2>
         <p style="margin-bottom:28px;font-size:0.95rem;line-height:1.7;">Fill out the form and I'll reach out personally within 24 hours to answer your questions or schedule a call at a time that works for you.</p>
 
@@ -180,7 +179,7 @@
     </div>
 
     <!-- Calendar / Booking Widget -->
-    <div class="contact-col contact-col-right">
+    <div class="fade-up fade-up-delay-1">
         <h2 class="display-2" style="margin-bottom:12px;">Book a <span class="gradient-text">Call</span></h2>
         <p style="margin-bottom:28px;font-size:0.95rem;line-height:1.7;">Prefer to grab a time right now? Pick a slot that works for you — 15 minutes, live AI demo, zero pressure.</p>
 
@@ -247,19 +246,8 @@
 </footer>
 
 <style>
-  /* Divider between the two halves of the contact card */
-  .contact-col-right {
-    border-left: 1px solid var(--border);
-    padding-left: 48px;
-  }
   @media (max-width: 900px) {
-    .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
-    .contact-col-right {
-      border-left: none;
-      padding-left: 0;
-      border-top: 1px solid var(--border);
-      padding-top: 40px;
-    }
+    .contact-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
   }
   @media (max-width: 768px) {
     .trust-grid { grid-template-columns: 1fr !important; }
