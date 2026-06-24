@@ -93,16 +93,12 @@
       </div>
     </div>
 
-    <!-- Section heading -->
-    <div class="fade-up" style="text-align:center;max-width:720px;margin:0 auto 48px;">
-      <h2 class="display-2" style="margin:0;">Send a Message <span class="gradient-text">or Book in My Calendar</span></h2>
-    </div>
-
-    <!-- Contact + Calendar grid -->
-    <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1120px;margin:0 auto;align-items:start;">
+    <!-- Contact + Calendar — single card, divided -->
+    <div class="card fade-up" style="max-width:1180px;margin:0 auto;padding:44px;">
+    <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
 
     <!-- Contact Form -->
-    <div class="fade-up">
+    <div class="contact-col contact-col-left">
         <h2 class="display-2" style="margin-bottom:12px;">Send a <span class="gradient-text">Message</span></h2>
         <p style="margin-bottom:28px;font-size:0.95rem;line-height:1.7;">Fill out the form and I'll reach out personally within 24 hours to answer your questions or schedule a call at a time that works for you.</p>
 
@@ -184,7 +180,7 @@
     </div>
 
     <!-- Calendar / Booking Widget -->
-    <div class="fade-up fade-up-delay-1">
+    <div class="contact-col contact-col-right">
         <h2 class="display-2" style="margin-bottom:12px;">Book a <span class="gradient-text">Call</span></h2>
         <p style="margin-bottom:28px;font-size:0.95rem;line-height:1.7;">Prefer to grab a time right now? Pick a slot that works for you — 15 minutes, live AI demo, zero pressure.</p>
 
@@ -251,8 +247,19 @@
 </footer>
 
 <style>
+  /* Divider between the two halves of the contact card */
+  .contact-col-right {
+    border-left: 1px solid var(--border);
+    padding-left: 48px;
+  }
   @media (max-width: 900px) {
-    .contact-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+    .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .contact-col-right {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+    }
   }
   @media (max-width: 768px) {
     .trust-grid { grid-template-columns: 1fr !important; }
