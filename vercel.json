@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "thumbsupdigital.tech" }],
+      "destination": "/landing.html"
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.thumbsupdigital.tech" }],
+      "destination": "/landing.html"
+    }
+  ]
+}
