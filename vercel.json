@@ -1,14 +1,10 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
-      "has": [{ "type": "host", "value": "thumbsupdigital.tech" }],
-      "destination": "/landing.html"
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "host", "value": "www.thumbsupdigital.tech" }],
-      "destination": "/landing.html"
+      "has": [{ "type": "host", "value": "home.thumbsupdigital.tech" }],
+      "destination": "/home.html",
+      "permanent": false
     }
   ]
 }
