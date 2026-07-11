@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ThumbsUp Digital — A Website That Books Clients For You. Free for 2 Weeks.</title>
-  <meta name="description" content="We build local businesses a converting website plus AI that answers calls, chats with visitors until they book, and generates reviews — 24/7. Try it free for 2 weeks." />
+  <title>ThumbsUp Digital — Free 15-Minute Business Audit for Cary, NC</title>
+  <meta name="description" content="In 15 minutes, find out how many customers your business is losing every month — and how to get them back automatically. Free audit with a local Cary, NC founder." />
   <meta name="robots" content="noindex,follow" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="A Website That Books Clients For You — Free for 2 Weeks" />
-  <meta property="og:description" content="A converting website + AI that answers calls, chats until clients book, and generates reviews. 24/7. Free for 2 weeks." />
+  <meta property="og:title"       content="Free 15-Minute Business Audit — Cary, NC" />
+  <meta property="og:description" content="Find out how many customers you're losing every month — and how to recover them automatically. Free 15-minute audit." />
   <meta property="og:image"       content="https://thumbsupdigital.tech/assets/images/logo.jpeg" />
   <meta name="twitter:card"       content="summary_large_image" />
 
@@ -134,6 +134,103 @@
       .lp-feature-grid { grid-template-columns: 1fr; }
       .lp-offer-grid { grid-template-columns: 1fr; gap: 24px; }
     }
+
+    /* Floating SMS chat-widget button */
+    .sms-widget-btn {
+      position: fixed; right: 22px; bottom: 22px; z-index: 200;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--grad); color: #04121A;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-glow), 0 8px 24px rgba(0,0,0,0.35);
+      transition: transform var(--t-fast) var(--ease);
+    }
+    .sms-widget-btn:hover { transform: scale(1.07); }
+    .sms-widget-btn:active { transform: scale(0.97); }
+    .sms-widget-ping {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: var(--teal); opacity: 0.55;
+      animation: sms-ping 2.4s cubic-bezier(0,0,0.2,1) infinite;
+    }
+    @keyframes sms-ping {
+      0%   { transform: scale(1); opacity: 0.45; }
+      75%, 100% { transform: scale(1.7); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sms-widget-ping { animation: none; display: none; }
+    }
+    @media (max-width: 640px) {
+      .sms-widget-btn { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+    }
+
+    /* Tech-stack logo ticker */
+    .lp-ticker-wrap {
+      overflow: hidden; padding: 40px 0;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    }
+    .lp-ticker-track {
+      display: flex; align-items: center; width: max-content;
+      animation: lp-ticker-scroll 34s linear infinite;
+    }
+    .lp-ticker-item {
+      flex-shrink: 0; display: flex; align-items: center; gap: 16px;
+      margin: 0 40px;
+    }
+    .lp-ticker-chip {
+      flex-shrink: 0;
+      width: 72px; height: 72px; border-radius: var(--r-lg);
+      background: #FFFFFF;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-card);
+    }
+    .lp-ticker-chip img {
+      height: 36px; width: 36px; object-fit: contain;
+    }
+    .lp-ticker-name {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 1.3rem; color: var(--text-1); white-space: nowrap;
+    }
+    @keyframes lp-ticker-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lp-ticker-track { animation: none; }
+    }
+    @media (max-width: 640px) {
+      .lp-ticker-wrap { padding: 28px 0; }
+      .lp-ticker-item { margin: 0 24px; gap: 12px; }
+      .lp-ticker-chip { width: 56px; height: 56px; }
+      .lp-ticker-chip img { height: 28px; width: 28px; }
+      .lp-ticker-name { font-size: 1.05rem; }
+    }
+
+    /* Language toggle switch */
+    .lang-switch {
+      position: relative; display: inline-flex; align-items: center;
+      width: 64px; height: 30px; border-radius: 999px;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+      padding: 3px; flex-shrink: 0;
+    }
+    .lang-switch-opt {
+      position: relative; z-index: 1; flex: 1; text-align: center;
+      font-size: 0.68rem; font-weight: 800; letter-spacing: 0.02em;
+      color: var(--text-3); transition: color var(--t-fast) var(--ease);
+      pointer-events: none;
+    }
+    .lang-switch-thumb {
+      position: absolute; top: 3px; left: 3px;
+      width: calc(50% - 3px); height: calc(100% - 6px);
+      border-radius: 999px; background: var(--grad);
+      transition: transform var(--t-med) var(--ease);
+    }
+    .lang-switch[data-active="es"] .lang-switch-thumb { transform: translateX(100%); }
+    .lang-switch[data-active="en"] .lang-switch-opt[data-lang-opt="en"],
+    .lang-switch[data-active="es"] .lang-switch-opt[data-lang-opt="es"] { color: #04121A; }
+    @media (max-width: 480px) {
+      .lang-switch { width: 56px; height: 26px; }
+      .lang-switch-opt { font-size: 0.62rem; }
+    }
   </style>
 </head>
 <body>
@@ -146,7 +243,14 @@
         <img src="assets/images/logo.jpeg" alt="ThumbsUp Digital" />
       </div>
     </a>
-    <a href="#start" class="btn btn-primary btn-sm">Start Free</a>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <button id="lang-toggle" type="button" class="lang-switch" aria-label="Switch language / Cambiar idioma">
+        <span class="lang-switch-thumb"></span>
+        <span class="lang-switch-opt" data-lang-opt="en">EN</span>
+        <span class="lang-switch-opt" data-lang-opt="es">ES</span>
+      </button>
+      <a href="#start" class="btn btn-primary btn-sm" data-i18n="nav-cta">Get My Free Audit</a>
+    </div>
   </div>
 </nav>
 
@@ -157,108 +261,166 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="container">
-    <span class="offer-badge fade-up">★ 2 Weeks Free</span>
-    <h1 class="display-1 fade-up fade-up-delay-1" style="margin-top:24px;">
-      A Website That <span class="gradient-text">Books Clients</span> For You — Free for 2 Weeks.
+    <span class="offer-badge fade-up" data-i18n="hero-badge">★ Free 15-Minute Audit</span>
+    <h1 class="display-1 fade-up fade-up-delay-1" style="margin-top:24px;" data-i18n="hero-h1">
+      If You Stepped Away for a Week, <span class="gradient-text">How Many Leads Would You Lose?</span>
     </h1>
-    <p class="sub fade-up fade-up-delay-2">
-      We build your business a converting website plus AI that answers your calls, chats with
-      visitors until they book, and asks every client for a review — working 24/7, even after you close.
-      <strong style="color:var(--white);">Try the whole system free for 2 weeks. Love it? Keep it. Don't? Walk away — no cost, no contract.</strong>
+    <p class="sub fade-up fade-up-delay-2" data-i18n="hero-sub">
+      For most business owners, the honest answer is "a lot." Every lead that doesn't get a fast
+      follow-up is a customer who books somewhere else.
+      <strong style="color:var(--white);">Book a free 15-minute audit and I'll show you where that's leaking — and how to fix it.</strong>
     </p>
     <div class="lp-cta-row fade-up fade-up-delay-3">
-      <a href="#start" class="btn btn-primary btn-lg">Start My 2 Weeks Free</a>
-      <a href="#work" class="btn btn-ghost btn-lg">See Our Work</a>
+      <a href="#start" class="btn btn-primary btn-lg" data-i18n="hero-cta1">Book My Free Audit</a>
+      <a href="#work" class="btn btn-ghost btn-lg" data-i18n="hero-cta2">See Our Work</a>
     </div>
-    <p class="lp-reassure fade-up fade-up-delay-3">No commitment. Cancel anytime. Set up in days, not weeks.</p>
+    <p class="lp-reassure fade-up fade-up-delay-3" data-i18n="hero-reassure">15 minutes. No pitch, no pressure — just a clear look at where you stand.</p>
   </div>
 </section>
 
-<!-- ── Risk-Reversal Offer Band ─────────────────────────────── -->
+<!-- ── The Problem ──────────────────────────────────────────── -->
 <section class="lp-offer-band section-sm">
   <div class="container">
+    <div class="section-header fade-up" style="text-align:center;max-width:640px;margin:0 auto 40px;">
+      <h2 class="display-2" style="font-size:clamp(1.5rem,3vw,2rem);" data-i18n="problem-h2">Every One of These Happens <span class="gradient-text">Whether You're Watching or Not.</span></h2>
+    </div>
     <div class="lp-offer-grid fade-up">
       <div class="lp-offer-item">
-        <div class="num">2 Weeks</div>
-        <p>Full system, completely free. See real leads and bookings before you pay a cent.</p>
+        <div class="num" data-i18n="problem-1-num">6:14 PM</div>
+        <p data-i18n="problem-1-p">A customer calls after you've closed. No one answers, and they book with the next business on Google instead.</p>
       </div>
       <div class="lp-offer-item">
-        <div class="num">$0</div>
-        <p>No setup fee during the trial. No long-term contract. No risk on your side.</p>
+        <div class="num" data-i18n="problem-2-num">Zero</div>
+        <p data-i18n="problem-2-p">A lead messages you online while you're with a client. By the time you see it, they've already moved on.</p>
       </div>
       <div class="lp-offer-item">
-        <div class="num">Cancel Anytime</div>
-        <p>Like it, you keep it and we continue. Don't, you walk away — no questions, no contract.</p>
+        <div class="num" data-i18n="problem-3-num">Forgotten</div>
+        <p data-i18n="problem-3-p">Past clients who'd happily rebook or leave a review — but nobody's following up unless you personally remember to.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── What We Do ───────────────────────────────────────────── -->
+<!-- ── What You'll Discover ─────────────────────────────────── -->
 <section class="section" aria-labelledby="what-heading">
   <div class="container">
     <div class="section-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 56px;">
-      <span class="section-label" style="justify-content:center;">What You Get</span>
-      <h2 class="display-2" id="what-heading">One System That <span class="gradient-text">Wins You Business</span> While You Sleep</h2>
-      <p style="margin-top:14px;">Everything below works together — and runs from one app on your phone.</p>
+      <span class="section-label" style="justify-content:center;" data-i18n="discover-label">What You'll Discover</span>
+      <h2 class="display-2" id="what-heading" data-i18n="discover-h2">One Free Call. <span class="gradient-text">The Time, Money &amp; Clients You're Losing.</span></h2>
+      <p style="margin-top:14px;" data-i18n="discover-sub">No sales deck, no software demo. Just a straight look at what's costing you — and what can run without you.</p>
     </div>
 
     <div class="lp-feature-grid fade-up">
 
       <div class="card">
         <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <h3>A Website Built to Convert</h3>
-        <p>A fast, modern, mobile-first site designed for one thing: turning visitors into booked clients — not just looking pretty.</p>
+        <h3 data-i18n="discover-1-h3">Where You're Losing Time</h3>
+        <p data-i18n="discover-1-p">The repetitive back-and-forth — booking, reminders, answering the same questions — that quietly eats hours you could spend elsewhere.</p>
       </div>
 
       <div class="card">
         <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
         </div>
-        <h3>An AI Chatbot That Books</h3>
-        <p>A 24/7 assistant that talks to every website visitor, answers their questions, and keeps the conversation going until it gets them booked.</p>
+        <h3 data-i18n="discover-2-h3">Where You're Losing Money</h3>
+        <p data-i18n="discover-2-p">Missed calls, unanswered leads, and no-shows that quietly cost you real revenue every month.</p>
       </div>
 
       <div class="card">
         <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .92H5a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
-        <h3>AI Receptionist &amp; Missed-Call Text-Back</h3>
-        <p>Can't pick up? The system answers — or instantly texts the caller back — so a missed call never turns into a lost customer again.</p>
+        <h3 data-i18n="discover-3-h3">Where You're Losing Customers</h3>
+        <p data-i18n="discover-3-p">The moments visitors and past clients quietly slip away simply because nobody followed up in time.</p>
       </div>
 
       <div class="card">
         <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 100-16 8 8 0 000 16z"/><path d="M12 14a2 2 0 100-4 2 2 0 000 4z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
         </div>
-        <h3>Automatic Review Generation</h3>
-        <p>After every appointment, your client gets an email asking for a review — so your rating climbs on autopilot and new customers trust you faster.</p>
-      </div>
-
-      <div class="card" style="grid-column:1 / -1;">
-        <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
-        </div>
-        <h3>Remarketing to Past Clients</h3>
-        <p>We re-engage the clients you already have — pitching your services again and asking for reviews — turning your existing list into repeat bookings and stronger reputation.</p>
+        <h3 data-i18n="discover-4-h3">What Can Run Without You</h3>
+        <p data-i18n="discover-4-p">A clear plan for what to automate — so calls get answered, leads get followed up, and clients get reminded, even when you're not there.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ── Custom Work ──────────────────────────────────────────── -->
+<!-- ── Why Me / Trust ───────────────────────────────────────── -->
 <section class="section-sm" style="border-top:1px solid var(--border);">
   <div class="container">
     <div class="card fade-up" style="max-width:840px;margin:0 auto;text-align:center;border-color:var(--border-acc);padding:40px 32px;">
       <div class="lp-feature-icon" aria-hidden="true" style="margin:0 auto 18px;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0116 0v1"/></svg>
       </div>
-      <h3 style="margin-bottom:12px;">Need Something Bigger or Smaller? <span class="gradient-text">I Build Custom Too.</span></h3>
-      <p style="max-width:640px;margin:0 auto;">This isn't a one-size-fits-all package. Want a more ambitious project, a smaller scope, or something totally custom? I can build basically anything you have in mind. If you want a different kind of project, just book a call below and tell me your vision — I'll scope it out for you.</p>
+      <h3 style="margin-bottom:12px;" data-i18n="whyme-h3">A Local Founder, Not a <span class="gradient-text">Sales Team.</span></h3>
+      <p style="max-width:640px;margin:0 auto;" data-i18n="whyme-p">I'm based in Cary, NC, and I run this audit personally — no call center, no script reading off a slide deck. Just a real look at your business, from someone in the Triangle who's done this for other local owners already.</p>
     </div>
+  </div>
+</section>
+
+<!-- ── How It Works ─────────────────────────────────────────── -->
+<section class="section" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 56px;">
+      <span class="section-label" style="justify-content:center;" data-i18n="how-label">How It Works</span>
+      <h2 class="display-2" id="how-heading" data-i18n="how-h2">Three Steps. <span class="gradient-text">Fifteen Minutes.</span></h2>
+    </div>
+
+    <div class="lp-feature-grid fade-up" style="grid-template-columns:repeat(3,1fr);">
+      <div class="card">
+        <div class="lp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3 data-i18n="how-1-h3">1. Book a Time</h3>
+        <p data-i18n="how-1-p">Pick a slot that works for you below — takes less than a minute.</p>
+      </div>
+      <div class="card">
+        <div class="lp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3 data-i18n="how-2-h3">2. We Talk for 15 Minutes</h3>
+        <p data-i18n="how-2-p">I ask a few questions about how your business runs today — calls, leads, past clients.</p>
+      </div>
+      <div class="card">
+        <div class="lp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <h3 data-i18n="how-3-h3">3. I Show You the Plan</h3>
+        <p data-i18n="how-3-p">You get a clear picture of what's costing you business and what to do about it — no obligation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Tech Stack Ticker ─────────────────────────────────────── -->
+<section class="lp-ticker-wrap" style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);" aria-label="Technology we build with">
+  <div class="lp-ticker-track">
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/n8n.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">n8n</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/meta.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Meta</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/openai.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">OpenAI</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/claude.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Claude</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/make.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Make</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/whatsapp.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">WhatsApp</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/n8n.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">n8n</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/meta.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Meta</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/openai.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">OpenAI</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/claude.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Claude</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/make.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Make</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/whatsapp.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">WhatsApp</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/n8n.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">n8n</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/meta.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Meta</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/openai.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">OpenAI</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/claude.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Claude</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/make.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Make</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/whatsapp.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">WhatsApp</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/n8n.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">n8n</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/meta.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Meta</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/openai.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">OpenAI</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/claude.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Claude</span></div>
+    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/make.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Make</span></div>
   </div>
 </section>
 
@@ -266,8 +428,8 @@
 <section id="work" class="section" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="work-heading">
   <div class="container">
     <div class="section-header fade-up" style="text-align:center;margin-bottom:48px;">
-      <span class="section-label" style="justify-content:center;">Sites We've Built</span>
-      <h2 class="display-2" id="work-heading">Real Businesses. <span class="gradient-text">Real Sites.</span></h2>
+      <span class="section-label" style="justify-content:center;" data-i18n="work-label">Sites We've Built</span>
+      <h2 class="display-2" id="work-heading" data-i18n="work-h2">Real Businesses. <span class="gradient-text">Real Sites.</span></h2>
     </div>
 
     <div class="lp-work-grid fade-up">
@@ -284,9 +446,9 @@
           </div>
         </div>
         <div class="portfolio-info" style="padding:20px 22px;">
-          <div class="portfolio-tags"><span class="portfolio-tag">Restaurant</span><span class="portfolio-tag">Animation</span></div>
+          <div class="portfolio-tags"><span class="portfolio-tag" data-i18n="work1-tag1">Restaurant</span><span class="portfolio-tag" data-i18n="work1-tag2">Animation</span></div>
           <h3 class="portfolio-title">Del Rancho Deluxe</h3>
-          <p class="portfolio-desc">A fully animated restaurant site — bold visuals and smooth motion built to make you hungry before you read the menu.</p>
+          <p class="portfolio-desc" data-i18n="work1-desc">A fully animated restaurant site — bold visuals and smooth motion built to make you hungry before you read the menu.</p>
         </div>
       </div>
 
@@ -302,9 +464,9 @@
           </div>
         </div>
         <div class="portfolio-info" style="padding:20px 22px;">
-          <div class="portfolio-tags"><span class="portfolio-tag">Auto Detailing</span><span class="portfolio-tag">Full System</span></div>
+          <div class="portfolio-tags"><span class="portfolio-tag" data-i18n="work2-tag1">Auto Detailing</span><span class="portfolio-tag" data-i18n="work2-tag2">Full System</span></div>
           <h3 class="portfolio-title">Boys Detailing NC</h3>
-          <p class="portfolio-desc">A sharp, mobile-first site built to book jobs — with the full AI system running behind it.</p>
+          <p class="portfolio-desc" data-i18n="work2-desc">A sharp, mobile-first site built to book jobs — with the full AI system running behind it.</p>
         </div>
       </div>
 
@@ -320,9 +482,9 @@
           </div>
         </div>
         <div class="portfolio-info" style="padding:20px 22px;">
-          <div class="portfolio-tags"><span class="portfolio-tag">Wellness</span><span class="portfolio-tag">Full System</span></div>
+          <div class="portfolio-tags"><span class="portfolio-tag" data-i18n="work3-tag1">Wellness</span><span class="portfolio-tag" data-i18n="work3-tag2">Full System</span></div>
           <h3 class="portfolio-title">Cary Glow</h3>
-          <p class="portfolio-desc">A clean, conversion-focused site for a wellness studio — full AI system running behind it.</p>
+          <p class="portfolio-desc" data-i18n="work3-desc">A clean, conversion-focused site for a wellness studio — full AI system running behind it.</p>
         </div>
       </div>
 
@@ -334,8 +496,8 @@
 <section class="section" aria-labelledby="reviews-heading">
   <div class="container">
     <div class="section-header fade-up" style="text-align:center;margin-bottom:48px;">
-      <span class="section-label" style="justify-content:center;">What Clients Say</span>
-      <h2 class="display-2" id="reviews-heading">Don't Take Our Word <span class="gradient-text">For It</span></h2>
+      <span class="section-label" style="justify-content:center;" data-i18n="reviews-label">What Clients Say</span>
+      <h2 class="display-2" id="reviews-heading" data-i18n="reviews-h2">Don't Take Our Word <span class="gradient-text">For It</span></h2>
     </div>
 
     <div class="lp-review-grid fade-up">
@@ -346,11 +508,11 @@
           <div class="lp-review-avatar" aria-hidden="true">B</div>
           <div>
             <div class="lp-review-name">Boys Detailing</div>
-            <div class="lp-review-meta">Google Review</div>
+            <div class="lp-review-meta" data-i18n="review-meta">Google Review</div>
           </div>
         </div>
         <div class="lp-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="lp-review-text">They made the website for our detailing business and it was really awesome — they always ask you about what you want and they do the exact thing that you want. I will recommend them for sure.</p>
+        <p class="lp-review-text" data-i18n="review1-text">They made the website for our detailing business and it was really awesome — they always ask you about what you want and they do the exact thing that you want. I will recommend them for sure.</p>
       </div>
 
       <div class="lp-review-card">
@@ -359,11 +521,11 @@
           <div class="lp-review-avatar" aria-hidden="true">D</div>
           <div>
             <div class="lp-review-name">Deivid Ugu</div>
-            <div class="lp-review-meta">Google Review</div>
+            <div class="lp-review-meta" data-i18n="review-meta">Google Review</div>
           </div>
         </div>
         <div class="lp-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="lp-review-text">He built my AI assistant and it was the best investment for my business — now I'm not worried about late calls or missed calls by clients. Recommended.</p>
+        <p class="lp-review-text" data-i18n="review2-text">He built my AI assistant and it was the best investment for my business — now I'm not worried about late calls or missed calls by clients. Recommended.</p>
       </div>
 
       <div class="lp-review-card">
@@ -372,11 +534,11 @@
           <div class="lp-review-avatar" aria-hidden="true">E</div>
           <div>
             <div class="lp-review-name">Eliezer Ferrezola</div>
-            <div class="lp-review-meta">Google Review</div>
+            <div class="lp-review-meta" data-i18n="review-meta">Google Review</div>
           </div>
         </div>
         <div class="lp-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="lp-review-text">He made my website and honestly he makes it exactly as I wanted it. If you want to get a great service, he's 100% recommended.</p>
+        <p class="lp-review-text" data-i18n="review3-text">He made my website and honestly he makes it exactly as I wanted it. If you want to get a great service, he's 100% recommended.</p>
       </div>
 
       <div class="lp-review-card">
@@ -385,11 +547,11 @@
           <div class="lp-review-avatar" aria-hidden="true">M</div>
           <div>
             <div class="lp-review-name">Maria Alejandra Delgado</div>
-            <div class="lp-review-meta">Google Review</div>
+            <div class="lp-review-meta" data-i18n="review-meta">Google Review</div>
           </div>
         </div>
         <div class="lp-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="lp-review-text">Samuel was very efficient. He was personal from the beginning and his service is just so good — the website and the app work very great together. Definitely recommend it!</p>
+        <p class="lp-review-text" data-i18n="review4-text">Samuel was very efficient. He was personal from the beginning and his service is just so good — the website and the app work very great together. Definitely recommend it!</p>
       </div>
 
     </div>
@@ -400,70 +562,70 @@
 <section id="start" class="section" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="start-heading">
   <div class="container">
     <div class="section-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 56px;">
-      <span class="section-label" style="justify-content:center;">Start Your 2 Weeks Free</span>
-      <h2 class="display-2" id="start-heading">Send a Message or <span class="gradient-text">Book a Call</span></h2>
-      <p style="margin-top:14px;">Fill out the form or grab a time on my calendar. You'll hear back from me personally — within 24 hours.</p>
+      <span class="section-label" style="justify-content:center;" data-i18n="start-label">Book Your Free Audit</span>
+      <h2 class="display-2" id="start-heading" data-i18n="start-h2">Send a Message or <span class="gradient-text">Book Your 15 Minutes</span></h2>
+      <p style="margin-top:14px;" data-i18n="start-sub">Fill out the form or grab a time on my calendar. You'll hear back from me personally — within 24 hours.</p>
     </div>
 
     <div class="lp-contact-grid">
 
       <!-- Form -->
       <div class="fade-up">
-        <h3 style="margin-bottom:8px;">Send a <span class="gradient-text">Message</span></h3>
-        <p style="margin-bottom:24px;font-size:0.95rem;">Tell me a bit about your business and I'll set up your free 2 weeks.</p>
+        <h3 style="margin-bottom:8px;" data-i18n="form-h3">Send a <span class="gradient-text">Message</span></h3>
+        <p style="margin-bottom:24px;font-size:0.95rem;" data-i18n="form-sub">Tell me a bit about your business and I'll follow up to set up your free audit.</p>
 
         <form id="contact-form" action="https://formspree.io/f/mqenpwvr" method="POST" novalidate aria-label="Contact form">
           <div class="form-group">
-            <label for="name">Your Name <span style="color:#f87171;">*</span></label>
-            <input type="text" id="name" name="name" placeholder="Sarah Johnson" required autocomplete="name" />
+            <label for="name" data-i18n="label-name">Your Name <span style="color:#f87171;">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Sarah Johnson" required autocomplete="name" data-i18n-placeholder="ph-name" />
           </div>
           <div class="form-group">
-            <label for="business">Business Name <span style="color:#f87171;">*</span></label>
-            <input type="text" id="business" name="business" placeholder="e.g. Johnson Plumbing" required autocomplete="organization" />
+            <label for="business" data-i18n="label-business">Business Name <span style="color:#f87171;">*</span></label>
+            <input type="text" id="business" name="business" placeholder="e.g. Johnson Plumbing" required autocomplete="organization" data-i18n-placeholder="ph-business" />
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
             <div class="form-group">
-              <label for="email">Email <span style="color:#f87171;">*</span></label>
+              <label for="email" data-i18n="label-email">Email <span style="color:#f87171;">*</span></label>
               <input type="email" id="email" name="email" placeholder="sarah@business.com" required autocomplete="email" />
             </div>
             <div class="form-group">
-              <label for="phone">Phone</label>
+              <label for="phone" data-i18n="label-phone">Phone</label>
               <input type="tel" id="phone" name="phone" placeholder="(919) 555-0192" autocomplete="tel" />
             </div>
           </div>
           <div class="form-group">
-            <label for="situation">Current Situation <span style="color:#f87171;">*</span></label>
+            <label for="situation" data-i18n="label-situation">Current Situation <span style="color:#f87171;">*</span></label>
             <select id="situation" name="situation" required>
-              <option value="" disabled selected>Select your current situation</option>
-              <option value="no-website">I don't have a website yet</option>
-              <option value="have-website-no-ai">I have a website but no AI automation</option>
-              <option value="have-both-upgrade">I have both but want to upgrade</option>
-              <option value="just-exploring">Just exploring my options</option>
+              <option value="" disabled selected data-i18n="opt-placeholder">Select your current situation</option>
+              <option value="no-website" data-i18n="opt-1">I don't have a website yet</option>
+              <option value="have-website-no-ai" data-i18n="opt-2">I have a website but no AI automation</option>
+              <option value="have-both-upgrade" data-i18n="opt-3">I have both but want to upgrade</option>
+              <option value="just-exploring" data-i18n="opt-4">Just exploring my options</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="message">Anything else you'd like to share?</label>
-            <textarea id="message" name="message" placeholder="Tell me about your business or your biggest challenge..."></textarea>
+            <label for="message" data-i18n="label-message">Anything else you'd like to share?</label>
+            <textarea id="message" name="message" placeholder="Tell me about your business or your biggest challenge..." data-i18n-placeholder="ph-message"></textarea>
           </div>
-          <input type="hidden" name="_subject" value="New 2-Weeks-Free lead (Landing Page)" />
+          <input type="hidden" name="_subject" value="New Free Audit request (Landing Page)" />
           <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
           <button type="submit" class="btn btn-primary btn-lg form-submit">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Start My 2 Weeks Free
+            <span data-i18n="submit-btn">Request My Free Audit</span>
           </button>
         </form>
 
         <div style="margin-top:16px;padding:16px 20px;background:var(--blue-dim);border:1px solid rgba(0,180,216,0.25);border-radius:var(--r-md);">
-          <p style="font-size:0.85rem;color:var(--text-1);line-height:1.6;margin:0;"><strong style="color:var(--blue);">My promise:</strong> You'll hear back from me personally within 24 hours — not an assistant, not a bot. Me.</p>
+          <p style="font-size:0.85rem;color:var(--text-1);line-height:1.6;margin:0;" data-i18n="promise-p"><strong style="color:var(--blue);">My promise:</strong> You'll hear back from me personally within 24 hours — not an assistant, not a bot. Me.</p>
         </div>
       </div>
 
       <!-- Calendar -->
       <div class="fade-up fade-up-delay-1">
-        <h3 style="margin-bottom:8px;">Book a <span class="gradient-text">Call</span></h3>
-        <p style="margin-bottom:24px;font-size:0.95rem;">Prefer to grab a time now? Pick a slot — 15 minutes, zero pressure.</p>
+        <h3 style="margin-bottom:8px;" data-i18n="calendar-h3">Book Your <span class="gradient-text">Free Audit</span></h3>
+        <p style="margin-bottom:24px;font-size:0.95rem;" data-i18n="calendar-sub">Prefer to grab a time now? Pick a slot — 15 minutes, zero pressure, no pitch.</p>
         <div class="card" style="padding:12px;overflow:hidden;">
-          <iframe src="https://api.thumbsupdigital.tech/widget/booking/a9dnmEcQozo2xecDge4R" style="width:100%;min-height:700px;border:none;overflow:hidden;border-radius:var(--r-lg);" scrolling="no" id="a9dnmEcQozo2xecDge4R_lp" title="Book a call with ThumbsUp Digital"></iframe>
+          <iframe src="https://api.thumbsupdigital.tech/widget/booking/a9dnmEcQozo2xecDge4R" style="width:100%;min-height:700px;border:none;overflow:hidden;border-radius:var(--r-lg);" scrolling="no" id="a9dnmEcQozo2xecDge4R_lp" title="Book your free audit with ThumbsUp Digital"></iframe>
         </div>
       </div>
 
@@ -474,10 +636,10 @@
 <!-- ── Final CTA ────────────────────────────────────────────── -->
 <section class="section-sm" style="background:var(--grad-card);border-top:1px solid var(--border-acc);">
   <div class="container" style="text-align:center;max-width:720px;">
-    <h2 class="display-2 fade-up">Every Missed Lead Is a Customer <span class="gradient-text">Walking to Your Competitor.</span></h2>
-    <p class="fade-up" style="margin:16px auto 0;max-width:560px;">Let the system catch them for you — free for 2 weeks. If it works, you keep it. If not, you walk away.</p>
+    <h2 class="display-2 fade-up" data-i18n="final-h2">Every Missed Call Is a Customer <span class="gradient-text">Walking to Your Competitor.</span></h2>
+    <p class="fade-up" style="margin:16px auto 0;max-width:560px;" data-i18n="final-p">Find out exactly how much it's costing you — in a free 15-minute audit with a local Cary, NC founder. No pitch, no obligation.</p>
     <div class="fade-up" style="margin-top:28px;">
-      <a href="#start" class="btn btn-primary btn-lg">Start My 2 Weeks Free</a>
+      <a href="#start" class="btn btn-primary btn-lg" data-i18n="final-cta">Book My Free Audit</a>
     </div>
   </div>
 </section>
@@ -488,12 +650,154 @@
     <div class="footer-bottom" style="border-top:none;flex-wrap:wrap;gap:12px;">
       <span style="display:flex;align-items:center;gap:10px;">
         <img src="assets/images/logo.jpeg" alt="ThumbsUp Digital" style="height:28px;width:auto;border-radius:6px;" />
-        © 2026 ThumbsUp Digital
+        <span data-i18n="footer-copy">© 2026 ThumbsUp Digital</span>
       </span>
-      <span><a href="mailto:samuel@thumbsupdigital.tech" style="color:var(--teal);">samuel@thumbsupdigital.tech</a> · Cary, NC — serving the Triangle</span>
+      <span data-i18n="footer-contact"><a href="mailto:samuel@thumbsupdigital.tech" style="color:var(--teal);">samuel@thumbsupdigital.tech</a> · Cary, NC — serving the Triangle</span>
     </div>
   </div>
 </footer>
+
+<!-- ── Floating SMS Chat Widget Button ──────────────────────── -->
+<a href="sms:+19196565857" class="sms-widget-btn" aria-label="Text us at (919) 656-5857">
+  <span class="sms-widget-ping" aria-hidden="true"></span>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1;" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+</a>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'tud-lang';
+
+  var esDict = {
+    'nav-cta': 'Auditoría Gratis',
+    'hero-badge': '★ Auditoría Gratis de 15 Min',
+    'hero-h1': 'Si Te Alejaras Una Semana, <span class="gradient-text">¿Cuántos Leads Perderías?</span>',
+    'hero-sub': 'Para la mayoría de los dueños de negocio, la respuesta honesta es "muchos." Cada lead que no recibe un seguimiento rápido es un cliente que reserva en otro lado. <strong style="color:var(--white);">Agenda una auditoría gratis de 15 minutos y te muestro dónde se están escapando — y cómo solucionarlo.</strong>',
+    'hero-cta1': 'Agendar Mi Auditoría Gratis',
+    'hero-cta2': 'Ver Nuestro Trabajo',
+    'hero-reassure': '15 minutos. Sin venta, sin presión — solo una mirada clara de dónde estás parado.',
+
+    'problem-h2': 'Todo Esto Pasa <span class="gradient-text">Estés Mirando o No.</span>',
+    'problem-1-num': '6:14 PM',
+    'problem-1-p': 'Un cliente llama después de que cerraste. Nadie contesta, y reserva con el siguiente negocio en Google.',
+    'problem-2-num': 'Cero',
+    'problem-2-p': 'Un lead te escribe en línea mientras atiendes a un cliente. Para cuando lo ves, ya se fue con otro.',
+    'problem-3-num': 'Olvidados',
+    'problem-3-p': 'Clientes anteriores que reservarían de nuevo o dejarían una reseña — pero nadie les da seguimiento a menos que tú lo recuerdes personalmente.',
+
+    'discover-label': 'Qué Vas a Descubrir',
+    'discover-h2': 'Una Llamada Gratis. <span class="gradient-text">El Tiempo, Dinero y Clientes Que Estás Perdiendo.</span>',
+    'discover-sub': 'Sin presentación de ventas, sin demo de software. Solo una mirada directa a lo que te está costando — y lo que puede funcionar sin ti.',
+    'discover-1-h3': 'Dónde Estás Perdiendo Tiempo',
+    'discover-1-p': 'El vaivén repetitivo — agendar, recordatorios, responder las mismas preguntas — que silenciosamente te quita horas que podrías usar en otra cosa.',
+    'discover-2-h3': 'Dónde Estás Perdiendo Dinero',
+    'discover-2-p': 'Llamadas perdidas, leads sin responder, y clientes que no llegan — que silenciosamente te cuestan ingresos reales cada mes.',
+    'discover-3-h3': 'Dónde Estás Perdiendo Clientes',
+    'discover-3-p': 'Los momentos en que visitantes y clientes anteriores se escapan silenciosamente solo porque nadie les dio seguimiento a tiempo.',
+    'discover-4-h3': 'Qué Puede Funcionar Sin Ti',
+    'discover-4-p': 'Un plan claro de qué automatizar — para que las llamadas se contesten, los leads reciban seguimiento, y los clientes reciban recordatorios, incluso cuando tú no estés.',
+
+    'whyme-h3': 'Un Fundador Local, No un <span class="gradient-text">Equipo de Ventas.</span>',
+    'whyme-p': 'Estoy basado en Cary, NC, y llevo esta auditoría personalmente — sin call center, sin leer un guion de una diapositiva. Solo una mirada real a tu negocio, de alguien del Triangle que ya ha hecho esto para otros dueños locales.',
+
+    'how-label': 'Cómo Funciona',
+    'how-h2': 'Tres Pasos. <span class="gradient-text">Quince Minutos.</span>',
+    'how-1-h3': '1. Agenda un Horario',
+    'how-1-p': 'Elige un horario que te funcione abajo — toma menos de un minuto.',
+    'how-2-h3': '2. Hablamos 15 Minutos',
+    'how-2-p': 'Te hago algunas preguntas sobre cómo funciona tu negocio hoy — llamadas, leads, clientes anteriores.',
+    'how-3-h3': '3. Te Muestro el Plan',
+    'how-3-p': 'Obtienes una imagen clara de qué te está costando negocio y qué hacer al respecto — sin obligación.',
+
+    'work-label': 'Sitios Que Hemos Construido',
+    'work-h2': 'Negocios Reales. <span class="gradient-text">Sitios Reales.</span>',
+    'work1-tag1': 'Restaurante',
+    'work1-tag2': 'Animación',
+    'work1-desc': 'Un sitio de restaurante totalmente animado — visuales llamativos y movimiento fluido diseñados para abrirte el apetito antes de leer el menú.',
+    'work2-tag1': 'Detallado Automotriz',
+    'work2-tag2': 'Sistema Completo',
+    'work2-desc': 'Un sitio moderno, mobile-first, diseñado para agendar trabajos — con el sistema completo de IA funcionando detrás.',
+    'work3-tag1': 'Bienestar',
+    'work3-tag2': 'Sistema Completo',
+    'work3-desc': 'Un sitio limpio y enfocado en conversión para un estudio de bienestar — con el sistema completo de IA funcionando detrás.',
+
+    'reviews-label': 'Lo Que Dicen los Clientes',
+    'reviews-h2': 'No Te Quedes Solo Con <span class="gradient-text">Nuestra Palabra</span>',
+    'review-meta': 'Reseña de Google',
+    'review1-text': 'Hicieron el sitio web para nuestro negocio de detallado y quedó increíble — siempre te preguntan qué quieres y hacen exactamente lo que pides. Los recomiendo totalmente.',
+    'review2-text': 'Me construyó mi asistente de IA y fue la mejor inversión para mi negocio — ahora no me preocupo por llamadas tarde o llamadas perdidas de clientes. Recomendado.',
+    'review3-text': 'Me hizo mi sitio web y honestamente lo hizo exactamente como lo quería. Si quieres un gran servicio, es 100% recomendado.',
+    'review4-text': 'Samuel fue muy eficiente. Fue personal desde el principio y su servicio es simplemente muy bueno — el sitio web y la app funcionan genial juntos. ¡Totalmente recomendado!',
+
+    'start-label': 'Agenda Tu Auditoría Gratis',
+    'start-h2': 'Envía un Mensaje o <span class="gradient-text">Agenda Tus 15 Minutos</span>',
+    'start-sub': 'Llena el formulario o elige un horario en mi calendario. Te responderé personalmente — dentro de 24 horas.',
+    'form-h3': 'Envía un <span class="gradient-text">Mensaje</span>',
+    'form-sub': 'Cuéntame un poco de tu negocio y te contacto para agendar tu auditoría gratis.',
+    'label-name': 'Tu Nombre <span style="color:#f87171;">*</span>',
+    'label-business': 'Nombre del Negocio <span style="color:#f87171;">*</span>',
+    'label-email': 'Correo <span style="color:#f87171;">*</span>',
+    'label-phone': 'Teléfono',
+    'label-situation': 'Situación Actual <span style="color:#f87171;">*</span>',
+    'label-message': '¿Algo más que quieras compartir?',
+    'opt-placeholder': 'Selecciona tu situación actual',
+    'opt-1': 'Aún no tengo sitio web',
+    'opt-2': 'Tengo sitio web pero sin automatización de IA',
+    'opt-3': 'Tengo ambos pero quiero mejorarlos',
+    'opt-4': 'Solo estoy explorando opciones',
+    'submit-btn': 'Solicitar Mi Auditoría Gratis',
+    'promise-p': '<strong style="color:var(--blue);">Mi promesa:</strong> Te responderé personalmente dentro de 24 horas — no un asistente, no un bot. Yo.',
+    'calendar-h3': 'Agenda Tu <span class="gradient-text">Auditoría Gratis</span>',
+    'calendar-sub': '¿Prefieres agendar ahora mismo? Elige un horario — 15 minutos, cero presión, sin venta.',
+
+    'final-h2': 'Cada Llamada Perdida Es un Cliente <span class="gradient-text">Yéndose a Tu Competencia.</span>',
+    'final-p': 'Descubre exactamente cuánto te está costando — en una auditoría gratis de 15 minutos con un fundador local de Cary, NC. Sin venta, sin obligación.',
+    'final-cta': 'Agendar Mi Auditoría Gratis',
+
+    'footer-copy': '© 2026 ThumbsUp Digital',
+    'footer-contact': '<a href="mailto:samuel@thumbsupdigital.tech" style="color:var(--teal);">samuel@thumbsupdigital.tech</a> · Cary, NC — sirviendo el Triangle'
+  };
+
+  var esPlaceholders = {
+    'ph-name': 'Sarah Johnson',
+    'ph-business': 'ej. Plomería Johnson',
+    'ph-message': 'Cuéntame de tu negocio o tu mayor reto...'
+  };
+
+  var textEls = document.querySelectorAll('[data-i18n]');
+  var phEls = document.querySelectorAll('[data-i18n-placeholder]');
+
+  textEls.forEach(function (el) { el.dataset.enHtml = el.innerHTML; });
+  phEls.forEach(function (el) { el.dataset.enPlaceholder = el.getAttribute('placeholder') || ''; });
+
+  function setLanguage(lang) {
+    textEls.forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      el.innerHTML = (lang === 'es' && esDict[key]) ? esDict[key] : el.dataset.enHtml;
+    });
+    phEls.forEach(function (el) {
+      var key = el.getAttribute('data-i18n-placeholder');
+      el.setAttribute('placeholder', (lang === 'es' && esPlaceholders[key]) ? esPlaceholders[key] : el.dataset.enPlaceholder);
+    });
+    document.documentElement.lang = lang;
+    var toggle = document.getElementById('lang-toggle');
+    if (toggle) toggle.setAttribute('data-active', lang);
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+  }
+
+  var toggleBtn = document.getElementById('lang-toggle');
+  if (toggleBtn) {
+    toggleBtn.setAttribute('data-active', 'en');
+    toggleBtn.addEventListener('click', function () {
+      var next = toggleBtn.getAttribute('data-active') === 'es' ? 'en' : 'es';
+      setLanguage(next);
+    });
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  if (saved === 'es') setLanguage('es');
+})();
+</script>
 
 <script src="js/main.js"></script>
 <script src="https://api.thumbsupdigital.tech/js/form_embed.js" type="text/javascript"></script>
