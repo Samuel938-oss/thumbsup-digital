@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ThumbsUp Digital — Free 15-Minute Business Audit for Cary, NC</title>
-  <meta name="description" content="In 15 minutes, find out how many customers your business is losing every month — and how to get them back automatically. Free audit with a local Cary, NC founder." />
+  <title>Free Lead Leak Audit — Find Out Where Your Business Is Losing Customers</title>
+  <meta name="description" content="You're probably losing customers right now. In one free 15-minute audit, we show you where, why, and how to stop it. Local business owners in Cary, NC and the Triangle." />
   <meta name="robots" content="noindex,follow" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="Free 15-Minute Business Audit — Cary, NC" />
-  <meta property="og:description" content="Find out how many customers you're losing every month — and how to recover them automatically. Free 15-minute audit." />
+  <meta property="og:title"       content="You Are Probably Losing Customers Right Now." />
+  <meta property="og:description" content="We'll show you where, why, and how to stop it — in 15 minutes. Free Lead Leak Audit." />
   <meta property="og:image"       content="https://thumbsupdigital.tech/assets/images/logo.jpeg" />
   <meta name="twitter:card"       content="summary_large_image" />
 
@@ -63,11 +63,12 @@
 
     .lp-hero { position: relative; text-align: center; padding: 132px 0 72px; overflow: hidden; }
     .lp-hero .container { position: relative; z-index: 2; max-width: 880px; }
-    .lp-hero p.sub { font-size: clamp(1.05rem, 2vw, 1.3rem); color: var(--text-1); max-width: 660px; margin: 22px auto 0; line-height: 1.7; }
+    .lp-hero p.sub { font-size: clamp(1.15rem, 2.2vw, 1.45rem); color: var(--white); max-width: 660px; margin: 22px auto 0; line-height: 1.6; font-weight: 600; }
+    .lp-hero p.support { font-size: 1rem; color: var(--text-2); max-width: 600px; margin: 16px auto 0; line-height: 1.7; }
     .lp-cta-row { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:34px; }
     .lp-reassure { margin-top: 18px; font-size: 0.9rem; color: var(--text-3); }
 
-    /* Risk-reversal band */
+    /* Band (used for leaks + big-problems) */
     .lp-offer-band {
       background: var(--grad-card);
       border-top: 1px solid var(--border-acc);
@@ -75,9 +76,9 @@
     }
     .lp-offer-grid { display:grid; grid-template-columns: repeat(3,1fr); gap: 28px; max-width: 960px; margin: 0 auto; }
     .lp-offer-item { text-align:center; }
-    .lp-offer-item .num { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--white); }
+    .lp-offer-item .num { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--white); margin-bottom: 10px; }
 
-    /* What-we-do feature cards */
+    /* Feature cards */
     .lp-feature-grid { display:grid; grid-template-columns: repeat(2,1fr); gap: 22px; max-width: 960px; margin: 0 auto; }
     .lp-feature-icon {
       width: 48px; height: 48px; border-radius: var(--r-lg);
@@ -85,24 +86,36 @@
       display:flex; align-items:center; justify-content:center; margin-bottom: 16px;
     }
 
-    /* Work mockups — NOT clickable */
-    .lp-work-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:28px; max-width:960px; margin:0 auto; }
-    .lp-work-card { background: var(--surface); border:1px solid var(--border); border-radius: var(--r-xl); overflow:hidden; display:flex; flex-direction:column; }
+    /* Case-result cards (outcome-focused, not design-focused) */
+    .lp-case-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:24px; max-width:1160px; margin:0 auto; }
+    .lp-case-card {
+      background: var(--surface); border:1px solid var(--border); border-radius: var(--r-xl);
+      overflow:hidden; display:flex; flex-direction:column;
+    }
+    .lp-case-body { padding: 26px; display:flex; flex-direction:column; gap:18px; flex:1; }
 
-    /* Portfolio browser-window components (copied from portfolio.html) */
-    .portfolio-preview { border-bottom: 1px solid var(--border); background: var(--bg-0); }
-    .portfolio-browser-bar { display:flex; align-items:center; gap:6px; padding:10px 14px; border-bottom:1px solid var(--border); background: var(--bg-1); }
-    .browser-dot { width:10px; height:10px; border-radius:50%; background: var(--border); }
+    /* Small non-clickable site preview */
+    .lp-case-preview { border-bottom:1px solid var(--border); background: var(--bg-0); }
+    .lp-case-bar { display:flex; align-items:center; gap:6px; padding:8px 12px; border-bottom:1px solid var(--border); background: var(--bg-1); }
+    .browser-dot { width:9px; height:9px; border-radius:50%; background: var(--border); }
     .browser-dot:nth-child(1) { background:#f87171; }
     .browser-dot:nth-child(2) { background:#fbbf24; }
     .browser-dot:nth-child(3) { background:#34d399; }
-    .browser-url { flex:1; text-align:center; font-size:0.72rem; color:var(--text-3); background:var(--bg-0); border-radius:4px; padding:3px 10px; border:1px solid var(--border); }
-    .portfolio-screenshot { height:220px; width:100%; display:block; }
-    .portfolio-info { padding:24px; flex:1; display:flex; flex-direction:column; gap:10px; }
-    .portfolio-tags { display:flex; flex-wrap:wrap; gap:6px; }
-    .portfolio-tag { font-size:0.72rem; font-weight:600; letter-spacing:0.04em; color:var(--blue); background:var(--blue-dim); border:1px solid rgba(0,180,216,0.25); border-radius:20px; padding:3px 10px; }
-    .portfolio-title { font-size:1.1rem; font-weight:700; color:var(--white); margin:0; font-family:var(--font-display); }
-    .portfolio-desc { font-size:0.85rem; color:var(--text-2); line-height:1.6; margin:0; flex:1; }
+    .browser-url { flex:1; text-align:center; font-size:0.68rem; color:var(--text-3); background:var(--bg-0); border-radius:4px; padding:2px 10px; border:1px solid var(--border); }
+    .lp-case-shot { position:relative; height:150px; overflow:hidden; }
+    /* Transparent shield — clicks never reach the embedded site */
+    .lp-case-shot::after { content:""; position:absolute; inset:0; z-index:2; }
+    .lp-case-shot iframe {
+      width:1280px; height:820px; border:none; display:block;
+      pointer-events:none; transform:scale(0.33); transform-origin:top left;
+    }
+    .lp-case-name { font-family:var(--font-display); font-size:1.15rem; font-weight:800; color:var(--white); margin:0; }
+    .lp-case-type { font-size:0.72rem; font-weight:600; letter-spacing:0.04em; color:var(--blue); background:var(--blue-dim); border:1px solid rgba(0,180,216,0.25); border-radius:20px; padding:3px 10px; display:inline-block; }
+    .lp-case-row { border-top:1px solid var(--border); padding-top:14px; }
+    .lp-case-label { font-size:0.7rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-3); margin-bottom:6px; }
+    .lp-case-text { font-size:0.9rem; color:var(--text-2); line-height:1.65; margin:0; }
+    .lp-case-row.impact .lp-case-label { color: var(--teal); }
+    .lp-case-row.impact .lp-case-text { color: var(--text-1); }
 
     /* Reviews — native cards */
     .lp-review-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:22px; max-width:1200px; margin:0 auto; }
@@ -122,8 +135,22 @@
     .lp-review-meta { font-size:0.76rem; color:var(--text-3); margin-top:2px; }
     .lp-review-stars { color:#FBBF24; font-size:0.95rem; letter-spacing:2px; }
     .lp-review-text { font-size:0.9rem; color:var(--text-2); line-height:1.65; margin:0; }
-    .lp-review-g {
-      position:absolute; top:20px; right:20px; width:20px; height:20px; opacity:0.85;
+    .lp-review-g { position:absolute; top:20px; right:20px; width:20px; height:20px; opacity:0.85; }
+
+    /* Math / stacking block */
+    .lp-math { max-width: 720px; margin: 0 auto; display:flex; flex-direction:column; gap:14px; }
+    .lp-math-line {
+      display:flex; align-items:flex-start; gap:14px;
+      background: var(--surface); border:1px solid var(--border); border-radius: var(--r-lg);
+      padding: 18px 22px;
+    }
+    .lp-math-line span.dot {
+      flex-shrink:0; width:8px; height:8px; border-radius:50%; background: var(--teal); margin-top:8px;
+    }
+    .lp-math-line p { margin:0; font-size:0.98rem; color:var(--text-1); line-height:1.6; }
+    .lp-math-total {
+      text-align:center; margin-top:26px; font-family:var(--font-display);
+      font-size: clamp(1.15rem,2.4vw,1.5rem); font-weight:800; color:var(--white); line-height:1.5;
     }
 
     /* Contact grid */
@@ -133,76 +160,6 @@
       .lp-contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .lp-feature-grid { grid-template-columns: 1fr; }
       .lp-offer-grid { grid-template-columns: 1fr; gap: 24px; }
-    }
-
-    /* Floating SMS chat-widget button */
-    .sms-widget-btn {
-      position: fixed; right: 22px; bottom: 22px; z-index: 200;
-      width: 60px; height: 60px; border-radius: 50%;
-      background: var(--grad); color: #04121A;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: var(--shadow-glow), 0 8px 24px rgba(0,0,0,0.35);
-      transition: transform var(--t-fast) var(--ease);
-    }
-    .sms-widget-btn:hover { transform: scale(1.07); }
-    .sms-widget-btn:active { transform: scale(0.97); }
-    .sms-widget-ping {
-      position: absolute; inset: 0; border-radius: 50%;
-      background: var(--teal); opacity: 0.55;
-      animation: sms-ping 2.4s cubic-bezier(0,0,0.2,1) infinite;
-    }
-    @keyframes sms-ping {
-      0%   { transform: scale(1); opacity: 0.45; }
-      75%, 100% { transform: scale(1.7); opacity: 0; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .sms-widget-ping { animation: none; display: none; }
-    }
-    @media (max-width: 640px) {
-      .sms-widget-btn { right: 16px; bottom: 16px; width: 54px; height: 54px; }
-    }
-
-    /* Tech-stack logo ticker */
-    .lp-ticker-wrap {
-      overflow: hidden; padding: 40px 0;
-      -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-      mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-    }
-    .lp-ticker-track {
-      display: flex; align-items: center; width: max-content;
-      animation: lp-ticker-scroll 34s linear infinite;
-    }
-    .lp-ticker-item {
-      flex-shrink: 0; display: flex; align-items: center; gap: 16px;
-      margin: 0 40px;
-    }
-    .lp-ticker-chip {
-      flex-shrink: 0;
-      width: 72px; height: 72px; border-radius: var(--r-lg);
-      background: #FFFFFF;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: var(--shadow-card);
-    }
-    .lp-ticker-chip img {
-      height: 36px; width: 36px; object-fit: contain;
-    }
-    .lp-ticker-name {
-      font-family: var(--font-display); font-weight: 700;
-      font-size: 1.3rem; color: var(--text-1); white-space: nowrap;
-    }
-    @keyframes lp-ticker-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .lp-ticker-track { animation: none; }
-    }
-    @media (max-width: 640px) {
-      .lp-ticker-wrap { padding: 28px 0; }
-      .lp-ticker-item { margin: 0 24px; gap: 12px; }
-      .lp-ticker-chip { width: 56px; height: 56px; }
-      .lp-ticker-chip img { height: 28px; width: 28px; }
-      .lp-ticker-name { font-size: 1.05rem; }
     }
 
     /* Language toggle switch */
@@ -249,7 +206,7 @@
         <span class="lang-switch-opt" data-lang-opt="en">EN</span>
         <span class="lang-switch-opt" data-lang-opt="es">ES</span>
       </button>
-      <a href="#start" class="btn btn-primary btn-sm" data-i18n="nav-cta">Get My Free Audit</a>
+      <a href="#start" class="btn btn-primary btn-sm" data-i18n="nav-cta">Book My Free Audit</a>
     </div>
   </div>
 </nav>
@@ -261,259 +218,34 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="container">
-    <span class="offer-badge fade-up" data-i18n="hero-badge">★ Free 15-Minute Audit</span>
+    <span class="offer-badge fade-up" data-i18n="hero-badge">★ Free Lead Leak Audit</span>
     <h1 class="display-1 fade-up fade-up-delay-1" style="margin-top:24px;" data-i18n="hero-h1">
-      If You Stepped Away for a Week, <span class="gradient-text">How Many Leads Would You Lose?</span>
+      You Are Probably <span class="gradient-text">Losing Customers Right Now.</span>
     </h1>
     <p class="sub fade-up fade-up-delay-2" data-i18n="hero-sub">
-      For most business owners, the honest answer is "a lot." Every lead that doesn't get a fast
-      follow-up is a customer who books somewhere else.
-      <strong style="color:var(--white);">Book a free 15-minute audit and I'll show you where that's leaking — and how to fix it.</strong>
+      We'll show you where, why, and how to stop it — in 15 minutes.
+    </p>
+    <p class="support fade-up fade-up-delay-2" data-i18n="hero-support">
+      Every missed call, forgotten lead, delayed response, and broken process costs money.
+      In one free audit, we'll find the biggest leaks in your business and show you exactly
+      where customers are slipping away.
     </p>
     <div class="lp-cta-row fade-up fade-up-delay-3">
-      <a href="#start" class="btn btn-primary btn-lg" data-i18n="hero-cta1">Book My Free Audit</a>
-      <a href="#work" class="btn btn-ghost btn-lg" data-i18n="hero-cta2">See Our Work</a>
+      <a href="#start" class="btn btn-primary btn-lg" data-i18n="hero-cta">Book My Free Audit</a>
     </div>
-    <p class="lp-reassure fade-up fade-up-delay-3" data-i18n="hero-reassure">15 minutes. No pitch, no pressure — just a clear look at where you stand.</p>
+    <p class="lp-reassure fade-up fade-up-delay-3" data-i18n="hero-reassure">15 minutes. No pitch. No obligation.</p>
   </div>
 </section>
 
-<!-- ── The Problem ──────────────────────────────────────────── -->
-<section class="lp-offer-band section-sm">
+<!-- ── Trust (moved directly below hero) ────────────────────── -->
+<section class="section-sm" style="border-top:1px solid var(--border);" aria-labelledby="reviews-heading">
   <div class="container">
-    <div class="section-header fade-up" style="text-align:center;max-width:640px;margin:0 auto 40px;">
-      <h2 class="display-2" style="font-size:clamp(1.5rem,3vw,2rem);" data-i18n="problem-h2">Every One of These Happens <span class="gradient-text">Whether You're Watching or Not.</span></h2>
-    </div>
-    <div class="lp-offer-grid fade-up">
-      <div class="lp-offer-item">
-        <div class="num" data-i18n="problem-1-num">6:14 PM</div>
-        <p data-i18n="problem-1-p">A customer calls after you've closed. No one answers, and they book with the next business on Google instead.</p>
-      </div>
-      <div class="lp-offer-item">
-        <div class="num" data-i18n="problem-2-num">Zero</div>
-        <p data-i18n="problem-2-p">A lead messages you online while you're with a client. By the time you see it, they've already moved on.</p>
-      </div>
-      <div class="lp-offer-item">
-        <div class="num" data-i18n="problem-3-num">Forgotten</div>
-        <p data-i18n="problem-3-p">Past clients who'd happily rebook or leave a review — but nobody's following up unless you personally remember to.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── What You'll Discover ─────────────────────────────────── -->
-<section class="section" aria-labelledby="what-heading">
-  <div class="container">
-    <div class="section-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 56px;">
-      <span class="section-label" style="justify-content:center;" data-i18n="discover-label">What You'll Discover</span>
-      <h2 class="display-2" id="what-heading" data-i18n="discover-h2">One Free Call. <span class="gradient-text">The Time, Money &amp; Clients You're Losing.</span></h2>
-      <p style="margin-top:14px;" data-i18n="discover-sub">No sales deck, no software demo. Just a straight look at what's costing you — and what can run without you.</p>
-    </div>
-
-    <div class="lp-feature-grid fade-up">
-
-      <div class="card">
-        <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h3 data-i18n="discover-1-h3">Where You're Losing Time</h3>
-        <p data-i18n="discover-1-p">The repetitive back-and-forth — booking, reminders, answering the same questions — that quietly eats hours you could spend elsewhere.</p>
-      </div>
-
-      <div class="card">
-        <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-        </div>
-        <h3 data-i18n="discover-2-h3">Where You're Losing Money</h3>
-        <p data-i18n="discover-2-p">Missed calls, unanswered leads, and no-shows that quietly cost you real revenue every month.</p>
-      </div>
-
-      <div class="card">
-        <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <h3 data-i18n="discover-3-h3">Where You're Losing Customers</h3>
-        <p data-i18n="discover-3-p">The moments visitors and past clients quietly slip away simply because nobody followed up in time.</p>
-      </div>
-
-      <div class="card">
-        <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 100-16 8 8 0 000 16z"/><path d="M12 14a2 2 0 100-4 2 2 0 000 4z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
-        </div>
-        <h3 data-i18n="discover-4-h3">What Can Run Without You</h3>
-        <p data-i18n="discover-4-p">A clear plan for what to automate — so calls get answered, leads get followed up, and clients get reminded, even when you're not there.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── Why Me / Trust ───────────────────────────────────────── -->
-<section class="section-sm" style="border-top:1px solid var(--border);">
-  <div class="container">
-    <div class="card fade-up" style="max-width:840px;margin:0 auto;text-align:center;border-color:var(--border-acc);padding:40px 32px;">
-      <div class="lp-feature-icon" aria-hidden="true" style="margin:0 auto 18px;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0116 0v1"/></svg>
-      </div>
-      <h3 style="margin-bottom:12px;" data-i18n="whyme-h3">A Local Founder, Not a <span class="gradient-text">Sales Team.</span></h3>
-      <p style="max-width:640px;margin:0 auto;" data-i18n="whyme-p">I'm based in Cary, NC, and I run this audit personally — no call center, no script reading off a slide deck. Just a real look at your business, from someone in the Triangle who's done this for other local owners already.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── How It Works ─────────────────────────────────────────── -->
-<section class="section" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="how-heading">
-  <div class="container">
-    <div class="section-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 56px;">
-      <span class="section-label" style="justify-content:center;" data-i18n="how-label">How It Works</span>
-      <h2 class="display-2" id="how-heading" data-i18n="how-h2">Three Steps. <span class="gradient-text">Fifteen Minutes.</span></h2>
-    </div>
-
-    <div class="lp-feature-grid fade-up" style="grid-template-columns:repeat(3,1fr);">
-      <div class="card">
-        <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <h3 data-i18n="how-1-h3">1. Book a Time</h3>
-        <p data-i18n="how-1-p">Pick a slot that works for you below — takes less than a minute.</p>
-      </div>
-      <div class="card">
-        <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        </div>
-        <h3 data-i18n="how-2-h3">2. We Talk for 15 Minutes</h3>
-        <p data-i18n="how-2-p">I ask a few questions about how your business runs today — calls, leads, past clients.</p>
-      </div>
-      <div class="card">
-        <div class="lp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-        </div>
-        <h3 data-i18n="how-3-h3">3. I Show You the Plan</h3>
-        <p data-i18n="how-3-p">You get a clear picture of what's costing you business and what to do about it — no obligation.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Tech Stack Ticker ─────────────────────────────────────── -->
-<section class="lp-ticker-wrap" style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);" aria-label="Technology we build with">
-  <div class="lp-ticker-track">
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/n8n.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">n8n</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/meta.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Meta</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/openai.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">OpenAI</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/claude.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Claude</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/make.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Make</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/whatsapp.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">WhatsApp</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/n8n.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">n8n</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/meta.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Meta</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/openai.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">OpenAI</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/claude.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Claude</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/make.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Make</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/whatsapp.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">WhatsApp</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/n8n.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">n8n</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/meta.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Meta</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/openai.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">OpenAI</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/claude.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Claude</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/make.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Make</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/whatsapp.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">WhatsApp</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/n8n.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">n8n</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/meta.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Meta</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/openai.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">OpenAI</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/claude.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Claude</span></div>
-    <div class="lp-ticker-item"><div class="lp-ticker-chip"><img src="assets/images/logos/make.png" alt="" loading="lazy" /></div><span class="lp-ticker-name">Make</span></div>
-  </div>
-</section>
-
-<!-- ── Our Work (browser mockups — NOT clickable) ───────────── -->
-<section id="work" class="section" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="work-heading">
-  <div class="container">
-    <div class="section-header fade-up" style="text-align:center;margin-bottom:48px;">
-      <span class="section-label" style="justify-content:center;" data-i18n="work-label">Sites We've Built</span>
-      <h2 class="display-2" id="work-heading" data-i18n="work-h2">Real Businesses. <span class="gradient-text">Real Sites.</span></h2>
-    </div>
-
-    <div class="lp-work-grid fade-up">
-
-      <!-- Work 1 -->
-      <div class="lp-work-card">
-        <div class="portfolio-preview">
-          <div class="portfolio-browser-bar">
-            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
-            <span class="browser-url">delranchodeluxe.com</span>
-          </div>
-          <div class="portfolio-screenshot" style="position:relative;overflow:hidden;">
-            <iframe src="https://delranchodeluxe.com/" style="width:1280px;height:900px;border:none;pointer-events:none;transform:scale(0.35);transform-origin:top left;display:block;" loading="lazy" scrolling="no" tabindex="-1" title="Del Rancho Deluxe website preview" aria-hidden="true"></iframe>
-          </div>
-        </div>
-        <div class="portfolio-info" style="padding:20px 22px;">
-          <div class="portfolio-tags"><span class="portfolio-tag" data-i18n="work1-tag1">Restaurant</span><span class="portfolio-tag" data-i18n="work1-tag2">Animation</span></div>
-          <h3 class="portfolio-title">Del Rancho Deluxe</h3>
-          <p class="portfolio-desc" data-i18n="work1-desc">A fully animated restaurant site — bold visuals and smooth motion built to make you hungry before you read the menu.</p>
-        </div>
-      </div>
-
-      <!-- Work 2 -->
-      <div class="lp-work-card">
-        <div class="portfolio-preview">
-          <div class="portfolio-browser-bar">
-            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
-            <span class="browser-url">boysdetailing.com</span>
-          </div>
-          <div class="portfolio-screenshot" style="position:relative;overflow:hidden;">
-            <iframe src="https://boysdetailing.com/" style="width:1280px;height:900px;border:none;pointer-events:none;transform:scale(0.35) translateX(-260px);transform-origin:top left;display:block;" loading="lazy" scrolling="no" tabindex="-1" title="Boys Detailing NC website preview" aria-hidden="true"></iframe>
-          </div>
-        </div>
-        <div class="portfolio-info" style="padding:20px 22px;">
-          <div class="portfolio-tags"><span class="portfolio-tag" data-i18n="work2-tag1">Auto Detailing</span><span class="portfolio-tag" data-i18n="work2-tag2">Full System</span></div>
-          <h3 class="portfolio-title">Boys Detailing NC</h3>
-          <p class="portfolio-desc" data-i18n="work2-desc">A sharp, mobile-first site built to book jobs — with the full AI system running behind it.</p>
-        </div>
-      </div>
-
-      <!-- Work 3 -->
-      <div class="lp-work-card">
-        <div class="portfolio-preview">
-          <div class="portfolio-browser-bar">
-            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
-            <span class="browser-url">cary-glow.vercel.app</span>
-          </div>
-          <div class="portfolio-screenshot" style="position:relative;overflow:hidden;">
-            <iframe src="https://cary-glow.vercel.app/" style="width:1280px;height:900px;border:none;pointer-events:none;transform:scale(0.35);transform-origin:top left;display:block;" loading="lazy" scrolling="no" tabindex="-1" title="Cary Glow website preview" aria-hidden="true"></iframe>
-          </div>
-        </div>
-        <div class="portfolio-info" style="padding:20px 22px;">
-          <div class="portfolio-tags"><span class="portfolio-tag" data-i18n="work3-tag1">Wellness</span><span class="portfolio-tag" data-i18n="work3-tag2">Full System</span></div>
-          <h3 class="portfolio-title">Cary Glow</h3>
-          <p class="portfolio-desc" data-i18n="work3-desc">A clean, conversion-focused site for a wellness studio — full AI system running behind it.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── Reviews (drop screenshots into assets/images/reviews/) ── -->
-<section class="section" aria-labelledby="reviews-heading">
-  <div class="container">
-    <div class="section-header fade-up" style="text-align:center;margin-bottom:48px;">
-      <span class="section-label" style="justify-content:center;" data-i18n="reviews-label">What Clients Say</span>
-      <h2 class="display-2" id="reviews-heading" data-i18n="reviews-h2">Don't Take Our Word <span class="gradient-text">For It</span></h2>
+    <div class="section-header fade-up" style="text-align:center;margin-bottom:40px;">
+      <span class="section-label" style="justify-content:center;" data-i18n="reviews-label">Real Business Owners</span>
+      <h2 class="display-2" id="reviews-heading" style="font-size:clamp(1.5rem,3vw,2rem);" data-i18n="reviews-h2">People Who Already <span class="gradient-text">Fixed Their Leaks</span></h2>
     </div>
 
     <div class="lp-review-grid fade-up">
-
-      <div class="lp-review-card">
-        <svg class="lp-review-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 002 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
-        <div class="lp-review-head">
-          <div class="lp-review-avatar" aria-hidden="true">B</div>
-          <div>
-            <div class="lp-review-name">Boys Detailing</div>
-            <div class="lp-review-meta" data-i18n="review-meta">Google Review</div>
-          </div>
-        </div>
-        <div class="lp-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="lp-review-text" data-i18n="review1-text">They made the website for our detailing business and it was really awesome — they always ask you about what you want and they do the exact thing that you want. I will recommend them for sure.</p>
-      </div>
 
       <div class="lp-review-card">
         <svg class="lp-review-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 002 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
@@ -531,14 +263,14 @@
       <div class="lp-review-card">
         <svg class="lp-review-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 002 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
         <div class="lp-review-head">
-          <div class="lp-review-avatar" aria-hidden="true">E</div>
+          <div class="lp-review-avatar" aria-hidden="true">B</div>
           <div>
-            <div class="lp-review-name">Eliezer Ferrezola</div>
+            <div class="lp-review-name">Boys Detailing</div>
             <div class="lp-review-meta" data-i18n="review-meta">Google Review</div>
           </div>
         </div>
         <div class="lp-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="lp-review-text" data-i18n="review3-text">He made my website and honestly he makes it exactly as I wanted it. If you want to get a great service, he's 100% recommended.</p>
+        <p class="lp-review-text" data-i18n="review1-text">They made the website for our detailing business and it was really awesome — they always ask you about what you want and they do the exact thing that you want. I will recommend them for sure.</p>
       </div>
 
       <div class="lp-review-card">
@@ -554,58 +286,321 @@
         <p class="lp-review-text" data-i18n="review4-text">Samuel was very efficient. He was personal from the beginning and his service is just so good — the website and the app work very great together. Definitely recommend it!</p>
       </div>
 
+      <div class="lp-review-card">
+        <svg class="lp-review-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 002 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+        <div class="lp-review-head">
+          <div class="lp-review-avatar" aria-hidden="true">E</div>
+          <div>
+            <div class="lp-review-name">Eliezer Ferrezola</div>
+            <div class="lp-review-meta" data-i18n="review-meta">Google Review</div>
+          </div>
+        </div>
+        <div class="lp-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="lp-review-text" data-i18n="review3-text">He made my website and honestly he makes it exactly as I wanted it. If you want to get a great service, he's 100% recommended.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ── Start: Form + Calendar ───────────────────────────────── -->
-<section id="start" class="section" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="start-heading">
+<!-- ── The Leaks ────────────────────────────────────────────── -->
+<section class="lp-offer-band section-sm" aria-labelledby="leaks-heading">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center;max-width:640px;margin:0 auto 40px;">
+      <h2 class="display-2" id="leaks-heading" style="font-size:clamp(1.5rem,3vw,2rem);" data-i18n="leaks-h2">These Revenue Leaks <span class="gradient-text">Happen Every Day</span></h2>
+    </div>
+    <div class="lp-offer-grid fade-up">
+      <div class="lp-offer-item">
+        <div class="num" data-i18n="leak-1-num">Missed Calls</div>
+        <p data-i18n="leak-1-p">Potential customers call. Nobody answers. They hire someone else.</p>
+      </div>
+      <div class="lp-offer-item">
+        <div class="num" data-i18n="leak-2-num">Slow Follow-Up</div>
+        <p data-i18n="leak-2-p">Leads wait too long. Interest disappears. Revenue disappears.</p>
+      </div>
+      <div class="lp-offer-item">
+        <div class="num" data-i18n="leak-3-num">Forgotten Customers</div>
+        <p data-i18n="leak-3-p">Past customers are never contacted again. Repeat business never happens.</p>
+      </div>
+    </div>
+    <p class="fade-up" style="text-align:center;max-width:620px;margin:36px auto 0;color:var(--white);font-weight:600;" data-i18n="leaks-foot">
+      Most business owners never realize how much revenue these leaks cost every month.
+    </p>
+  </div>
+</section>
+
+<!-- ── What You'll Discover ─────────────────────────────────── -->
+<section class="section" aria-labelledby="what-heading">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 56px;">
+      <span class="section-label" style="justify-content:center;" data-i18n="discover-label">The Audit</span>
+      <h2 class="display-2" id="what-heading" data-i18n="discover-h2">What You'll Discover In Your <span class="gradient-text">Free Lead Leak Audit</span></h2>
+      <p style="margin-top:14px;" data-i18n="discover-sub">This is a diagnosis of your business — not a sales call and not a software demo.</p>
+    </div>
+
+    <div class="lp-feature-grid fade-up">
+
+      <div class="card">
+        <div class="lp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <h3 data-i18n="discover-1-h3">Where You're Losing Leads</h3>
+        <p data-i18n="discover-1-p">The calls, messages, and inquiries that come in and never turn into a booked job.</p>
+      </div>
+
+      <div class="card">
+        <div class="lp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3 data-i18n="discover-2-h3">Where You're Losing Revenue</h3>
+        <p data-i18n="discover-2-p">What those missed leads, no-shows, and one-time customers actually add up to each month.</p>
+      </div>
+
+      <div class="card">
+        <div class="lp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 data-i18n="discover-3-h3">Where Customers Slip Through The Cracks</h3>
+        <p data-i18n="discover-3-p">The points in your process where a customer is dropped simply because nobody followed up.</p>
+      </div>
+
+      <div class="card">
+        <div class="lp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <h3 data-i18n="discover-4-h3">What Can Be Improved First</h3>
+        <p data-i18n="discover-4-p">The one or two fixes that would put the most money back in your pocket the fastest.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── How It Works ─────────────────────────────────────────── -->
+<section class="section" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 56px;">
+      <span class="section-label" style="justify-content:center;" data-i18n="how-label">How It Works</span>
+      <h2 class="display-2" id="how-heading" data-i18n="how-h2">Three Steps. <span class="gradient-text">Fifteen Minutes.</span></h2>
+    </div>
+
+    <div class="lp-feature-grid fade-up" style="grid-template-columns:repeat(3,1fr);">
+      <div class="card">
+        <div class="lp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3 data-i18n="how-1-h3">1. Pick a Time</h3>
+        <p data-i18n="how-1-p">Grab a slot below. It takes less than a minute.</p>
+      </div>
+      <div class="card">
+        <div class="lp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3 data-i18n="how-2-h3">2. We Talk for 15 Minutes</h3>
+        <p data-i18n="how-2-p">I ask how your business handles calls, leads, and past customers today.</p>
+      </div>
+      <div class="card">
+        <div class="lp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+        </div>
+        <h3 data-i18n="how-3-h3">3. You Get the Findings</h3>
+        <p data-i18n="how-3-p">I show you where the leaks are and what to fix first. You keep the findings either way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Why Me + Scarcity ────────────────────────────────────── -->
+<section class="section-sm" style="border-top:1px solid var(--border);">
+  <div class="container">
+    <div class="card fade-up" style="max-width:840px;margin:0 auto;text-align:center;border-color:var(--border-acc);padding:40px 32px;">
+      <div class="lp-feature-icon" aria-hidden="true" style="margin:0 auto 18px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0116 0v1"/></svg>
+      </div>
+      <h3 style="margin-bottom:12px;" data-i18n="whyme-h3">I Review Every Business <span class="gradient-text">Personally.</span></h3>
+      <p style="max-width:640px;margin:0 auto;" data-i18n="whyme-p">
+        Before every audit, I look at your business myself — how you get found, how leads reach you,
+        what happens after they do. No call center. No script. Because I do this personally,
+        I only take a limited number of audits each week.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Results for Other Local Businesses ───────────────────── -->
+<section id="work" class="section" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="work-heading">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center;margin-bottom:48px;">
+      <span class="section-label" style="justify-content:center;" data-i18n="work-label">Recent Work</span>
+      <h2 class="display-2" id="work-heading" data-i18n="work-h2">What Happened After We <span class="gradient-text">Fixed the Leaks</span></h2>
+    </div>
+
+    <div class="lp-case-grid fade-up">
+
+      <div class="lp-case-card">
+        <div class="lp-case-preview" aria-hidden="true">
+          <div class="lp-case-bar">
+            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            <span class="browser-url">boysdetailing.com</span>
+          </div>
+          <div class="lp-case-shot">
+            <iframe src="https://boysdetailing.com/" loading="lazy" scrolling="no" tabindex="-1" title="" aria-hidden="true"></iframe>
+          </div>
+        </div>
+        <div class="lp-case-body">
+          <div>
+            <span class="lp-case-type" data-i18n="case1-type">Auto Detailing · Cary, NC</span>
+            <h3 class="lp-case-name" style="margin-top:10px;">Boys Detailing NC</h3>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-challenge">The Challenge</div>
+            <p class="lp-case-text" data-i18n="case1-challenge">Calls came in while the team was under a car. Whoever waited too long booked somewhere else.</p>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-fixed">What Was Fixed</div>
+            <p class="lp-case-text" data-i18n="case1-fixed">Every call, text, and message now lands in one place and gets an instant reply — day or night.</p>
+          </div>
+          <div class="lp-case-row impact">
+            <div class="lp-case-label" data-i18n="case-label-impact">Business Impact</div>
+            <p class="lp-case-text" data-i18n="case1-impact">Leads get answered instead of lost. No more after-hours calls going nowhere.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-case-card">
+        <div class="lp-case-preview" aria-hidden="true">
+          <div class="lp-case-bar">
+            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            <span class="browser-url">delranchodeluxe.com</span>
+          </div>
+          <div class="lp-case-shot">
+            <iframe src="https://delranchodeluxe.com/" loading="lazy" scrolling="no" tabindex="-1" title="" aria-hidden="true"></iframe>
+          </div>
+        </div>
+        <div class="lp-case-body">
+          <div>
+            <span class="lp-case-type" data-i18n="case3-type">Restaurant · Local</span>
+            <h3 class="lp-case-name" style="margin-top:10px;">Del Rancho Deluxe</h3>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-challenge">The Challenge</div>
+            <p class="lp-case-text" data-i18n="case3-challenge">People looked them up and couldn't find the menu or hours fast enough. Some just went elsewhere.</p>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-fixed">What Was Fixed</div>
+            <p class="lp-case-text" data-i18n="case3-fixed">Menu, hours, and how to order — one tap away on a phone.</p>
+          </div>
+          <div class="lp-case-row impact">
+            <div class="lp-case-label" data-i18n="case-label-impact">Business Impact</div>
+            <p class="lp-case-text" data-i18n="case3-impact">Fewer people leaving before they decide. Fewer repeat questions by phone.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-case-card">
+        <div class="lp-case-preview" aria-hidden="true">
+          <div class="lp-case-bar">
+            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            <span class="browser-url">prontosalesllc.com</span>
+          </div>
+          <div class="lp-case-shot">
+            <iframe src="https://prontosalesllc.com/" loading="lazy" scrolling="no" tabindex="-1" title="" aria-hidden="true"></iframe>
+          </div>
+        </div>
+        <div class="lp-case-body">
+          <div>
+            <span class="lp-case-type" data-i18n="case2-type">Car Dealership · Dunn, NC</span>
+            <h3 class="lp-case-name" style="margin-top:10px;">Pronto Auto Sales</h3>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-challenge">The Challenge</div>
+            <p class="lp-case-text" data-i18n="case2-challenge">"Is it available? How much a month? Do I qualify?" The same three questions, all day long.</p>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-fixed">What Was Fixed</div>
+            <p class="lp-case-text" data-i18n="case2-fixed">Live inventory, a payment calculator, and a financing application buyers complete before walking in — in English and Spanish.</p>
+          </div>
+          <div class="lp-case-row impact">
+            <div class="lp-case-label" data-i18n="case-label-impact">Business Impact</div>
+            <p class="lp-case-text" data-i18n="case2-impact">Buyers arrive already knowing the car and the payment — not starting from zero.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Small Leaks Become Big Problems ──────────────────────── -->
+<section class="section" aria-labelledby="math-heading">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 48px;">
+      <h2 class="display-2" id="math-heading" data-i18n="math-h2">Small Leaks Become <span class="gradient-text">Big Problems</span></h2>
+      <p style="margin-top:14px;" data-i18n="math-sub">One by one, none of these feel like a problem. That's exactly why they never get fixed.</p>
+    </div>
+
+    <div class="lp-math fade-up">
+      <div class="lp-math-line"><span class="dot" aria-hidden="true"></span><p data-i18n="math-1">One missed call doesn't matter.</p></div>
+      <div class="lp-math-line"><span class="dot" aria-hidden="true"></span><p data-i18n="math-2">One forgotten lead doesn't matter.</p></div>
+      <div class="lp-math-line"><span class="dot" aria-hidden="true"></span><p data-i18n="math-3">One delayed response doesn't matter.</p></div>
+      <div class="lp-math-line"><span class="dot" aria-hidden="true"></span><p data-i18n="math-4">One customer you never followed up with doesn't matter.</p></div>
+    </div>
+
+    <p class="lp-math-total fade-up" data-i18n="math-total">
+      But repeat that a few times a week, every week, for a year —<br />
+      and it becomes thousands of dollars you never knew you lost.
+    </p>
+  </div>
+</section>
+
+<!-- ── Final CTA ────────────────────────────────────────────── -->
+<section class="section-sm" style="background:var(--grad-card);border-top:1px solid var(--border-acc);border-bottom:1px solid var(--border-acc);">
+  <div class="container" style="text-align:center;max-width:720px;">
+    <h2 class="display-2 fade-up" data-i18n="final-h2">Find Out What It's <span class="gradient-text">Costing You.</span></h2>
+    <p class="fade-up" style="margin:16px auto 0;max-width:560px;" data-i18n="final-p">Fifteen minutes. You'll know exactly where your business is losing customers — and what to fix first.</p>
+    <div class="fade-up" style="margin-top:28px;">
+      <a href="#start" class="btn btn-primary btn-lg" data-i18n="final-cta">Book My Free Audit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Start: Calendar + Short Form ─────────────────────────── -->
+<section id="start" class="section" style="background:var(--bg-0);" aria-labelledby="start-heading">
   <div class="container">
     <div class="section-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 56px;">
       <span class="section-label" style="justify-content:center;" data-i18n="start-label">Book Your Free Audit</span>
-      <h2 class="display-2" id="start-heading" data-i18n="start-h2">Send a Message or <span class="gradient-text">Book Your 15 Minutes</span></h2>
-      <p style="margin-top:14px;" data-i18n="start-sub">Fill out the form or grab a time on my calendar. You'll hear back from me personally — within 24 hours.</p>
+      <h2 class="display-2" id="start-heading" data-i18n="start-h2">Pick a Time — <span class="gradient-text">Or Have Me Reach Out</span></h2>
+      <p style="margin-top:14px;" data-i18n="start-sub">Because I review every business personally, availability is limited each week.</p>
     </div>
 
     <div class="lp-contact-grid">
 
-      <!-- Form -->
+      <!-- Calendar first — the primary action -->
       <div class="fade-up">
-        <h3 style="margin-bottom:8px;" data-i18n="form-h3">Send a <span class="gradient-text">Message</span></h3>
-        <p style="margin-bottom:24px;font-size:0.95rem;" data-i18n="form-sub">Tell me a bit about your business and I'll follow up to set up your free audit.</p>
+        <h3 style="margin-bottom:8px;" data-i18n="calendar-h3">Book Your <span class="gradient-text">15 Minutes</span></h3>
+        <p style="margin-bottom:24px;font-size:0.95rem;" data-i18n="calendar-sub">Pick any open slot below. No pitch, no obligation.</p>
+        <div class="card" style="padding:12px;overflow:hidden;">
+          <iframe src="https://api.thumbsupdigital.tech/widget/booking/a9dnmEcQozo2xecDge4R" style="width:100%;min-height:700px;border:none;overflow:hidden;border-radius:var(--r-lg);" scrolling="no" id="a9dnmEcQozo2xecDge4R_lp" title="Book your free audit with ThumbsUp Digital"></iframe>
+        </div>
+      </div>
 
-        <form id="contact-form" action="https://formspree.io/f/mqenpwvr" method="POST" novalidate aria-label="Contact form">
+      <!-- Short form -->
+      <div class="fade-up fade-up-delay-1">
+        <h3 style="margin-bottom:8px;" data-i18n="form-h3">Rather I <span class="gradient-text">Reach Out?</span></h3>
+        <p style="margin-bottom:24px;font-size:0.95rem;" data-i18n="form-sub">Three fields. I'll contact you to set up your audit.</p>
+
+        <form id="contact-form" action="https://formspree.io/f/mqenpwvr" method="POST" novalidate aria-label="Request a free audit">
           <div class="form-group">
-            <label for="name" data-i18n="label-name">Your Name <span style="color:#f87171;">*</span></label>
+            <label for="name" data-i18n="label-name">Your Name</label>
             <input type="text" id="name" name="name" placeholder="Sarah Johnson" required autocomplete="name" data-i18n-placeholder="ph-name" />
           </div>
           <div class="form-group">
-            <label for="business" data-i18n="label-business">Business Name <span style="color:#f87171;">*</span></label>
+            <label for="business" data-i18n="label-business">Business Name</label>
             <input type="text" id="business" name="business" placeholder="e.g. Johnson Plumbing" required autocomplete="organization" data-i18n-placeholder="ph-business" />
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-            <div class="form-group">
-              <label for="email" data-i18n="label-email">Email <span style="color:#f87171;">*</span></label>
-              <input type="email" id="email" name="email" placeholder="sarah@business.com" required autocomplete="email" />
-            </div>
-            <div class="form-group">
-              <label for="phone" data-i18n="label-phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="(919) 555-0192" autocomplete="tel" />
-            </div>
-          </div>
           <div class="form-group">
-            <label for="situation" data-i18n="label-situation">Current Situation <span style="color:#f87171;">*</span></label>
-            <select id="situation" name="situation" required>
-              <option value="" disabled selected data-i18n="opt-placeholder">Select your current situation</option>
-              <option value="no-website" data-i18n="opt-1">I don't have a website yet</option>
-              <option value="have-website-no-ai" data-i18n="opt-2">I have a website but no AI automation</option>
-              <option value="have-both-upgrade" data-i18n="opt-3">I have both but want to upgrade</option>
-              <option value="just-exploring" data-i18n="opt-4">Just exploring my options</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message" data-i18n="label-message">Anything else you'd like to share?</label>
-            <textarea id="message" name="message" placeholder="Tell me about your business or your biggest challenge..." data-i18n-placeholder="ph-message"></textarea>
+            <label for="phone" data-i18n="label-phone">Phone or Email</label>
+            <input type="text" id="phone" name="phone" placeholder="(919) 555-0192" required autocomplete="tel" data-i18n-placeholder="ph-phone" />
           </div>
           <input type="hidden" name="_subject" value="New Free Audit request (Landing Page)" />
           <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
@@ -620,26 +615,6 @@
         </div>
       </div>
 
-      <!-- Calendar -->
-      <div class="fade-up fade-up-delay-1">
-        <h3 style="margin-bottom:8px;" data-i18n="calendar-h3">Book Your <span class="gradient-text">Free Audit</span></h3>
-        <p style="margin-bottom:24px;font-size:0.95rem;" data-i18n="calendar-sub">Prefer to grab a time now? Pick a slot — 15 minutes, zero pressure, no pitch.</p>
-        <div class="card" style="padding:12px;overflow:hidden;">
-          <iframe src="https://api.thumbsupdigital.tech/widget/booking/a9dnmEcQozo2xecDge4R" style="width:100%;min-height:700px;border:none;overflow:hidden;border-radius:var(--r-lg);" scrolling="no" id="a9dnmEcQozo2xecDge4R_lp" title="Book your free audit with ThumbsUp Digital"></iframe>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── Final CTA ────────────────────────────────────────────── -->
-<section class="section-sm" style="background:var(--grad-card);border-top:1px solid var(--border-acc);">
-  <div class="container" style="text-align:center;max-width:720px;">
-    <h2 class="display-2 fade-up" data-i18n="final-h2">Every Missed Call Is a Customer <span class="gradient-text">Walking to Your Competitor.</span></h2>
-    <p class="fade-up" style="margin:16px auto 0;max-width:560px;" data-i18n="final-p">Find out exactly how much it's costing you — in a free 15-minute audit with a local Cary, NC founder. No pitch, no obligation.</p>
-    <div class="fade-up" style="margin-top:28px;">
-      <a href="#start" class="btn btn-primary btn-lg" data-i18n="final-cta">Book My Free Audit</a>
     </div>
   </div>
 </section>
@@ -657,101 +632,102 @@
   </div>
 </footer>
 
-<!-- ── Floating SMS Chat Widget Button ──────────────────────── -->
-<a href="sms:+19196565857" class="sms-widget-btn" aria-label="Text us at (919) 656-5857">
-  <span class="sms-widget-ping" aria-hidden="true"></span>
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1;" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-</a>
-
 <script>
 (function () {
   var STORAGE_KEY = 'tud-lang';
 
   var esDict = {
     'nav-cta': 'Auditoría Gratis',
-    'hero-badge': '★ Auditoría Gratis de 15 Min',
-    'hero-h1': 'Si Te Alejaras Una Semana, <span class="gradient-text">¿Cuántos Leads Perderías?</span>',
-    'hero-sub': 'Para la mayoría de los dueños de negocio, la respuesta honesta es "muchos." Cada lead que no recibe un seguimiento rápido es un cliente que reserva en otro lado. <strong style="color:var(--white);">Agenda una auditoría gratis de 15 minutos y te muestro dónde se están escapando — y cómo solucionarlo.</strong>',
-    'hero-cta1': 'Agendar Mi Auditoría Gratis',
-    'hero-cta2': 'Ver Nuestro Trabajo',
-    'hero-reassure': '15 minutos. Sin venta, sin presión — solo una mirada clara de dónde estás parado.',
+    'hero-badge': '★ Auditoría Gratis de Fugas',
+    'hero-h1': 'Probablemente Estás <span class="gradient-text">Perdiendo Clientes Ahora Mismo.</span>',
+    'hero-sub': 'Te mostramos dónde, por qué, y cómo detenerlo — en 15 minutos.',
+    'hero-support': 'Cada llamada perdida, cada lead olvidado, cada respuesta tardía y cada proceso roto cuesta dinero. En una auditoría gratis encontramos las fugas más grandes de tu negocio y te mostramos exactamente por dónde se te están escapando los clientes.',
+    'hero-cta': 'Agendar Mi Auditoría Gratis',
+    'hero-reassure': '15 minutos. Sin venta. Sin compromiso.',
 
-    'problem-h2': 'Todo Esto Pasa <span class="gradient-text">Estés Mirando o No.</span>',
-    'problem-1-num': '6:14 PM',
-    'problem-1-p': 'Un cliente llama después de que cerraste. Nadie contesta, y reserva con el siguiente negocio en Google.',
-    'problem-2-num': 'Cero',
-    'problem-2-p': 'Un lead te escribe en línea mientras atiendes a un cliente. Para cuando lo ves, ya se fue con otro.',
-    'problem-3-num': 'Olvidados',
-    'problem-3-p': 'Clientes anteriores que reservarían de nuevo o dejarían una reseña — pero nadie les da seguimiento a menos que tú lo recuerdes personalmente.',
-
-    'discover-label': 'Qué Vas a Descubrir',
-    'discover-h2': 'Una Llamada Gratis. <span class="gradient-text">El Tiempo, Dinero y Clientes Que Estás Perdiendo.</span>',
-    'discover-sub': 'Sin presentación de ventas, sin demo de software. Solo una mirada directa a lo que te está costando — y lo que puede funcionar sin ti.',
-    'discover-1-h3': 'Dónde Estás Perdiendo Tiempo',
-    'discover-1-p': 'El vaivén repetitivo — agendar, recordatorios, responder las mismas preguntas — que silenciosamente te quita horas que podrías usar en otra cosa.',
-    'discover-2-h3': 'Dónde Estás Perdiendo Dinero',
-    'discover-2-p': 'Llamadas perdidas, leads sin responder, y clientes que no llegan — que silenciosamente te cuestan ingresos reales cada mes.',
-    'discover-3-h3': 'Dónde Estás Perdiendo Clientes',
-    'discover-3-p': 'Los momentos en que visitantes y clientes anteriores se escapan silenciosamente solo porque nadie les dio seguimiento a tiempo.',
-    'discover-4-h3': 'Qué Puede Funcionar Sin Ti',
-    'discover-4-p': 'Un plan claro de qué automatizar — para que las llamadas se contesten, los leads reciban seguimiento, y los clientes reciban recordatorios, incluso cuando tú no estés.',
-
-    'whyme-h3': 'Un Fundador Local, No un <span class="gradient-text">Equipo de Ventas.</span>',
-    'whyme-p': 'Estoy basado en Cary, NC, y llevo esta auditoría personalmente — sin call center, sin leer un guion de una diapositiva. Solo una mirada real a tu negocio, de alguien del Triangle que ya ha hecho esto para otros dueños locales.',
-
-    'how-label': 'Cómo Funciona',
-    'how-h2': 'Tres Pasos. <span class="gradient-text">Quince Minutos.</span>',
-    'how-1-h3': '1. Agenda un Horario',
-    'how-1-p': 'Elige un horario que te funcione abajo — toma menos de un minuto.',
-    'how-2-h3': '2. Hablamos 15 Minutos',
-    'how-2-p': 'Te hago algunas preguntas sobre cómo funciona tu negocio hoy — llamadas, leads, clientes anteriores.',
-    'how-3-h3': '3. Te Muestro el Plan',
-    'how-3-p': 'Obtienes una imagen clara de qué te está costando negocio y qué hacer al respecto — sin obligación.',
-
-    'work-label': 'Sitios Que Hemos Construido',
-    'work-h2': 'Negocios Reales. <span class="gradient-text">Sitios Reales.</span>',
-    'work1-tag1': 'Restaurante',
-    'work1-tag2': 'Animación',
-    'work1-desc': 'Un sitio de restaurante totalmente animado — visuales llamativos y movimiento fluido diseñados para abrirte el apetito antes de leer el menú.',
-    'work2-tag1': 'Detallado Automotriz',
-    'work2-tag2': 'Sistema Completo',
-    'work2-desc': 'Un sitio moderno, mobile-first, diseñado para agendar trabajos — con el sistema completo de IA funcionando detrás.',
-    'work3-tag1': 'Bienestar',
-    'work3-tag2': 'Sistema Completo',
-    'work3-desc': 'Un sitio limpio y enfocado en conversión para un estudio de bienestar — con el sistema completo de IA funcionando detrás.',
-
-    'reviews-label': 'Lo Que Dicen los Clientes',
-    'reviews-h2': 'No Te Quedes Solo Con <span class="gradient-text">Nuestra Palabra</span>',
+    'reviews-label': 'Dueños de Negocio Reales',
+    'reviews-h2': 'Gente Que Ya <span class="gradient-text">Tapó Sus Fugas</span>',
     'review-meta': 'Reseña de Google',
     'review1-text': 'Hicieron el sitio web para nuestro negocio de detallado y quedó increíble — siempre te preguntan qué quieres y hacen exactamente lo que pides. Los recomiendo totalmente.',
     'review2-text': 'Me construyó mi asistente de IA y fue la mejor inversión para mi negocio — ahora no me preocupo por llamadas tarde o llamadas perdidas de clientes. Recomendado.',
     'review3-text': 'Me hizo mi sitio web y honestamente lo hizo exactamente como lo quería. Si quieres un gran servicio, es 100% recomendado.',
     'review4-text': 'Samuel fue muy eficiente. Fue personal desde el principio y su servicio es simplemente muy bueno — el sitio web y la app funcionan genial juntos. ¡Totalmente recomendado!',
 
+    'leaks-h2': 'Estas Fugas de Ingresos <span class="gradient-text">Pasan Todos los Días</span>',
+    'leak-1-num': 'Llamadas Perdidas',
+    'leak-1-p': 'Clientes potenciales llaman. Nadie contesta. Contratan a otro.',
+    'leak-2-num': 'Seguimiento Lento',
+    'leak-2-p': 'Los leads esperan demasiado. El interés desaparece. Los ingresos desaparecen.',
+    'leak-3-num': 'Clientes Olvidados',
+    'leak-3-p': 'A los clientes anteriores nunca se les vuelve a contactar. La recompra nunca ocurre.',
+    'leaks-foot': 'La mayoría de los dueños nunca se entera de cuánto dinero le cuestan estas fugas cada mes.',
+
+    'discover-label': 'La Auditoría',
+    'discover-h2': 'Qué Vas a Descubrir en Tu <span class="gradient-text">Auditoría Gratis de Fugas</span>',
+    'discover-sub': 'Esto es un diagnóstico de tu negocio — no una llamada de ventas ni una demo de software.',
+    'discover-1-h3': 'Dónde Estás Perdiendo Leads',
+    'discover-1-p': 'Las llamadas, mensajes y consultas que entran y nunca se convierten en un trabajo agendado.',
+    'discover-2-h3': 'Dónde Estás Perdiendo Ingresos',
+    'discover-2-p': 'Cuánto suman realmente cada mes esos leads perdidos, las citas no cumplidas y los clientes de una sola vez.',
+    'discover-3-h3': 'Dónde se Te Escapan los Clientes',
+    'discover-3-p': 'Los puntos de tu proceso donde un cliente se pierde simplemente porque nadie dio seguimiento.',
+    'discover-4-h3': 'Qué Se Puede Mejorar Primero',
+    'discover-4-p': 'Las una o dos correcciones que te devolverían más dinero al bolsillo en menos tiempo.',
+
+    'how-label': 'Cómo Funciona',
+    'how-h2': 'Tres Pasos. <span class="gradient-text">Quince Minutos.</span>',
+    'how-1-h3': '1. Elige un Horario',
+    'how-1-p': 'Toma un espacio abajo. Te lleva menos de un minuto.',
+    'how-2-h3': '2. Hablamos 15 Minutos',
+    'how-2-p': 'Te pregunto cómo maneja hoy tu negocio las llamadas, los leads y los clientes anteriores.',
+    'how-3-h3': '3. Recibes los Hallazgos',
+    'how-3-p': 'Te muestro dónde están las fugas y qué arreglar primero. Los hallazgos son tuyos, contrates o no.',
+
+    'whyme-h3': 'Reviso Cada Negocio <span class="gradient-text">Personalmente.</span>',
+    'whyme-p': 'Antes de cada auditoría reviso tu negocio yo mismo — cómo te encuentran, cómo te llegan los leads, y qué pasa después. Sin call center. Sin guion. Como lo hago personalmente, solo tomo un número limitado de auditorías por semana.',
+
+    'work-label': 'Trabajo Reciente',
+    'work-h2': 'Qué Pasó Después de <span class="gradient-text">Tapar las Fugas</span>',
+    'case-label-challenge': 'El Problema',
+    'case-label-fixed': 'Qué Se Arregló',
+    'case-label-impact': 'Impacto en el Negocio',
+    'case1-type': 'Detallado Automotriz · Cary, NC',
+    'case1-challenge': 'Las llamadas entraban mientras el equipo estaba debajo de un carro. El que esperaba demasiado reservaba en otro lado.',
+    'case1-fixed': 'Cada llamada, texto y mensaje llega ahora a un solo lugar y recibe respuesta al instante — de día o de noche.',
+    'case1-impact': 'Los leads reciben respuesta en vez de perderse. Ya no hay llamadas fuera de horario que se pierdan.',
+    'case2-type': 'Venta de Carros · Dunn, NC',
+    'case2-challenge': '"¿Está disponible? ¿Cuánto por mes? ¿Califico?" Las mismas tres preguntas, todo el día.',
+    'case2-fixed': 'Inventario en vivo, calculadora de pagos, y una solicitud de financiamiento que el comprador llena antes de llegar — en inglés y español.',
+    'case2-impact': 'Los compradores llegan sabiendo ya el carro y el pago — no empezando desde cero.',
+    'case3-type': 'Restaurante · Local',
+    'case3-challenge': 'La gente los buscaba y no encontraba el menú ni los horarios lo bastante rápido. Algunos se iban a otro lado.',
+    'case3-fixed': 'Menú, horarios y cómo ordenar — a un toque en el teléfono.',
+    'case3-impact': 'Menos gente que se va antes de decidir. Menos preguntas repetidas por teléfono.',
+
+    'math-h2': 'Las Fugas Pequeñas Se Vuelven <span class="gradient-text">Problemas Grandes</span>',
+    'math-sub': 'Una por una, ninguna parece un problema. Por eso mismo nunca se arreglan.',
+    'math-1': 'Una llamada perdida no importa.',
+    'math-2': 'Un lead olvidado no importa.',
+    'math-3': 'Una respuesta tardía no importa.',
+    'math-4': 'Un cliente al que nunca le diste seguimiento no importa.',
+    'math-total': 'Pero repítelo unas cuantas veces por semana, todas las semanas, durante un año —<br />y se convierte en miles de dólares que nunca supiste que perdiste.',
+
+    'final-h2': 'Descubre Cuánto Te Está <span class="gradient-text">Costando.</span>',
+    'final-p': 'Quince minutos. Vas a saber exactamente dónde tu negocio está perdiendo clientes — y qué arreglar primero.',
+    'final-cta': 'Agendar Mi Auditoría Gratis',
+
     'start-label': 'Agenda Tu Auditoría Gratis',
-    'start-h2': 'Envía un Mensaje o <span class="gradient-text">Agenda Tus 15 Minutos</span>',
-    'start-sub': 'Llena el formulario o elige un horario en mi calendario. Te responderé personalmente — dentro de 24 horas.',
-    'form-h3': 'Envía un <span class="gradient-text">Mensaje</span>',
-    'form-sub': 'Cuéntame un poco de tu negocio y te contacto para agendar tu auditoría gratis.',
-    'label-name': 'Tu Nombre <span style="color:#f87171;">*</span>',
-    'label-business': 'Nombre del Negocio <span style="color:#f87171;">*</span>',
-    'label-email': 'Correo <span style="color:#f87171;">*</span>',
-    'label-phone': 'Teléfono',
-    'label-situation': 'Situación Actual <span style="color:#f87171;">*</span>',
-    'label-message': '¿Algo más que quieras compartir?',
-    'opt-placeholder': 'Selecciona tu situación actual',
-    'opt-1': 'Aún no tengo sitio web',
-    'opt-2': 'Tengo sitio web pero sin automatización de IA',
-    'opt-3': 'Tengo ambos pero quiero mejorarlos',
-    'opt-4': 'Solo estoy explorando opciones',
+    'start-h2': 'Elige un Horario — <span class="gradient-text">O Te Contacto Yo</span>',
+    'start-sub': 'Como reviso cada negocio personalmente, la disponibilidad es limitada cada semana.',
+    'calendar-h3': 'Agenda Tus <span class="gradient-text">15 Minutos</span>',
+    'calendar-sub': 'Elige cualquier espacio disponible abajo. Sin venta, sin compromiso.',
+    'form-h3': '¿Prefieres Que Te <span class="gradient-text">Contacte Yo?</span>',
+    'form-sub': 'Tres campos. Te contacto para agendar tu auditoría.',
+    'label-name': 'Tu Nombre',
+    'label-business': 'Nombre del Negocio',
+    'label-phone': 'Teléfono o Correo',
     'submit-btn': 'Solicitar Mi Auditoría Gratis',
     'promise-p': '<strong style="color:var(--blue);">Mi promesa:</strong> Te responderé personalmente dentro de 24 horas — no un asistente, no un bot. Yo.',
-    'calendar-h3': 'Agenda Tu <span class="gradient-text">Auditoría Gratis</span>',
-    'calendar-sub': '¿Prefieres agendar ahora mismo? Elige un horario — 15 minutos, cero presión, sin venta.',
-
-    'final-h2': 'Cada Llamada Perdida Es un Cliente <span class="gradient-text">Yéndose a Tu Competencia.</span>',
-    'final-p': 'Descubre exactamente cuánto te está costando — en una auditoría gratis de 15 minutos con un fundador local de Cary, NC. Sin venta, sin obligación.',
-    'final-cta': 'Agendar Mi Auditoría Gratis',
 
     'footer-copy': '© 2026 ThumbsUp Digital',
     'footer-contact': '<a href="mailto:samuel@thumbsupdigital.tech" style="color:var(--teal);">samuel@thumbsupdigital.tech</a> · Cary, NC — sirviendo el Triangle'
@@ -760,7 +736,7 @@
   var esPlaceholders = {
     'ph-name': 'Sarah Johnson',
     'ph-business': 'ej. Plomería Johnson',
-    'ph-message': 'Cuéntame de tu negocio o tu mayor reto...'
+    'ph-phone': '(919) 555-0192'
   };
 
   var textEls = document.querySelectorAll('[data-i18n]');
