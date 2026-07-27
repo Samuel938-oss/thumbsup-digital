@@ -200,10 +200,13 @@
       btn.disabled = true;
 
       try {
+        const fd = new FormData(contactForm);
+        const payload = {};
+        fd.forEach((v, k) => { payload[k] = v; });
         const res = await fetch(contactForm.action, {
           method: 'POST',
-          body: new FormData(contactForm),
-          headers: { Accept: 'application/json' }
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload)
         });
         if (res.ok) {
           btn.innerHTML = '&#10003; Message Sent!';
