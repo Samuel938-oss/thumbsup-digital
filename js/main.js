@@ -189,6 +189,19 @@
     });
   });
 
+  /* ── Meta Pixel: Contact on booking / direct-contact clicks ── */
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link || !window.fbq) return;
+    const href = link.getAttribute('href') || '';
+    let method = null;
+    if (/calendly\.com/i.test(href))       method = 'calendly';
+    else if (/^(https?:)?\/\/wa\.me|whatsapp/i.test(href)) method = 'whatsapp';
+    else if (href.startsWith('tel:'))      method = 'phone';
+    else if (href.startsWith('mailto:'))   method = 'email';
+    if (method) fbq('track', 'Contact', { contact_method: method });
+  });
+
   /* ── Form submit feedback ────────────────────────────────── */
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
@@ -209,6 +222,8 @@
           body: JSON.stringify(payload)
         });
         if (res.ok) {
+          // Meta Pixel: sólo tras confirmar que el lead llegó al servidor.
+          if (window.fbq) fbq('track', 'Lead', { content_name: 'Free Lead Leak Audit' });
           btn.innerHTML = '&#10003; Message Sent!';
           btn.style.background = 'linear-gradient(135deg, #06D6A0, #00B4D8)';
           contactForm.reset();
