@@ -1,3 +1,5 @@
+const { buildUserData, sendEvent } = require('./_meta');
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -37,6 +39,21 @@ module.exports = async (req, res) => {
     if (!r.ok) {
       return res.status(502).json({ error: 'Upstream error' });
     }
+
+    // Meta Conversions API. Fires only once the lead is safely in n8n, so
+    // the count matches reality. Awaited because Vercel freezes the
+    // function the moment we respond. Never throws.
+    const eventId = String(body.event_id || '').trim();
+    if (eventId) {
+      await sendEvent({
+        eventName: 'Lead',
+        eventId,
+        sourceUrl: String(body.source_url || ''),
+        userData: buildUserData(req, { contact: phone, name }),
+        customData: { content_name: 'Free Lead Leak Audit' },
+      });
+    }
+
     return res.status(200).json({ ok: true });
   } catch (e) {
     return res.status(502).json({ error: 'Upstream unreachable' });

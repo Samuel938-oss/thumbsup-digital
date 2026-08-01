@@ -189,6 +189,36 @@
     });
   });
 
+  /* ── Meta event de-duplication ────────────────────────────────
+     Every conversion is sent twice: once by the browser pixel and once
+     by the server (Conversions API). Sharing one event_id lets Meta
+     merge them into a single conversion instead of double-counting.
+     The server copy is what survives ad blockers and iOS.             */
+  const newEventId = () =>
+    (crypto.randomUUID ? crypto.randomUUID()
+                       : 'e' + Date.now() + Math.random().toString(16).slice(2));
+
+  const readCookie = (name) => {
+    const m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return m ? m.pop() : undefined;
+  };
+
+  // Fire-and-forget: tracking must never delay or break the user's flow.
+  function sendToCapi(payload) {
+    try {
+      fetch('/api/capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.assign({
+          source_url: location.href,
+          fbp: readCookie('_fbp'),
+          fbc: readCookie('_fbc'),
+        }, payload)),
+        keepalive: true,
+      }).catch(() => {});
+    } catch {}
+  }
+
   /* ── Meta Pixel: Calendly booking ─────────────────────────────
      Calendly posts messages to the parent window as the visitor moves
      through the widget. 'event_scheduled' is the only one that means a
@@ -198,12 +228,17 @@
     if (e.origin !== 'https://calendly.com') return;
     const type = e.data && e.data.event;
     if (typeof type !== 'string' || !type.startsWith('calendly.')) return;
-    if (!window.fbq) return;
+    if (type !== 'calendly.event_scheduled') return;
 
-    if (type === 'calendly.event_scheduled') {
-      fbq('track', 'Schedule', { content_name: '15 Min Strategy Call' });
-      fbq('track', 'Lead', { content_name: 'Free Lead Leak Audit (booked)' });
+    const eventId = newEventId();
+    if (window.fbq) {
+      fbq('track', 'Schedule', { content_name: '15 Min Strategy Call' }, { eventID: eventId });
     }
+    sendToCapi({
+      event_name: 'Schedule',
+      event_id: eventId,
+      content_name: '15 Min Strategy Call',
+    });
   });
 
   /* ── Meta Pixel: Contact on booking / direct-contact clicks ── */
@@ -233,6 +268,13 @@
         const fd = new FormData(contactForm);
         const payload = {};
         fd.forEach((v, k) => { payload[k] = v; });
+
+        // Shared id + browser cookies so /api/lead can send the server-side
+        // copy of this Lead and Meta can de-duplicate the pair.
+        const eventId = newEventId();
+        payload.event_id = eventId;
+        payload.source_url = location.href;
+
         const res = await fetch(contactForm.action, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -240,7 +282,10 @@
         });
         if (res.ok) {
           // Meta Pixel: sólo tras confirmar que el lead llegó al servidor.
-          if (window.fbq) fbq('track', 'Lead', { content_name: 'Free Lead Leak Audit' });
+          // El servidor manda su copia con este mismo eventId (ver api/lead.js).
+          if (window.fbq) {
+            fbq('track', 'Lead', { content_name: 'Free Lead Leak Audit' }, { eventID: eventId });
+          }
           btn.innerHTML = '&#10003; Message Sent!';
           btn.style.background = 'linear-gradient(135deg, #06D6A0, #00B4D8)';
           contactForm.reset();
