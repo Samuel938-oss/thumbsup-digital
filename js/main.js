@@ -189,6 +189,23 @@
     });
   });
 
+  /* ── Meta Pixel: Calendly booking ─────────────────────────────
+     Calendly posts messages to the parent window as the visitor moves
+     through the widget. 'event_scheduled' is the only one that means a
+     booking actually landed on the calendar — that's the conversion.
+     Origin is checked so a rogue iframe can't fake conversions.        */
+  window.addEventListener('message', (e) => {
+    if (e.origin !== 'https://calendly.com') return;
+    const type = e.data && e.data.event;
+    if (typeof type !== 'string' || !type.startsWith('calendly.')) return;
+    if (!window.fbq) return;
+
+    if (type === 'calendly.event_scheduled') {
+      fbq('track', 'Schedule', { content_name: '15 Min Strategy Call' });
+      fbq('track', 'Lead', { content_name: 'Free Lead Leak Audit (booked)' });
+    }
+  });
+
   /* ── Meta Pixel: Contact on booking / direct-contact clicks ── */
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
