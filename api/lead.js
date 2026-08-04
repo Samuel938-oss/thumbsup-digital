@@ -9,6 +9,10 @@ module.exports = async (req, res) => {
   const name = String(body.name || '').trim();
   const business = String(body.business || '').trim();
   const phone = String(body.phone || '').trim();
+  const email = String(body.email || '').trim();
+  const businessType = String(body.business_type || '').trim();
+  // Unchecked boxes never reach us, so any truthy value means consent was given.
+  const consent = Boolean(body.consent);
   const gotcha = String(body._gotcha || '').trim();
 
   // Honeypot: los humanos lo dejan vacío, los bots lo rellenan.
@@ -17,7 +21,7 @@ module.exports = async (req, res) => {
     return res.status(200).json({ ok: true });
   }
 
-  if (!name || !business || !phone) {
+  if (!name || !business || !phone || !email || !businessType || !consent) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -34,7 +38,18 @@ module.exports = async (req, res) => {
         'Content-Type': 'application/json',
         'x-webhook-secret': secret,
       },
-      body: JSON.stringify({ name, business, phone }),
+      body: JSON.stringify({
+        name,
+        business,
+        phone,
+        email,
+        business_type: businessType,
+        consent: true,
+        consent_text:
+          'I agree to be contacted by ThumbsUp Digital by phone, text, or email about my free audit. ' +
+          'Message and data rates may apply. Reply STOP to opt out.',
+        consent_timestamp: new Date().toISOString(),
+      }),
     });
     if (!r.ok) {
       return res.status(502).json({ error: 'Upstream error' });
@@ -49,7 +64,7 @@ module.exports = async (req, res) => {
         eventName: 'Lead',
         eventId,
         sourceUrl: String(body.source_url || ''),
-        userData: buildUserData(req, { contact: phone, name }),
+        userData: buildUserData(req, { email, phone, name }),
         customData: { content_name: 'Free Lead Leak Audit' },
       });
     }

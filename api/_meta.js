@@ -55,21 +55,21 @@ function clientIp(req) {
   return (req.socket && req.socket.remoteAddress) || undefined;
 }
 
-/* The "phone" field on the landing form accepts a phone OR an email,
-   so figure out which one we actually got. */
-function buildUserData(req, { contact, name, fbp, fbc } = {}) {
+/* `email` and `phone` are used when the caller has both as separate fields
+   (the landing form does). `contact` is the older single-field form, where
+   the value may be either one — kept for /api/capi. */
+function buildUserData(req, { contact, email, phone, name, fbp, fbc } = {}) {
   const cookies = cookiesFrom(req);
   const ud = {
     client_ip_address: clientIp(req),
     client_user_agent: req.headers['user-agent'],
   };
 
-  const em = hashEmail(contact);
+  const em = hashEmail(email) || hashEmail(contact);
   if (em) ud.em = [em];
-  else {
-    const ph = hashPhone(contact);
-    if (ph) ud.ph = [ph];
-  }
+
+  const ph = hashPhone(phone) || (em ? null : hashPhone(contact));
+  if (ph) ud.ph = [ph];
 
   const fn = hashName(String(name || '').split(/\s+/)[0]);
   if (fn) ud.fn = [fn];

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Free Lead Leak Audit — Find Out Where Your Business Is Losing Customers</title>
   <meta name="description" content="You're probably losing customers right now. In one free 15-minute audit, we show you where, why, and how to stop it. Local business owners in Cary, NC and the Triangle." />
-  <meta name="robots" content="noindex,follow" />
+  <meta name="robots" content="index,follow" />
   <meta name="facebook-domain-verification" content="lwkl9simp2qm90ma943g6hlk002n6k" />
 
   <!-- Open Graph -->
@@ -143,21 +143,14 @@
     .lp-review-text { font-size:0.9rem; color:var(--text-2); line-height:1.65; margin:0; }
     .lp-review-g { position:absolute; top:20px; right:20px; width:20px; height:20px; opacity:0.85; }
 
-    /* Math / stacking block */
-    .lp-math { max-width: 720px; margin: 0 auto; display:flex; flex-direction:column; gap:14px; }
-    .lp-math-line {
-      display:flex; align-items:flex-start; gap:14px;
-      background: var(--surface); border:1px solid var(--border); border-radius: var(--r-lg);
-      padding: 18px 22px;
+    /* Consent checkbox */
+    .lp-consent { display:flex; align-items:flex-start; gap:12px; margin-bottom:22px; }
+    .lp-consent input[type="checkbox"] {
+      flex-shrink:0; width:20px; height:20px; margin-top:2px;
+      accent-color: var(--blue); cursor:pointer;
     }
-    .lp-math-line span.dot {
-      flex-shrink:0; width:8px; height:8px; border-radius:50%; background: var(--teal); margin-top:8px;
-    }
-    .lp-math-line p { margin:0; font-size:0.98rem; color:var(--text-1); line-height:1.6; }
-    .lp-math-total {
-      text-align:center; margin-top:26px; font-family:var(--font-display);
-      font-size: clamp(1.15rem,2.4vw,1.5rem); font-weight:800; color:var(--white); line-height:1.5;
-    }
+    .lp-consent label { font-size:0.82rem; color:var(--text-2); line-height:1.6; cursor:pointer; margin:0; font-weight:400; }
+    .form-submit[disabled] { opacity:0.45; cursor:not-allowed; filter:grayscale(0.35); }
 
     /* Contact grid */
     .lp-contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; max-width:1120px; margin:0 auto; align-items:start; }
@@ -409,8 +402,8 @@
         <div class="lp-feature-icon" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
         </div>
-        <h3 data-i18n="how-3-h3">3. You Get the Findings</h3>
-        <p data-i18n="how-3-p">I show you where the leaks are and what to fix first. You keep the findings either way.</p>
+        <h3 data-i18n="how-3-h3">3. You Get a Written Report</h3>
+        <p data-i18n="how-3-p">Within 24 hours you get a written Lead Leak Report: where you're losing customers, what it's costing you each month, and what to fix first. Yours to keep, whether we work together or not.</p>
       </div>
     </div>
   </div>
@@ -426,8 +419,7 @@
       <h3 style="margin-bottom:12px;" data-i18n="whyme-h3">I Review Every Business <span class="gradient-text">Personally.</span></h3>
       <p style="max-width:640px;margin:0 auto;" data-i18n="whyme-p">
         Before every audit, I look at your business myself — how you get found, how leads reach you,
-        what happens after they do. No call center. No script. Because I do this personally,
-        I only take a limited number of audits each week.
+        what happens after they do. No call center. No script.
       </p>
     </div>
   </div>
@@ -537,28 +529,6 @@
   </div>
 </section>
 
-<!-- ── Small Leaks Become Big Problems ──────────────────────── -->
-<section class="section" aria-labelledby="math-heading">
-  <div class="container">
-    <div class="section-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 48px;">
-      <h2 class="display-2" id="math-heading" data-i18n="math-h2">Small Leaks Become <span class="gradient-text">Big Problems</span></h2>
-      <p style="margin-top:14px;" data-i18n="math-sub">One by one, none of these feel like a problem. That's exactly why they never get fixed.</p>
-    </div>
-
-    <div class="lp-math fade-up">
-      <div class="lp-math-line"><span class="dot" aria-hidden="true"></span><p data-i18n="math-1">One missed call doesn't matter.</p></div>
-      <div class="lp-math-line"><span class="dot" aria-hidden="true"></span><p data-i18n="math-2">One forgotten lead doesn't matter.</p></div>
-      <div class="lp-math-line"><span class="dot" aria-hidden="true"></span><p data-i18n="math-3">One delayed response doesn't matter.</p></div>
-      <div class="lp-math-line"><span class="dot" aria-hidden="true"></span><p data-i18n="math-4">One customer you never followed up with doesn't matter.</p></div>
-    </div>
-
-    <p class="lp-math-total fade-up" data-i18n="math-total">
-      But repeat that a few times a week, every week, for a year —<br />
-      and it becomes thousands of dollars you never knew you lost.
-    </p>
-  </div>
-</section>
-
 <!-- ── Final CTA ────────────────────────────────────────────── -->
 <section class="section-sm" style="background:var(--grad-card);border-top:1px solid var(--border-acc);border-bottom:1px solid var(--border-acc);">
   <div class="container" style="text-align:center;max-width:720px;">
@@ -597,8 +567,8 @@
 
       <!-- Short form -->
       <div class="fade-up fade-up-delay-1">
-        <h3 style="margin-bottom:8px;" data-i18n="form-h3">Rather I <span class="gradient-text">Reach Out?</span></h3>
-        <p style="margin-bottom:24px;font-size:0.95rem;" data-i18n="form-sub">Three fields. I'll contact you to set up your audit.</p>
+        <h3 style="margin-bottom:8px;" data-i18n="form-h3">Start <span class="gradient-text">Here</span></h3>
+        <p style="margin-bottom:24px;font-size:0.95rem;" data-i18n="form-sub">Tell me about your business and I'll contact you to set up your audit.</p>
 
         <form id="contact-form" action="/api/lead" method="POST" novalidate aria-label="Request a free audit">
           <div class="form-group">
@@ -610,12 +580,32 @@
             <input type="text" id="business" name="business" placeholder="e.g. Johnson Plumbing" required autocomplete="organization" data-i18n-placeholder="ph-business" />
           </div>
           <div class="form-group">
-            <label for="phone" data-i18n="label-phone">Phone or Email</label>
-            <input type="text" id="phone" name="phone" placeholder="(919) 555-0192" required autocomplete="tel" data-i18n-placeholder="ph-phone" />
+            <label for="phone" data-i18n="label-phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(919) 555-0192" required autocomplete="tel" data-i18n-placeholder="ph-phone" />
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="label-email">Email</label>
+            <input type="email" id="email" name="email" placeholder="sarah@johnsonplumbing.com" required autocomplete="email" data-i18n-placeholder="ph-email" />
+          </div>
+          <div class="form-group">
+            <label for="business_type" data-i18n="label-business-type">Business Type</label>
+            <select id="business_type" name="business_type" required>
+              <option value="" disabled selected data-i18n="opt-choose">Select your business type</option>
+              <option value="Restaurant / Food" data-i18n="opt-restaurant">Restaurant / Food</option>
+              <option value="Auto" data-i18n="opt-auto">Auto (detailing, repair, dealership)</option>
+              <option value="Home Services" data-i18n="opt-home">Home Services (HVAC, plumbing, roofing, landscaping, cleaning)</option>
+              <option value="Clinic / Dental" data-i18n="opt-clinic">Clinic / Dental</option>
+              <option value="Salon Spa" data-i18n="opt-salon">Salon Spa</option>
+              <option value="Other" data-i18n="opt-other">Other</option>
+            </select>
+          </div>
+          <div class="lp-consent">
+            <input type="checkbox" id="consent" name="consent" value="yes" required />
+            <label for="consent" data-i18n="label-consent">I agree to be contacted by ThumbsUp Digital by phone, text, or email about my free audit. Message and data rates may apply. Reply STOP to opt out.</label>
           </div>
           <input type="hidden" name="_subject" value="New Free Audit request (Landing Page)" />
           <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
-          <button type="submit" class="btn btn-primary btn-lg form-submit">
+          <button type="submit" class="btn btn-primary btn-lg form-submit" disabled>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             <span data-i18n="submit-btn">Request My Free Audit</span>
           </button>
@@ -642,6 +632,29 @@
     </div>
   </div>
 </footer>
+
+<script>
+/* Consent gate: the submit button stays disabled until the box is checked.
+   A MutationObserver re-applies the rule because main.js re-enables the
+   button on its own after a send completes. */
+(function () {
+  var box = document.getElementById('consent');
+  var btn = document.querySelector('#contact-form .form-submit');
+  if (!box || !btn) return;
+
+  function sync() { btn.disabled = !box.checked; }
+
+  box.addEventListener('change', sync);
+  document.getElementById('contact-form').addEventListener('reset', function () {
+    setTimeout(sync, 0);
+  });
+  // Only ever re-disables — so it never fights main.js while a send is in flight.
+  new MutationObserver(function () {
+    if (!box.checked && !btn.disabled) btn.disabled = true;
+  }).observe(btn, { attributes: true, attributeFilter: ['disabled'] });
+  sync();
+})();
+</script>
 
 <script>
 (function () {
@@ -691,11 +704,11 @@
     'how-1-p': 'Toma un espacio abajo. Te lleva menos de un minuto.',
     'how-2-h3': '2. Hablamos 15 Minutos',
     'how-2-p': 'Te pregunto cómo maneja hoy tu negocio las llamadas, los leads y los clientes anteriores.',
-    'how-3-h3': '3. Recibes los Hallazgos',
-    'how-3-p': 'Te muestro dónde están las fugas y qué arreglar primero. Los hallazgos son tuyos, contrates o no.',
+    'how-3-h3': '3. Recibes un Reporte Escrito',
+    'how-3-p': 'En menos de 24 horas recibes un Reporte de Fugas escrito: dónde estás perdiendo clientes, cuánto te cuesta cada mes, y qué arreglar primero. Es tuyo, trabajemos juntos o no.',
 
     'whyme-h3': 'Reviso Cada Negocio <span class="gradient-text">Personalmente.</span>',
-    'whyme-p': 'Antes de cada auditoría reviso tu negocio yo mismo — cómo te encuentran, cómo te llegan los leads, y qué pasa después. Sin call center. Sin guion. Como lo hago personalmente, solo tomo un número limitado de auditorías por semana.',
+    'whyme-p': 'Antes de cada auditoría reviso tu negocio yo mismo — cómo te encuentran, cómo te llegan los leads, y qué pasa después. Sin call center. Sin guion.',
 
     'work-label': 'Trabajo Reciente',
     'work-h2': 'Qué Pasó Después de <span class="gradient-text">Tapar las Fugas</span>',
@@ -715,14 +728,6 @@
     'case3-fixed': 'Menú, horarios y cómo ordenar — a un toque en el teléfono.',
     'case3-impact': 'Menos gente que se va antes de decidir. Menos preguntas repetidas por teléfono.',
 
-    'math-h2': 'Las Fugas Pequeñas Se Vuelven <span class="gradient-text">Problemas Grandes</span>',
-    'math-sub': 'Una por una, ninguna parece un problema. Por eso mismo nunca se arreglan.',
-    'math-1': 'Una llamada perdida no importa.',
-    'math-2': 'Un lead olvidado no importa.',
-    'math-3': 'Una respuesta tardía no importa.',
-    'math-4': 'Un cliente al que nunca le diste seguimiento no importa.',
-    'math-total': 'Pero repítelo unas cuantas veces por semana, todas las semanas, durante un año —<br />y se convierte en miles de dólares que nunca supiste que perdiste.',
-
     'final-h2': 'Descubre Cuánto Te Está <span class="gradient-text">Costando.</span>',
     'final-p': 'Quince minutos. Vas a saber exactamente dónde tu negocio está perdiendo clientes — y qué arreglar primero.',
     'final-cta': 'Agendar Mi Auditoría Gratis',
@@ -732,11 +737,21 @@
     'start-sub': 'Como reviso cada negocio personalmente, la disponibilidad es limitada cada semana.',
     'calendar-h3': 'Agenda Tus <span class="gradient-text">15 Minutos</span>',
     'calendar-sub': 'Elige cualquier espacio disponible abajo. Sin venta, sin compromiso.',
-    'form-h3': '¿Prefieres Que Te <span class="gradient-text">Contacte Yo?</span>',
-    'form-sub': 'Tres campos. Te contacto para agendar tu auditoría.',
+    'form-h3': 'Empieza <span class="gradient-text">Aquí</span>',
+    'form-sub': 'Cuéntame sobre tu negocio y te contacto para agendar tu auditoría.',
     'label-name': 'Tu Nombre',
     'label-business': 'Nombre del Negocio',
-    'label-phone': 'Teléfono o Correo',
+    'label-phone': 'Teléfono',
+    'label-email': 'Correo Electrónico',
+    'label-business-type': 'Tipo de Negocio',
+    'opt-choose': 'Elige tu tipo de negocio',
+    'opt-restaurant': 'Restaurante / Comida',
+    'opt-auto': 'Automotriz (detallado, taller, venta de carros)',
+    'opt-home': 'Servicios del Hogar (HVAC, plomería, techos, jardinería, limpieza)',
+    'opt-clinic': 'Clínica / Dental',
+    'opt-salon': 'Salón / Spa',
+    'opt-other': 'Otro',
+    'label-consent': 'Acepto que ThumbsUp Digital me contacte por teléfono, mensaje de texto o correo sobre mi auditoría gratis. Pueden aplicar tarifas de mensajes y datos. Responde STOP para darte de baja.',
     'submit-btn': 'Solicitar Mi Auditoría Gratis',
     'promise-p': '<strong style="color:var(--blue);">Mi promesa:</strong> Te responderé personalmente dentro de 24 horas — no un asistente, no un bot. Yo.',
 
@@ -747,7 +762,8 @@
   var esPlaceholders = {
     'ph-name': 'Sarah Johnson',
     'ph-business': 'ej. Plomería Johnson',
-    'ph-phone': '(919) 555-0192'
+    'ph-phone': '(919) 555-0192',
+    'ph-email': 'sarah@plomeriajohnson.com'
   };
 
   var textEls = document.querySelectorAll('[data-i18n]');
