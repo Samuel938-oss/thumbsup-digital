@@ -300,6 +300,8 @@
           throw new Error('Server error');
         }
       } catch {
+        // Surfaced as real text too — a reverted button is easy to miss.
+        contactForm.dispatchEvent(new CustomEvent('lead:error', { bubbles: true }));
         btn.innerHTML = 'Error — try again';
         btn.style.background = 'rgba(239,68,68,0.8)';
         setTimeout(() => {

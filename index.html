@@ -143,8 +143,35 @@
     .lp-review-text { font-size:0.9rem; color:var(--text-2); line-height:1.65; margin:0; }
     .lp-review-g { position:absolute; top:20px; right:20px; width:20px; height:20px; opacity:0.85; }
 
-    /* Two-step booking card */
-    .lp-start-card { max-width: 680px; margin: 0 auto; padding: 40px 38px; border-color: var(--border-acc); }
+    /* Two-step booking card — the page's focal point, so it sits above
+       the surface instead of lying flat on it. */
+    .lp-start-card {
+      max-width: 680px; margin: 0 auto; padding: 44px 38px 40px;
+      border-color: var(--border-acc);
+      box-shadow: var(--shadow-card), var(--shadow-glow);
+    }
+    /* A form is not a clickable tile — it must not lift or glow on hover. */
+    .lp-start-card:hover {
+      transform: none;
+      border-color: var(--border-acc);
+      box-shadow: var(--shadow-card), var(--shadow-glow);
+    }
+    .lp-start-card:hover::before { opacity: 0; }
+    .lp-start-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--grad);
+    }
+    /* The global input background is var(--surface) — the same colour as
+       the card, which makes the fields vanish. Recess them instead. */
+    .lp-start-card .form-group input,
+    .lp-start-card .form-group select {
+      background: var(--bg-0);
+      border-color: var(--border-acc);
+      padding: 14px 16px;
+    }
+    .lp-start-card .form-group input::placeholder { color: var(--text-3); }
+    .lp-start-card .form-group label { color: var(--text-1); }
+
     .lp-scarcity { text-align:center; font-size:0.92rem; margin: 14px auto 0; max-width: 480px; }
     .lp-step-line {
       text-align:center; margin: 22px 0 30px;
@@ -172,6 +199,13 @@
     @media (max-width: 560px) {
       .lp-start-card { padding: 28px 20px; }
       .lp-field-row { grid-template-columns: 1fr; }
+    }
+
+    .lp-form-error {
+      margin: 14px 0 0; padding: 12px 16px; text-align: center;
+      font-size: 0.85rem; line-height: 1.55; color: #FCA5A5;
+      background: rgba(239,68,68,0.10); border: 1px solid rgba(239,68,68,0.35);
+      border-radius: var(--r-md);
     }
 
     /* Consent disclosure shown at the point of submit */
@@ -280,7 +314,9 @@
           <span data-i18n="step1-label">Fill out this short form</span>
         </p>
 
-        <form id="contact-form" action="/api/lead" method="POST" novalidate aria-label="Request a free audit">
+        <!-- No `novalidate`: the browser's own "please fill this in" prompts
+             are the only feedback a visitor gets before the request is sent. -->
+        <form id="contact-form" action="/api/lead" method="POST" aria-label="Request a free audit">
           <div class="form-group">
             <label for="name" data-i18n="label-name">Your Name</label>
             <input type="text" id="name" name="name" placeholder="Sarah Johnson" required autocomplete="name" data-i18n-placeholder="ph-name" />
@@ -318,6 +354,9 @@
           </button>
           <!-- Consent is disclosed at the point of submit and recorded
                server-side with its text and timestamp (see api/lead.js). -->
+          <p id="form-error" class="lp-form-error" role="alert" hidden data-i18n="form-error">
+            Something went wrong on my end. Please try again, or email me at samuel@thumbsupdigital.tech.
+          </p>
           <p class="lp-consent-line" data-i18n="consent-line">
             By submitting this form you agree to be contacted by ThumbsUp Digital by phone,
             text, or email about your free audit. Message and data rates may apply.
@@ -714,7 +753,13 @@
     })();
   }
 
+  var errBox = document.getElementById('form-error');
+  form.addEventListener('lead:error', function () {
+    if (errBox) errBox.hidden = false;
+  });
+
   form.addEventListener('lead:success', function () {
+    if (errBox) errBox.hidden = true;
     var prefill = {
       name: (document.getElementById('name') || {}).value || '',
       email: (document.getElementById('email') || {}).value || '',
@@ -826,6 +871,7 @@
     'opt-clinic': 'Clínica / Dental',
     'opt-salon': 'Salón / Spa',
     'opt-other': 'Otro',
+    'form-error': 'Algo falló de mi lado. Vuelve a intentarlo o escríbeme a samuel@thumbsupdigital.tech.',
     'consent-line': 'Al enviar este formulario aceptas que ThumbsUp Digital te contacte por teléfono, mensaje de texto o correo sobre tu auditoría gratis. Pueden aplicar tarifas de mensajes y datos. Responde STOP para darte de baja.',
     'submit-btn': 'Continuar al calendario →',
     'promise-p': '<strong style="color:var(--blue);">Mi promesa:</strong> Te responderé personalmente dentro de 24 horas — no un asistente, no un bot. Yo.',
