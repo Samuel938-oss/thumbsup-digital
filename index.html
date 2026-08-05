@@ -192,7 +192,20 @@
       width:52px; height:52px; border-radius:50%; background: var(--grad);
       display:flex; align-items:center; justify-content:center; margin: 0 auto 20px;
     }
-    #calendly-slot { border-radius: var(--r-lg); overflow: hidden; }
+    /* Calendly sizes its iframe from the parent's computed height, so this
+       needs a real `height` — a min-height leaves it measuring zero and it
+       renders as a sliver. The white surface is deliberate: custom widget
+       colours are a paid Calendly feature, so the embed is white either
+       way and is framed as a light panel instead of looking broken. */
+    #calendly-slot {
+      height: 700px;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: #fff;
+    }
+    @media (max-width: 640px) {
+      #calendly-slot { height: 1000px; }
+    }
     .lp-promise {
       max-width: 680px; margin: 20px auto 0; padding: 16px 20px;
       background: var(--blue-dim); border: 1px solid rgba(0,180,216,0.25); border-radius: var(--r-md);
@@ -387,7 +400,7 @@
         </p>
         <!-- Calendly mounts here on reveal. Booking completion is broadcast
              to the parent window so main.js fires the Meta Schedule event. -->
-        <div id="calendly-slot" style="min-height:700px;"></div>
+        <div id="calendly-slot"></div>
         <p class="lp-secure" data-i18n="step2-foot">Can't find a time that works? I'll reach out to you directly.</p>
       </div>
 
