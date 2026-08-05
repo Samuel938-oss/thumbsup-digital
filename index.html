@@ -143,20 +143,45 @@
     .lp-review-text { font-size:0.9rem; color:var(--text-2); line-height:1.65; margin:0; }
     .lp-review-g { position:absolute; top:20px; right:20px; width:20px; height:20px; opacity:0.85; }
 
-    /* Consent checkbox */
-    .lp-consent { display:flex; align-items:flex-start; gap:12px; margin-bottom:22px; }
-    .lp-consent input[type="checkbox"] {
-      flex-shrink:0; width:20px; height:20px; margin-top:2px;
-      accent-color: var(--blue); cursor:pointer;
+    /* Two-step booking card */
+    .lp-start-card { max-width: 680px; margin: 0 auto; padding: 40px 38px; border-color: var(--border-acc); }
+    .lp-scarcity { text-align:center; font-size:0.92rem; margin: 14px auto 0; max-width: 480px; }
+    .lp-step-line {
+      text-align:center; margin: 22px 0 30px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-3);
     }
-    .lp-consent label { font-size:0.82rem; color:var(--text-2); line-height:1.6; cursor:pointer; margin:0; font-weight:400; }
+    .lp-step-num { color: var(--teal); font-weight: 800; }
+    .lp-step-num::after { content: " ·"; color: var(--text-3); }
+    .lp-field-row { display:grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+    .lp-secure {
+      display:flex; align-items:center; justify-content:center; gap:7px;
+      margin: 16px 0 0; font-size: 0.8rem; color: var(--text-3); line-height:1.5;
+    }
+    .lp-step2-check {
+      width:52px; height:52px; border-radius:50%; background: var(--grad);
+      display:flex; align-items:center; justify-content:center; margin: 0 auto 20px;
+    }
+    #calendly-slot { border-radius: var(--r-lg); overflow: hidden; }
+    .lp-promise {
+      max-width: 680px; margin: 20px auto 0; padding: 16px 20px;
+      background: var(--blue-dim); border: 1px solid rgba(0,180,216,0.25); border-radius: var(--r-md);
+    }
+    .lp-promise p { font-size: 0.85rem; color: var(--text-1); line-height: 1.6; margin: 0; text-align: center; }
+
+    @media (max-width: 560px) {
+      .lp-start-card { padding: 28px 20px; }
+      .lp-field-row { grid-template-columns: 1fr; }
+    }
+
+    /* Consent disclosure shown at the point of submit */
+    .lp-consent-line {
+      margin: 14px 0 0; font-size: 0.74rem; color: var(--text-3);
+      line-height: 1.55; text-align: center;
+    }
     .form-submit[disabled] { opacity:0.45; cursor:not-allowed; filter:grayscale(0.35); }
 
-    /* Contact grid */
-    .lp-contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; max-width:1120px; margin:0 auto; align-items:start; }
-
     @media (max-width: 900px) {
-      .lp-contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .lp-feature-grid { grid-template-columns: 1fr; }
       .lp-offer-grid { grid-template-columns: 1fr; gap: 24px; }
     }
@@ -236,7 +261,103 @@
   </div>
 </section>
 
-<!-- ── Trust (moved directly below hero) ────────────────────── -->
+<!-- ── Start: two-step booking (form → calendar) ────────────────
+     The form is step 1 and the calendar is step 2, revealed only after
+     the lead is saved. That way a visitor who never picks a slot is
+     still captured as a lead. ──────────────────────────────────── -->
+<section id="start" class="section-sm" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="start-heading">
+  <div class="container">
+    <div class="lp-start-card card fade-up">
+
+      <!-- ── Step 1: the form ── -->
+      <div id="step-1">
+        <h2 class="display-2" id="start-heading" style="font-size:clamp(1.5rem,3.4vw,2.2rem);text-align:center;" data-i18n="start-h2">
+          Book Your Free <span class="gradient-text">Lead Leak Audit</span>
+        </h2>
+        <p class="lp-scarcity" data-i18n="start-sub">Because I review every business personally, availability is limited each week.</p>
+        <p class="lp-step-line">
+          <span class="lp-step-num" data-i18n="step1-num">Step 1</span>
+          <span data-i18n="step1-label">Fill out this short form</span>
+        </p>
+
+        <form id="contact-form" action="/api/lead" method="POST" novalidate aria-label="Request a free audit">
+          <div class="form-group">
+            <label for="name" data-i18n="label-name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Sarah Johnson" required autocomplete="name" data-i18n-placeholder="ph-name" />
+          </div>
+          <div class="form-group">
+            <label for="business" data-i18n="label-business">Business Name</label>
+            <input type="text" id="business" name="business" placeholder="e.g. Johnson Plumbing" required autocomplete="organization" data-i18n-placeholder="ph-business" />
+          </div>
+          <div class="lp-field-row">
+            <div class="form-group">
+              <label for="phone" data-i18n="label-phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(919) 555-0192" required autocomplete="tel" data-i18n-placeholder="ph-phone" />
+            </div>
+            <div class="form-group">
+              <label for="email" data-i18n="label-email">Email</label>
+              <input type="email" id="email" name="email" placeholder="sarah@johnsonplumbing.com" required autocomplete="email" data-i18n-placeholder="ph-email" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="business_type" data-i18n="label-business-type">Business Type</label>
+            <select id="business_type" name="business_type" required>
+              <option value="" disabled selected data-i18n="opt-choose">Select your business type</option>
+              <option value="Restaurant / Food" data-i18n="opt-restaurant">Restaurant / Food</option>
+              <option value="Auto" data-i18n="opt-auto">Auto (detailing, repair, dealership)</option>
+              <option value="Home Services" data-i18n="opt-home">Home Services (HVAC, plumbing, roofing, landscaping, cleaning)</option>
+              <option value="Clinic / Dental" data-i18n="opt-clinic">Clinic / Dental</option>
+              <option value="Salon Spa" data-i18n="opt-salon">Salon Spa</option>
+              <option value="Other" data-i18n="opt-other">Other</option>
+            </select>
+          </div>
+          <input type="hidden" name="_subject" value="New Free Audit request (Landing Page)" />
+          <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
+          <button type="submit" class="btn btn-primary btn-lg form-submit" style="width:100%;justify-content:center;">
+            <span data-i18n="submit-btn">Continue to the calendar →</span>
+          </button>
+          <!-- Consent is disclosed at the point of submit and recorded
+               server-side with its text and timestamp (see api/lead.js). -->
+          <p class="lp-consent-line" data-i18n="consent-line">
+            By submitting this form you agree to be contacted by ThumbsUp Digital by phone,
+            text, or email about your free audit. Message and data rates may apply.
+            Reply STOP to opt out.
+          </p>
+        </form>
+
+        <p class="lp-secure">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span data-i18n="secure-line">Your details are safe. No spam, ever.</span>
+        </p>
+      </div>
+
+      <!-- ── Step 2: the calendar (revealed after the lead is saved) ── -->
+      <div id="step-2" hidden>
+        <div class="lp-step2-check" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#04121A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2 class="display-2" style="font-size:clamp(1.5rem,3.4vw,2.2rem);text-align:center;" data-i18n="step2-h2">
+          Got it. Now <span class="gradient-text">Pick Your Time.</span>
+        </h2>
+        <p class="lp-step-line">
+          <span class="lp-step-num" data-i18n="step2-num">Step 2</span>
+          <span data-i18n="step2-label">Choose any open slot below</span>
+        </p>
+        <!-- Calendly mounts here on reveal. Booking completion is broadcast
+             to the parent window so main.js fires the Meta Schedule event. -->
+        <div id="calendly-slot" style="min-height:700px;"></div>
+        <p class="lp-secure" data-i18n="step2-foot">Can't find a time that works? I'll reach out to you directly.</p>
+      </div>
+
+    </div>
+
+    <div class="lp-promise fade-up">
+      <p data-i18n="promise-p"><strong style="color:var(--blue);">My promise:</strong> You'll hear back from me personally within 24 hours — not an assistant, not a bot. Me.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Trust ────────────────────────────────────────────────── -->
 <section class="section-sm" style="border-top:1px solid var(--border);" aria-labelledby="reviews-heading">
   <div class="container">
     <div class="section-header fade-up" style="text-align:center;margin-bottom:40px;">
@@ -540,86 +661,6 @@
   </div>
 </section>
 
-<!-- ── Start: Calendar + Short Form ─────────────────────────── -->
-<section id="start" class="section" style="background:var(--bg-0);" aria-labelledby="start-heading">
-  <div class="container">
-    <div class="section-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 56px;">
-      <span class="section-label" style="justify-content:center;" data-i18n="start-label">Book Your Free Audit</span>
-      <h2 class="display-2" id="start-heading" data-i18n="start-h2">Pick a Time — <span class="gradient-text">Or Have Me Reach Out</span></h2>
-      <p style="margin-top:14px;" data-i18n="start-sub">Because I review every business personally, availability is limited each week.</p>
-    </div>
-
-    <div class="lp-contact-grid">
-
-      <!-- Calendar first — the primary action -->
-      <div class="fade-up">
-        <h3 style="margin-bottom:8px;" data-i18n="calendar-h3">Book Your <span class="gradient-text">15 Minutes</span></h3>
-        <p style="margin-bottom:24px;font-size:0.95rem;" data-i18n="calendar-sub">Pick any open slot below. No pitch, no obligation.</p>
-        <div class="card" style="padding:12px;overflow:hidden;">
-          <!-- Calendly inline widget. Colours match the design system.
-               Booking completion is broadcast to the parent window, so
-               main.js can fire the Meta Pixel Schedule event. -->
-          <div class="calendly-inline-widget"
-               data-url="https://calendly.com/samuel-thumbsupdigital/30min?hide_gdpr_banner=1&background_color=0D1117&text_color=FFFFFF&primary_color=00B4D8"
-               style="min-width:280px;height:700px;border-radius:var(--r-lg);overflow:hidden;"></div>
-        </div>
-      </div>
-
-      <!-- Short form -->
-      <div class="fade-up fade-up-delay-1">
-        <h3 style="margin-bottom:8px;" data-i18n="form-h3">Start <span class="gradient-text">Here</span></h3>
-        <p style="margin-bottom:24px;font-size:0.95rem;" data-i18n="form-sub">Tell me about your business and I'll contact you to set up your audit.</p>
-
-        <form id="contact-form" action="/api/lead" method="POST" novalidate aria-label="Request a free audit">
-          <div class="form-group">
-            <label for="name" data-i18n="label-name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Sarah Johnson" required autocomplete="name" data-i18n-placeholder="ph-name" />
-          </div>
-          <div class="form-group">
-            <label for="business" data-i18n="label-business">Business Name</label>
-            <input type="text" id="business" name="business" placeholder="e.g. Johnson Plumbing" required autocomplete="organization" data-i18n-placeholder="ph-business" />
-          </div>
-          <div class="form-group">
-            <label for="phone" data-i18n="label-phone">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="(919) 555-0192" required autocomplete="tel" data-i18n-placeholder="ph-phone" />
-          </div>
-          <div class="form-group">
-            <label for="email" data-i18n="label-email">Email</label>
-            <input type="email" id="email" name="email" placeholder="sarah@johnsonplumbing.com" required autocomplete="email" data-i18n-placeholder="ph-email" />
-          </div>
-          <div class="form-group">
-            <label for="business_type" data-i18n="label-business-type">Business Type</label>
-            <select id="business_type" name="business_type" required>
-              <option value="" disabled selected data-i18n="opt-choose">Select your business type</option>
-              <option value="Restaurant / Food" data-i18n="opt-restaurant">Restaurant / Food</option>
-              <option value="Auto" data-i18n="opt-auto">Auto (detailing, repair, dealership)</option>
-              <option value="Home Services" data-i18n="opt-home">Home Services (HVAC, plumbing, roofing, landscaping, cleaning)</option>
-              <option value="Clinic / Dental" data-i18n="opt-clinic">Clinic / Dental</option>
-              <option value="Salon Spa" data-i18n="opt-salon">Salon Spa</option>
-              <option value="Other" data-i18n="opt-other">Other</option>
-            </select>
-          </div>
-          <div class="lp-consent">
-            <input type="checkbox" id="consent" name="consent" value="yes" required />
-            <label for="consent" data-i18n="label-consent">I agree to be contacted by ThumbsUp Digital by phone, text, or email about my free audit. Message and data rates may apply. Reply STOP to opt out.</label>
-          </div>
-          <input type="hidden" name="_subject" value="New Free Audit request (Landing Page)" />
-          <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
-          <button type="submit" class="btn btn-primary btn-lg form-submit" disabled>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            <span data-i18n="submit-btn">Request My Free Audit</span>
-          </button>
-        </form>
-
-        <div style="margin-top:16px;padding:16px 20px;background:var(--blue-dim);border:1px solid rgba(0,180,216,0.25);border-radius:var(--r-md);">
-          <p style="font-size:0.85rem;color:var(--text-1);line-height:1.6;margin:0;" data-i18n="promise-p"><strong style="color:var(--blue);">My promise:</strong> You'll hear back from me personally within 24 hours — not an assistant, not a bot. Me.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ── Minimal Footer ───────────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
@@ -634,25 +675,57 @@
 </footer>
 
 <script>
-/* Consent gate: the submit button stays disabled until the box is checked.
-   A MutationObserver re-applies the rule because main.js re-enables the
-   button on its own after a send completes. */
+/* ── Two-step booking ──────────────────────────────────────────
+   Step 1 is the form; step 2 is the calendar, mounted only once the
+   lead is safely saved. Calendly is initialised on reveal rather than
+   on page load, so a visitor who never submits never pays for the
+   iframe — and the widget can't measure itself while hidden anyway. */
 (function () {
-  var box = document.getElementById('consent');
-  var btn = document.querySelector('#contact-form .form-submit');
-  if (!box || !btn) return;
+  var form = document.getElementById('contact-form');
+  var s1   = document.getElementById('step-1');
+  var s2   = document.getElementById('step-2');
+  if (!form || !s1 || !s2) return;
 
-  function sync() { btn.disabled = !box.checked; }
+  var CAL_URL = 'https://calendly.com/samuel-thumbsupdigital/30min'
+              + '?hide_gdpr_banner=1&background_color=0D1117'
+              + '&text_color=FFFFFF&primary_color=00B4D8';
 
-  box.addEventListener('change', sync);
-  document.getElementById('contact-form').addEventListener('reset', function () {
-    setTimeout(sync, 0);
+  function mountCalendar(prefill) {
+    var slot = document.getElementById('calendly-slot');
+    if (!slot || slot.dataset.mounted) return;
+    slot.dataset.mounted = '1';
+    // widget.js loads async, so wait for it rather than assuming it's there.
+    var tries = 0;
+    (function attempt() {
+      if (window.Calendly && window.Calendly.initInlineWidget) {
+        window.Calendly.initInlineWidget({
+          url: CAL_URL,
+          parentElement: slot,
+          prefill: prefill,
+        });
+      } else if (tries++ < 60) {
+        setTimeout(attempt, 200);
+      } else {
+        // Last resort: never leave the visitor staring at an empty box.
+        slot.innerHTML = '<p style="text-align:center;padding:28px;">'
+          + '<a href="' + CAL_URL + '" target="_blank" rel="noopener" '
+          + 'style="color:var(--teal);font-weight:700;">Open the calendar in a new tab →</a></p>';
+      }
+    })();
+  }
+
+  form.addEventListener('lead:success', function () {
+    var prefill = {
+      name: (document.getElementById('name') || {}).value || '',
+      email: (document.getElementById('email') || {}).value || '',
+    };
+    s1.hidden = true;
+    s2.hidden = false;
+    mountCalendar(prefill);
+    // Keep the card in view — it just changed height underneath them.
+    var card = document.querySelector('.lp-start-card');
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
-  // Only ever re-disables — so it never fights main.js while a send is in flight.
-  new MutationObserver(function () {
-    if (!box.checked && !btn.disabled) btn.disabled = true;
-  }).observe(btn, { attributes: true, attributeFilter: ['disabled'] });
-  sync();
 })();
 </script>
 
@@ -732,13 +805,15 @@
     'final-p': 'Quince minutos. Vas a saber exactamente dónde tu negocio está perdiendo clientes — y qué arreglar primero.',
     'final-cta': 'Agendar Mi Auditoría Gratis',
 
-    'start-label': 'Agenda Tu Auditoría Gratis',
-    'start-h2': 'Elige un Horario — <span class="gradient-text">O Te Contacto Yo</span>',
+    'start-h2': 'Agenda Tu <span class="gradient-text">Auditoría Gratis de Fugas</span>',
     'start-sub': 'Como reviso cada negocio personalmente, la disponibilidad es limitada cada semana.',
-    'calendar-h3': 'Agenda Tus <span class="gradient-text">15 Minutos</span>',
-    'calendar-sub': 'Elige cualquier espacio disponible abajo. Sin venta, sin compromiso.',
-    'form-h3': 'Empieza <span class="gradient-text">Aquí</span>',
-    'form-sub': 'Cuéntame sobre tu negocio y te contacto para agendar tu auditoría.',
+    'step1-num': 'Paso 1',
+    'step1-label': 'Rellena este breve formulario',
+    'step2-h2': 'Listo. Ahora <span class="gradient-text">Elige Tu Horario.</span>',
+    'step2-num': 'Paso 2',
+    'step2-label': 'Elige cualquier espacio disponible abajo',
+    'step2-foot': '¿No encuentras un horario que te sirva? Te contacto yo directamente.',
+    'secure-line': 'Tus datos están seguros. Nunca mandamos spam.',
     'label-name': 'Tu Nombre',
     'label-business': 'Nombre del Negocio',
     'label-phone': 'Teléfono',
@@ -751,8 +826,8 @@
     'opt-clinic': 'Clínica / Dental',
     'opt-salon': 'Salón / Spa',
     'opt-other': 'Otro',
-    'label-consent': 'Acepto que ThumbsUp Digital me contacte por teléfono, mensaje de texto o correo sobre mi auditoría gratis. Pueden aplicar tarifas de mensajes y datos. Responde STOP para darte de baja.',
-    'submit-btn': 'Solicitar Mi Auditoría Gratis',
+    'consent-line': 'Al enviar este formulario aceptas que ThumbsUp Digital te contacte por teléfono, mensaje de texto o correo sobre tu auditoría gratis. Pueden aplicar tarifas de mensajes y datos. Responde STOP para darte de baja.',
+    'submit-btn': 'Continuar al calendario →',
     'promise-p': '<strong style="color:var(--blue);">Mi promesa:</strong> Te responderé personalmente dentro de 24 horas — no un asistente, no un bot. Yo.',
 
     'footer-copy': '© 2026 ThumbsUp Digital',

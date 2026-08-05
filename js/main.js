@@ -286,6 +286,8 @@
           if (window.fbq) {
             fbq('track', 'Lead', { content_name: 'Free Lead Leak Audit' }, { eventID: eventId });
           }
+          // The landing page listens for this to swap in the calendar (step 2).
+          contactForm.dispatchEvent(new CustomEvent('lead:success', { bubbles: true }));
           btn.innerHTML = '&#10003; Message Sent!';
           btn.style.background = 'linear-gradient(135deg, #06D6A0, #00B4D8)';
           contactForm.reset();
