@@ -84,6 +84,15 @@
     .lp-offer-item { text-align:center; }
     .lp-offer-item .num { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--white); margin-bottom: 10px; }
 
+    /* Numbered step badge */
+    .lp-num-badge {
+      width: 44px; height: 44px; border-radius: var(--r-md);
+      background: var(--grad); color: #04121A;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 800; font-size: 1.25rem;
+      margin-bottom: 18px;
+    }
+
     /* Feature cards */
     .lp-feature-grid { display:grid; grid-template-columns: repeat(2,1fr); gap: 22px; max-width: 960px; margin: 0 auto; }
     /* A class, not an inline style — inline wins over media queries and
@@ -418,6 +427,110 @@
   </div>
 </section>
 
+<!-- ── Results for Other Local Businesses ───────────────────── -->
+<section id="work" class="section" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="work-heading">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center;margin-bottom:48px;">
+      <span class="section-label" style="justify-content:center;" data-i18n="work-label">Recent Work</span>
+      <h2 class="display-2" id="work-heading" data-i18n="work-h2">What Happened After We <span class="gradient-text">Fixed the Leaks</span></h2>
+    </div>
+
+    <div class="lp-case-grid fade-up">
+
+      <div class="lp-case-card">
+        <div class="lp-case-preview" aria-hidden="true">
+          <div class="lp-case-bar">
+            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            <span class="browser-url">boysdetailing.com</span>
+          </div>
+          <div class="lp-case-shot">
+            <iframe src="https://boysdetailing.com/" loading="lazy" scrolling="no" tabindex="-1" title="" aria-hidden="true"></iframe>
+          </div>
+        </div>
+        <div class="lp-case-body">
+          <div>
+            <span class="lp-case-type" data-i18n="case1-type">Auto Detailing · Cary, NC</span>
+            <h3 class="lp-case-name" style="margin-top:10px;">Boys Detailing NC</h3>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-challenge">The Challenge</div>
+            <p class="lp-case-text" data-i18n="case1-challenge">Calls came in while the team was under a car. Whoever waited too long booked somewhere else.</p>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-fixed">What Was Fixed</div>
+            <p class="lp-case-text" data-i18n="case1-fixed">Every call, text, and message now lands in one place and gets an instant reply — day or night.</p>
+          </div>
+          <div class="lp-case-row impact">
+            <div class="lp-case-label" data-i18n="case-label-impact">Business Impact</div>
+            <p class="lp-case-text" data-i18n="case1-impact">Leads get answered instead of lost. No more after-hours calls going nowhere.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-case-card">
+        <div class="lp-case-preview" aria-hidden="true">
+          <div class="lp-case-bar">
+            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            <span class="browser-url">delranchodeluxe.com</span>
+          </div>
+          <div class="lp-case-shot">
+            <iframe src="https://delranchodeluxe.com/" loading="lazy" scrolling="no" tabindex="-1" title="" aria-hidden="true"></iframe>
+          </div>
+        </div>
+        <div class="lp-case-body">
+          <div>
+            <span class="lp-case-type" data-i18n="case3-type">Restaurant · Local</span>
+            <h3 class="lp-case-name" style="margin-top:10px;">Del Rancho Deluxe</h3>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-challenge">The Challenge</div>
+            <p class="lp-case-text" data-i18n="case3-challenge">People looked them up and couldn't find the menu or hours fast enough. Some just went elsewhere.</p>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-fixed">What Was Fixed</div>
+            <p class="lp-case-text" data-i18n="case3-fixed">Menu, hours, and how to order — one tap away on a phone.</p>
+          </div>
+          <div class="lp-case-row impact">
+            <div class="lp-case-label" data-i18n="case-label-impact">Business Impact</div>
+            <p class="lp-case-text" data-i18n="case3-impact">Fewer people leaving before they decide. Fewer repeat questions by phone.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-case-card">
+        <div class="lp-case-preview" aria-hidden="true">
+          <div class="lp-case-bar">
+            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            <span class="browser-url">prontosalesllc.com</span>
+          </div>
+          <div class="lp-case-shot">
+            <iframe src="https://prontosalesllc.com/" loading="lazy" scrolling="no" tabindex="-1" title="" aria-hidden="true"></iframe>
+          </div>
+        </div>
+        <div class="lp-case-body">
+          <div>
+            <span class="lp-case-type" data-i18n="case2-type">Car Dealership · Dunn, NC</span>
+            <h3 class="lp-case-name" style="margin-top:10px;">Pronto Auto Sales</h3>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-challenge">The Challenge</div>
+            <p class="lp-case-text" data-i18n="case2-challenge">"Is it available? How much a month? Do I qualify?" The same three questions, all day long.</p>
+          </div>
+          <div class="lp-case-row">
+            <div class="lp-case-label" data-i18n="case-label-fixed">What Was Fixed</div>
+            <p class="lp-case-text" data-i18n="case2-fixed">Live inventory, a payment calculator, and a financing application buyers complete before walking in — in English and Spanish.</p>
+          </div>
+          <div class="lp-case-row impact">
+            <div class="lp-case-label" data-i18n="case-label-impact">Business Impact</div>
+            <p class="lp-case-text" data-i18n="case2-impact">Buyers arrive already knowing the car and the payment — not starting from zero.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── Trust ────────────────────────────────────────────────── -->
 <section class="section-sm" style="border-top:1px solid var(--border);" aria-labelledby="reviews-heading">
   <div class="container">
@@ -591,6 +704,38 @@
   </div>
 </section>
 
+<!-- ── From the First Call to a Working System ──────────────── -->
+<section class="section" style="border-top:1px solid var(--border);" aria-labelledby="flow-heading">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center;max-width:720px;margin:0 auto 56px;">
+      <span class="section-label" style="justify-content:center;" data-i18n="flow-label">Working Together</span>
+      <h2 class="display-2" id="flow-heading" data-i18n="flow-h2">From the First Call to a <span class="gradient-text">Working System</span></h2>
+    </div>
+
+    <div class="lp-feature-grid lp-grid-3 fade-up">
+      <div class="card">
+        <div class="lp-num-badge" aria-hidden="true">1</div>
+        <h3 data-i18n="flow-1-h3">Book your diagnosis</h3>
+        <p data-i18n="flow-1-p">A short call to understand your business and find where you're losing sales, time, and money.</p>
+      </div>
+      <div class="card">
+        <div class="lp-num-badge" aria-hidden="true">2</div>
+        <h3 data-i18n="flow-2-h3">Get your roadmap</h3>
+        <p data-i18n="flow-2-p">I audit your processes and hand you the real AI and software opportunities, ranked by impact. No fluff.</p>
+      </div>
+      <div class="card">
+        <div class="lp-num-badge" aria-hidden="true">3</div>
+        <h3 data-i18n="flow-3-h3">We implement in phases</h3>
+        <p data-i18n="flow-3-p">I build the system, launch it validating every step, and monitor it for 30 days with real data.</p>
+      </div>
+    </div>
+
+    <div class="fade-up" style="text-align:center;margin-top:44px;">
+      <a href="#start" class="btn btn-primary btn-lg" data-i18n="flow-cta">Book My Free Audit</a>
+    </div>
+  </div>
+</section>
+
 <!-- ── Why Me + Scarcity ────────────────────────────────────── -->
 <section class="section-sm" style="border-top:1px solid var(--border);">
   <div class="container">
@@ -603,110 +748,6 @@
         Before every audit, I look at your business myself — how you get found, how leads reach you,
         what happens after they do. No call center. No script.
       </p>
-    </div>
-  </div>
-</section>
-
-<!-- ── Results for Other Local Businesses ───────────────────── -->
-<section id="work" class="section" style="background:var(--bg-0);border-top:1px solid var(--border);" aria-labelledby="work-heading">
-  <div class="container">
-    <div class="section-header fade-up" style="text-align:center;margin-bottom:48px;">
-      <span class="section-label" style="justify-content:center;" data-i18n="work-label">Recent Work</span>
-      <h2 class="display-2" id="work-heading" data-i18n="work-h2">What Happened After We <span class="gradient-text">Fixed the Leaks</span></h2>
-    </div>
-
-    <div class="lp-case-grid fade-up">
-
-      <div class="lp-case-card">
-        <div class="lp-case-preview" aria-hidden="true">
-          <div class="lp-case-bar">
-            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
-            <span class="browser-url">boysdetailing.com</span>
-          </div>
-          <div class="lp-case-shot">
-            <iframe src="https://boysdetailing.com/" loading="lazy" scrolling="no" tabindex="-1" title="" aria-hidden="true"></iframe>
-          </div>
-        </div>
-        <div class="lp-case-body">
-          <div>
-            <span class="lp-case-type" data-i18n="case1-type">Auto Detailing · Cary, NC</span>
-            <h3 class="lp-case-name" style="margin-top:10px;">Boys Detailing NC</h3>
-          </div>
-          <div class="lp-case-row">
-            <div class="lp-case-label" data-i18n="case-label-challenge">The Challenge</div>
-            <p class="lp-case-text" data-i18n="case1-challenge">Calls came in while the team was under a car. Whoever waited too long booked somewhere else.</p>
-          </div>
-          <div class="lp-case-row">
-            <div class="lp-case-label" data-i18n="case-label-fixed">What Was Fixed</div>
-            <p class="lp-case-text" data-i18n="case1-fixed">Every call, text, and message now lands in one place and gets an instant reply — day or night.</p>
-          </div>
-          <div class="lp-case-row impact">
-            <div class="lp-case-label" data-i18n="case-label-impact">Business Impact</div>
-            <p class="lp-case-text" data-i18n="case1-impact">Leads get answered instead of lost. No more after-hours calls going nowhere.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lp-case-card">
-        <div class="lp-case-preview" aria-hidden="true">
-          <div class="lp-case-bar">
-            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
-            <span class="browser-url">delranchodeluxe.com</span>
-          </div>
-          <div class="lp-case-shot">
-            <iframe src="https://delranchodeluxe.com/" loading="lazy" scrolling="no" tabindex="-1" title="" aria-hidden="true"></iframe>
-          </div>
-        </div>
-        <div class="lp-case-body">
-          <div>
-            <span class="lp-case-type" data-i18n="case3-type">Restaurant · Local</span>
-            <h3 class="lp-case-name" style="margin-top:10px;">Del Rancho Deluxe</h3>
-          </div>
-          <div class="lp-case-row">
-            <div class="lp-case-label" data-i18n="case-label-challenge">The Challenge</div>
-            <p class="lp-case-text" data-i18n="case3-challenge">People looked them up and couldn't find the menu or hours fast enough. Some just went elsewhere.</p>
-          </div>
-          <div class="lp-case-row">
-            <div class="lp-case-label" data-i18n="case-label-fixed">What Was Fixed</div>
-            <p class="lp-case-text" data-i18n="case3-fixed">Menu, hours, and how to order — one tap away on a phone.</p>
-          </div>
-          <div class="lp-case-row impact">
-            <div class="lp-case-label" data-i18n="case-label-impact">Business Impact</div>
-            <p class="lp-case-text" data-i18n="case3-impact">Fewer people leaving before they decide. Fewer repeat questions by phone.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lp-case-card">
-        <div class="lp-case-preview" aria-hidden="true">
-          <div class="lp-case-bar">
-            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
-            <span class="browser-url">prontosalesllc.com</span>
-          </div>
-          <div class="lp-case-shot">
-            <iframe src="https://prontosalesllc.com/" loading="lazy" scrolling="no" tabindex="-1" title="" aria-hidden="true"></iframe>
-          </div>
-        </div>
-        <div class="lp-case-body">
-          <div>
-            <span class="lp-case-type" data-i18n="case2-type">Car Dealership · Dunn, NC</span>
-            <h3 class="lp-case-name" style="margin-top:10px;">Pronto Auto Sales</h3>
-          </div>
-          <div class="lp-case-row">
-            <div class="lp-case-label" data-i18n="case-label-challenge">The Challenge</div>
-            <p class="lp-case-text" data-i18n="case2-challenge">"Is it available? How much a month? Do I qualify?" The same three questions, all day long.</p>
-          </div>
-          <div class="lp-case-row">
-            <div class="lp-case-label" data-i18n="case-label-fixed">What Was Fixed</div>
-            <p class="lp-case-text" data-i18n="case2-fixed">Live inventory, a payment calculator, and a financing application buyers complete before walking in — in English and Spanish.</p>
-          </div>
-          <div class="lp-case-row impact">
-            <div class="lp-case-label" data-i18n="case-label-impact">Business Impact</div>
-            <p class="lp-case-text" data-i18n="case2-impact">Buyers arrive already knowing the car and the payment — not starting from zero.</p>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -846,6 +887,16 @@
     'how-2-p': 'Te pregunto cómo maneja hoy tu negocio las llamadas, los leads y los clientes anteriores.',
     'how-3-h3': '3. Recibes un Reporte Escrito',
     'how-3-p': 'En menos de 24 horas recibes un Reporte de Fugas escrito: dónde estás perdiendo clientes, cuánto te cuesta cada mes, y qué arreglar primero. Es tuyo, trabajemos juntos o no.',
+
+    'flow-label': 'Cómo Funciona',
+    'flow-h2': 'De la Primera Llamada a un <span class="gradient-text">Sistema Funcionando</span>',
+    'flow-1-h3': 'Agenda tu diagnóstico',
+    'flow-1-p': 'Una llamada breve para entender tu negocio y detectar dónde estás perdiendo ventas, tiempo y dinero.',
+    'flow-2-h3': 'Recibe tu roadmap',
+    'flow-2-p': 'Auditamos tus procesos y te entregamos las oportunidades reales de IA y software, priorizadas por impacto. Sin humo.',
+    'flow-3-h3': 'Implementamos por fases',
+    'flow-3-p': 'Construimos el sistema, lo lanzamos validando cada paso y lo monitoreamos 30 días con datos reales.',
+    'flow-cta': 'Agendar Mi Auditoría Gratis',
 
     'whyme-h3': 'Reviso Cada Negocio <span class="gradient-text">Personalmente.</span>',
     'whyme-p': 'Antes de cada auditoría reviso tu negocio yo mismo — cómo te encuentran, cómo te llegan los leads, y qué pasa después. Sin call center. Sin guion.',
