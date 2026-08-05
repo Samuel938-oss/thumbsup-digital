@@ -232,6 +232,10 @@ p { color: var(--text-2); }
   background: var(--grad-card);
   opacity: 0;
   transition: opacity var(--t-med) var(--ease);
+  /* Decorative only. Being positioned, it paints above the card's in-flow
+     content and would otherwise swallow every click, focus and keystroke
+     from any input inside the card. */
+  pointer-events: none;
 }
 .card:hover {
   border-color: var(--border-acc);

@@ -160,7 +160,10 @@
     .lp-start-card::after {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
       background: var(--grad);
+      pointer-events: none;  /* decorative — must never block the form */
     }
+    /* Belt and braces: keep the form itself above any decorative layer. */
+    #step-1, #step-2 { position: relative; z-index: 1; }
     /* The global input background is var(--surface) — the same colour as
        the card, which makes the fields vanish. Recess them instead. */
     .lp-start-card .form-group input,
