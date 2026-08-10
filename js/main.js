@@ -198,48 +198,13 @@
     (crypto.randomUUID ? crypto.randomUUID()
                        : 'e' + Date.now() + Math.random().toString(16).slice(2));
 
-  const readCookie = (name) => {
-    const m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-    return m ? m.pop() : undefined;
-  };
-
-  // Fire-and-forget: tracking must never delay or break the user's flow.
-  function sendToCapi(payload) {
-    try {
-      fetch('/api/capi', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(Object.assign({
-          source_url: location.href,
-          fbp: readCookie('_fbp'),
-          fbc: readCookie('_fbc'),
-        }, payload)),
-        keepalive: true,
-      }).catch(() => {});
-    } catch {}
-  }
-
-  /* ── Meta Pixel: Calendly booking ─────────────────────────────
-     Calendly posts messages to the parent window as the visitor moves
-     through the widget. 'event_scheduled' is the only one that means a
-     booking actually landed on the calendar — that's the conversion.
-     Origin is checked so a rogue iframe can't fake conversions.        */
-  window.addEventListener('message', (e) => {
-    if (e.origin !== 'https://calendly.com') return;
-    const type = e.data && e.data.event;
-    if (typeof type !== 'string' || !type.startsWith('calendly.')) return;
-    if (type !== 'calendly.event_scheduled') return;
-
-    const eventId = newEventId();
-    if (window.fbq) {
-      fbq('track', 'Schedule', { content_name: '15 Min Strategy Call' }, { eventID: eventId });
-    }
-    sendToCapi({
-      event_name: 'Schedule',
-      event_id: eventId,
-      content_name: '15 Min Strategy Call',
-    });
-  });
+  /* ── Meta Pixel: booking ──────────────────────────────────────
+     The booking widget is now Google Calendar's appointment schedule,
+     which — unlike Calendly — broadcasts nothing to the parent window
+     when a slot is confirmed. There is no in-page signal left to hang a
+     'Schedule' conversion on, so it is not fired here. The Lead event on
+     form submit still covers step 1; a real Schedule event would need
+     Google Calendar → Zapier/n8n → the CAPI endpoint server-side.       */
 
   /* ── Meta Pixel: Contact on booking / direct-contact clicks ── */
   document.addEventListener('click', (e) => {
@@ -247,7 +212,7 @@
     if (!link || !window.fbq) return;
     const href = link.getAttribute('href') || '';
     let method = null;
-    if (/calendly\.com/i.test(href))       method = 'calendly';
+    if (/calendly\.com|calendar\.google\.com/i.test(href)) method = 'calendar';
     else if (/^(https?:)?\/\/wa\.me|whatsapp/i.test(href)) method = 'whatsapp';
     else if (href.startsWith('tel:'))      method = 'phone';
     else if (href.startsWith('mailto:'))   method = 'email';

@@ -236,19 +236,19 @@
       width:52px; height:52px; border-radius:50%; background: var(--grad);
       display:flex; align-items:center; justify-content:center; margin: 0 auto 20px;
     }
-    /* Calendly sizes its iframe from the parent's computed height, so this
-       needs a real `height` — a min-height leaves it measuring zero and it
-       renders as a sliver. The white surface is deliberate: custom widget
-       colours are a paid Calendly feature, so the embed is white either
-       way and is framed as a light panel instead of looking broken. */
-    #calendly-slot {
+    /* The Google Calendar booking page is a plain iframe with no self-sizing,
+       so the slot needs a real `height`. The white surface is deliberate:
+       the embed renders light and is framed as a light panel instead of
+       looking broken against the dark card. */
+    #calendar-slot {
       height: 700px;
       border-radius: var(--r-lg);
       overflow: hidden;
       background: #fff;
     }
+    #calendar-slot iframe { width: 100%; height: 100%; border: 0; display: block; }
     @media (max-width: 640px) {
-      #calendly-slot { height: 1000px; }
+      #calendar-slot { height: 1000px; }
     }
     .lp-promise {
       max-width: 680px; margin: 20px auto 0; padding: 16px 20px;
@@ -443,9 +443,8 @@
           <span class="lp-step-num" data-i18n="step2-num">Step 2</span>
           <span data-i18n="step2-label">Choose any open slot below</span>
         </p>
-        <!-- Calendly mounts here on reveal. Booking completion is broadcast
-             to the parent window so main.js fires the Meta Schedule event. -->
-        <div id="calendly-slot"></div>
+        <!-- The Google Calendar appointment schedule mounts here on reveal. -->
+        <div id="calendar-slot"></div>
         <p class="lp-secure" data-i18n="step2-foot">Can't find a time that works? I'll reach out to you directly.</p>
       </div>
 
@@ -812,41 +811,37 @@
 <script>
 /* ── Two-step booking ──────────────────────────────────────────
    Step 1 is the form; step 2 is the calendar, mounted only once the
-   lead is safely saved. Calendly is initialised on reveal rather than
-   on page load, so a visitor who never submits never pays for the
-   iframe — and the widget can't measure itself while hidden anyway. */
+   lead is safely saved. The calendar iframe is injected on reveal rather
+   than on page load, so a visitor who never submits never pays for it. */
 (function () {
   var form = document.getElementById('contact-form');
   var s1   = document.getElementById('step-1');
   var s2   = document.getElementById('step-2');
   if (!form || !s1 || !s2) return;
 
-  var CAL_URL = 'https://calendly.com/samuel-thumbsupdigital/30min'
-              + '?hide_gdpr_banner=1&background_color=0D1117'
-              + '&text_color=FFFFFF&primary_color=00B4D8';
+  /* Google Calendar appointment schedule. `gv=true` renders the booking
+     grid instead of the owner-facing settings view. */
+  var CAL_URL = 'https://calendar.google.com/calendar/appointments/schedules/'
+              + 'AcZssZ2Yvv4J58lD-xZF-pOAlYlYCYYIfUi4_VNdUMb-bS1f2kTFrM7ngUkSuMkfSxtf4qb8sSLPY1o3'
+              + '?gv=true';
 
-  function mountCalendar(prefill) {
-    var slot = document.getElementById('calendly-slot');
+  function mountCalendar() {
+    var slot = document.getElementById('calendar-slot');
     if (!slot || slot.dataset.mounted) return;
     slot.dataset.mounted = '1';
-    // widget.js loads async, so wait for it rather than assuming it's there.
-    var tries = 0;
-    (function attempt() {
-      if (window.Calendly && window.Calendly.initInlineWidget) {
-        window.Calendly.initInlineWidget({
-          url: CAL_URL,
-          parentElement: slot,
-          prefill: prefill,
-        });
-      } else if (tries++ < 60) {
-        setTimeout(attempt, 200);
-      } else {
-        // Last resort: never leave the visitor staring at an empty box.
-        slot.innerHTML = '<p style="text-align:center;padding:28px;">'
-          + '<a href="' + CAL_URL + '" target="_blank" rel="noopener" '
-          + 'style="color:var(--teal);font-weight:700;">Open the calendar in a new tab →</a></p>';
-      }
-    })();
+
+    var frame = document.createElement('iframe');
+    frame.src = CAL_URL;
+    frame.title = 'Book your free 15-minute strategy call';
+    frame.loading = 'lazy';
+    frame.setAttribute('frameborder', '0');
+    // Never leave the visitor staring at an empty box if the embed is blocked.
+    frame.addEventListener('error', function () {
+      slot.innerHTML = '<p style="text-align:center;padding:28px;">'
+        + '<a href="' + CAL_URL + '" target="_blank" rel="noopener" '
+        + 'style="color:var(--teal);font-weight:700;">Open the calendar in a new tab →</a></p>';
+    });
+    slot.appendChild(frame);
   }
 
   var errBox = document.getElementById('form-error');
@@ -856,13 +851,9 @@
 
   form.addEventListener('lead:success', function () {
     if (errBox) errBox.hidden = true;
-    var prefill = {
-      name: (document.getElementById('name') || {}).value || '',
-      email: (document.getElementById('email') || {}).value || '',
-    };
     s1.hidden = true;
     s2.hidden = false;
-    mountCalendar(prefill);
+    mountCalendar();
     // Keep the card in view — it just changed height underneath them.
     var card = document.querySelector('.lp-start-card');
     if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1030,6 +1021,5 @@
 </script>
 
 <script src="js/main.js"></script>
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>

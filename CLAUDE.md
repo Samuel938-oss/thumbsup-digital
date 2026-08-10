@@ -170,7 +170,7 @@
 
 | Tool | Integration point | Status |
 |------|-------------------|--------|
-| Calendly | Nav CTA, Hero CTA, Final CTA, Contact widget | ✅ `https://calendly.com/samuel-thumbsupdigital/30min` |
+| Google Calendar (appointment schedule) | Step 2 booking embed on the landing page | ✅ iframe `https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Yvv4J58lD-xZF-pOAlYlYCYYIfUi4_VNdUMb-bS1f2kTFrM7ngUkSuMkfSxtf4qb8sSLPY1o3?gv=true` — replaced Calendly |
 | Stripe | Pricing page — 3 payment links | ⏳ Links pending — buttons rendered but disabled for now |
 | Formspree | Contact form | ✅ `https://formspree.io/f/mjgjznzr` |
 | Loom | Hero "Watch Demo" + Services | ⏳ Video not recorded — button hidden/placeholder |
