@@ -74,6 +74,27 @@
     .lp-cta-row { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:34px; }
     .lp-reassure { margin-top: 18px; font-size: 0.9rem; color: var(--text-3); }
 
+    /* Hero capability strip — the page never named the actual disciplines
+       anywhere, so a visitor couldn't tell what gets built after the audit.
+       Deliberately small: the free audit stays the offer. */
+    .hero-caps {
+      list-style: none; margin: 26px auto 0; padding: 0; max-width: 640px;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 10px;
+    }
+    .hero-caps li {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 14px; border-radius: 999px;
+      background: var(--bg-1); border: 1px solid var(--border-acc);
+      font-size: 0.82rem; font-weight: 600; color: var(--text-1);
+    }
+    .hero-caps li::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--grad); flex: none;
+    }
+    @media (max-width: 480px) {
+      .hero-caps li { font-size: 0.76rem; padding: 6px 12px; }
+    }
+
     /* Band (used for leaks + big-problems) */
     .lp-offer-band {
       background: var(--grad-card);
@@ -339,16 +360,19 @@
   <div class="container">
     <span class="offer-badge fade-up" data-i18n="hero-badge">★ Free Lead Leak Audit</span>
     <h1 class="display-1 fade-up fade-up-delay-1" style="margin-top:24px;" data-i18n="hero-h1">
-      You Are Probably <span class="gradient-text">Losing Customers Right Now.</span>
+      You Are Probably Losing Customers Right Now. <span class="gradient-text">We Find It — Then We Fix It.</span>
     </h1>
-    <p class="sub fade-up fade-up-delay-2" data-i18n="hero-sub">
-      We'll show you where, why, and how to stop it — in 15 minutes.
-    </p>
     <p class="support fade-up fade-up-delay-2" data-i18n="hero-support">
       Every missed call, forgotten lead, delayed response, and broken process costs money.
-      In one free audit, we'll find the biggest leaks in your business and show you exactly
-      where customers are slipping away.
+      It starts with a free 15-minute audit: we find the biggest leaks in your business — then we
+      build the system that plugs them.
     </p>
+    <ul class="hero-caps fade-up fade-up-delay-2">
+      <li data-i18n="cap-1">Ads &amp; Marketing</li>
+      <li data-i18n="cap-2">AI Agents</li>
+      <li data-i18n="cap-3">Automations</li>
+      <li data-i18n="cap-4">CRM &amp; Pipeline</li>
+    </ul>
     <div class="lp-cta-row fade-up fade-up-delay-3">
       <a href="#start" class="btn btn-primary btn-lg" data-i18n="hero-cta">Book My Free Audit</a>
     </div>
@@ -868,9 +892,12 @@
   var esDict = {
     'nav-cta': 'Auditoría Gratis',
     'hero-badge': '★ Auditoría Gratis de Fugas',
-    'hero-h1': 'Probablemente Estás <span class="gradient-text">Perdiendo Clientes Ahora Mismo.</span>',
-    'hero-sub': 'Te mostramos dónde, por qué, y cómo detenerlo — en 15 minutos.',
-    'hero-support': 'Cada llamada perdida, cada lead olvidado, cada respuesta tardía y cada proceso roto cuesta dinero. En una auditoría gratis encontramos las fugas más grandes de tu negocio y te mostramos exactamente por dónde se te están escapando los clientes.',
+    'hero-h1': 'Probablemente Estás Perdiendo Clientes Ahora Mismo. <span class="gradient-text">Lo Encontramos — y Lo Arreglamos.</span>',
+    'hero-support': 'Cada llamada perdida, cada lead olvidado, cada respuesta tardía y cada proceso roto cuesta dinero. Empieza con una auditoría gratis de 15 minutos: encontramos las fugas más grandes de tu negocio — y después construimos el sistema que las tapa.',
+    'cap-1': 'Ads y Marketing',
+    'cap-2': 'Agentes de IA',
+    'cap-3': 'Automatizaciones',
+    'cap-4': 'CRM y Pipeline',
     'hero-cta': 'Agendar Mi Auditoría Gratis',
     'hero-reassure': '15 minutos. Sin venta. Sin compromiso.',
 
