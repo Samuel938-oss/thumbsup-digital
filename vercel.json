@@ -2,9 +2,20 @@
   "redirects": [
     {
       "source": "/",
-      "has": [{ "type": "host", "value": "home.thumbsupdigital.tech" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "home.thumbsupdigital.tech"
+        }
+      ],
       "destination": "/home.html",
       "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
     }
   ]
 }
