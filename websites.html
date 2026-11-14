@@ -200,37 +200,15 @@
     .step.last .n{background:var(--grad);-webkit-background-clip:text;background-clip:text}
     .step.last .ico{background:rgba(6,214,160,.15);border-color:rgba(6,214,160,.35)} .step.last .ico svg{stroke:var(--teal)}
 
-    /* OUTCOMES */
-    .outs{display:grid;gap:16px;margin-top:52px}
-    @media(min-width:900px){.outs{grid-template-columns:repeat(3,1fr)}}
-    .out{border-radius:24px;background:var(--card);border:1px solid var(--line);overflow:hidden}
-    .out .viz{height:190px;display:grid;place-items:center;background:radial-gradient(ellipse 80% 90% at 50% 100%,rgba(0,180,216,.16),transparent 70%);border-bottom:1px solid var(--line);overflow:hidden}
-    .out:nth-child(2) .viz{background:radial-gradient(ellipse 80% 90% at 50% 100%,rgba(6,214,160,.16),transparent 70%)}
-    .out:nth-child(3) .viz{background:radial-gradient(ellipse 80% 90% at 50% 100%,rgba(124,108,255,.18),transparent 70%)}
-    .out h3{font-family:var(--disp);font-weight:700;font-size:1.3rem;line-height:1.3;color:var(--white);padding:24px}
-    .gal{display:grid;grid-template-columns:repeat(3,68px);gap:8px;transform:rotate(-6deg)}
-    .gal i{height:68px;border-radius:10px;background-size:cover;background-position:top;border:1px solid var(--line2)}
-    .gal i:nth-child(1){background-image:url(/assets/portfolio/ylconcrete-mobile.webp)}
-    .gal i:nth-child(2){background-image:url(/assets/portfolio/delgadofence-mobile.webp);transform:translateY(-10px)}
-    .gal i:nth-child(3){background-image:url(/assets/portfolio/boysdetailing-mobile.webp)}
-    .gal i:nth-child(4){background-image:url(/assets/portfolio/prontosales-mobile.webp)}
-    .gal i:nth-child(5){background:var(--grad);opacity:.85;transform:translateY(-10px)}
-    .gal i:nth-child(6){background-image:url(/assets/portfolio/ylconcrete-desktop.webp)}
-    .taps{display:flex;gap:16px}
-    .tap{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--t1)}
-    .tap b{width:60px;height:60px;border-radius:18px;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(0,0,0,.6)}
-    .tap svg{width:24px;height:24px;stroke:#03141A}
-    .tap:nth-child(1) b{background:var(--teal)} .tap:nth-child(2) b{background:var(--blue);animation:press 2.6s ease-in-out infinite} .tap:nth-child(3) b{background:#A99DFF}
-    @keyframes press{0%,60%,100%{transform:scale(1)}70%{transform:scale(.9)}80%{transform:scale(1.05)}}
-    .gp{display:flex;align-items:center;gap:14px}
-    .gcard{width:150px;padding:12px;border-radius:14px;background:#fff;color:#1f2937;box-shadow:0 16px 30px -12px rgba(0,0,0,.6);transform:rotate(-4deg)}
-    .gcard .pin{width:26px;height:26px;border-radius:50%;background:#EA4335;display:grid;place-items:center;margin-bottom:8px}
-    .gcard .pin svg{width:14px;height:14px;stroke:#fff}
-    .gcard b{display:block;font-size:.8rem}
-    .gcard i{display:block;height:6px;border-radius:3px;background:#E5E7EB;margin-top:6px}
-    .gcard i+i{width:70%}
-    .qr{width:96px;height:96px;padding:8px;border-radius:14px;background:#fff;transform:rotate(5deg);box-shadow:0 16px 30px -12px rgba(0,0,0,.6)}
-
+    /* QR codes */
+    .qr-row{display:flex;gap:16px;margin:44px -16px 0;padding:8px 16px 16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+    .qr-row::-webkit-scrollbar{display:none}
+    .qr-card{flex:0 0 72%;scroll-snap-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;padding:18px;border-radius:24px;background:var(--card);border:1px solid var(--line);transition:transform .4s var(--ease),border-color .3s}
+    .qr-card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;border-radius:14px}
+    .qr-card figcaption{font-weight:600;color:var(--t1);font-size:.95rem}
+    .qr-card:hover{transform:translateY(-6px) rotate(-1deg);border-color:rgba(0,180,216,.35)}
+    @media(min-width:640px){.qr-card{flex-basis:42%}}
+    @media(min-width:900px){.qr-row{display:grid;grid-template-columns:repeat(4,1fr);margin:52px 0 0;padding:0;overflow:visible}.qr-card{flex:none}}
     /* MORE */
     .more{overflow:hidden}
     .more::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 15% 30%,rgba(124,108,255,.16),transparent 70%),radial-gradient(ellipse 50% 50% at 90% 80%,rgba(6,214,160,.10),transparent 70%);pointer-events:none}
@@ -474,35 +452,17 @@
     </div>
   </section>
 
-  <!-- 4. WHAT CHANGES -->
-  <section class="sec" style="padding-top:24px">
+  <!-- 4. CUSTOM QR CODES -->
+  <section class="sec qrs" style="padding-top:24px">
     <div class="wrap">
-      <span class="eyebrow rv">What changes for you</span>
-      <h2 class="h2 rv d1">Less chasing. <span class="grad">Easier to find, easier to reach.</span></h2>
-      <div class="outs">
-        <div class="out rv">
-          <div class="viz" aria-hidden="true"><div class="gal"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-          <h3>People who look you up see your best work first.</h3>
-        </div>
-        <div class="out rv d1">
-          <div class="viz" aria-hidden="true">
-            <div class="taps">
-              <span class="tap"><b><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg></b>Call</span>
-              <span class="tap"><b><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></b>Text</span>
-              <span class="tap"><b><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h4"/></svg></b>Form</span>
-            </div>
-          </div>
-          <h3>Customers reach you in one tap: call, text or form.</h3>
-        </div>
-        <div class="out rv d2">
-          <div class="viz" aria-hidden="true">
-            <div class="gp">
-              <div class="gcard"><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/></svg></span><b>Your Business</b><i></i><i></i></div>
-              <svg class="qr" viewBox="0 0 21 21" shape-rendering="crispEdges"><path fill="#0A0F1C" fill-rule="evenodd" d="M0 0h7v7H0zM1 1v5h5V1zM2 2h3v3H2zM14 0h7v7h-7zM15 1v5h5V1zM16 2h3v3h-3zM0 14h7v7H0zM1 15v5h5v-5zM2 16h3v3H2zM8 0h1v2H8zM10 1h2v1h-2zM9 3h2v2H9zM12 4h1v3h-1zM8 6h2v2H8zM0 8h2v1H0zM3 8h3v1H3zM7 9h3v1H7zM11 8h2v2h-2zM14 8h2v1h-2zM17 8h4v1h-4zM1 10h2v2H1zM4 10h1v3H4zM8 11h2v2H8zM12 11h3v1h-3zM16 10h2v3h-2zM19 11h2v1h-2zM6 12h1v1H6zM10 13h2v2h-2zM13 13h2v1h-2zM19 13h2v2h-2zM8 15h1v3H8zM14 15h3v1h-3zM10 16h3v1h-3zM18 16h1v3h-1zM12 18h2v3h-2zM15 18h2v1h-2zM9 19h2v2H9zM15 20h3v1h-3zM20 18h1v3h-1z"/></svg>
-            </div>
-          </div>
-          <h3>Your Google profile and custom QR codes send people straight to you.</h3>
-        </div>
+      <span class="eyebrow rv">Custom QR codes</span>
+      <h2 class="h2 rv d1">Your Google profile and custom QR codes <span class="grad">send people straight to you.</span></h2>
+      <p class="lead rv d2">Made with your logo and your colors. Put them on your truck, your yard signs, your business cards.</p>
+      <div class="qr-row">
+        <figure class="qr-card rv"><img src="/assets/portfolio/qr-ylconcrete.webp" alt="Custom QR code for Y&amp;L Concrete" width="560" height="684" loading="lazy" decoding="async" /><figcaption>Y&amp;L Concrete</figcaption></figure>
+        <figure class="qr-card rv d1"><img src="/assets/portfolio/qr-delgadofence.webp" alt="Custom QR code for Delgado Fence" width="560" height="684" loading="lazy" decoding="async" /><figcaption>Delgado Fence</figcaption></figure>
+        <figure class="qr-card rv d2"><img src="/assets/portfolio/qr-boysdetailing.webp" alt="Custom QR code for Boys Detailing" width="560" height="560" loading="lazy" decoding="async" /><figcaption>Boys Detailing</figcaption></figure>
+        <figure class="qr-card rv d3"><img src="/assets/portfolio/qr-delrancho.webp" alt="Custom QR code for Del Rancho Deluxe Meats" width="560" height="560" loading="lazy" decoding="async" /><figcaption>Del Rancho</figcaption></figure>
       </div>
     </div>
   </section>
