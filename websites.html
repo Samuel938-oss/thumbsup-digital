@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <title>Websites for Local Businesses in the Triangle | ThumbsUp Digital</title>
+  <meta name="description" content="I'm Samuel, a local in Cary. I build websites for business owners across the Triangle that show your best work and make it one tap to reach you. Online in 72 hours." />
+  <link rel="canonical" href="https://thumbsupdigital.tech/websites" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://thumbsupdigital.tech/websites" />
+  <meta property="og:title"       content="Your business, online in 72 hours." />
+  <meta property="og:description" content="Websites for local businesses in Cary, Raleigh, Apex, Holly Springs, Wake Forest and Durham. You work directly with me, Samuel." />
+  <meta property="og:image"       content="https://thumbsupdigital.tech/assets/portfolio/og-websites.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card"       content="summary_large_image" />
+
+  <link rel="icon" type="image/png" href="/favicon_centrado.png" />
+  <link rel="apple-touch-icon" href="/favicon_centrado.png" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TW6WSBNVEM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date()); gtag('config', 'G-TW6WSBNVEM');
+  </script>
+
+  <!-- Meta Pixel (shared base code + PageView) -->
+  <script src="/js/pixel.js"></script>
+  <script>fbq('track', 'ViewContent', { content_name: 'Websites landing' });</script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=1054206933794626&ev=PageView&noscript=1" /></noscript>
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <style>
+    body{padding-bottom:0}
+    .w-wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+    .w-sec{padding:72px 0}
+    .w-sec + .w-sec{border-top:1px solid var(--border)}
+    .w-h2{font-family:var(--font-display);font-size:clamp(1.75rem,5vw,2.5rem);line-height:1.15;color:var(--white);margin-bottom:12px}
+    .w-lead{font-size:1.0625rem;line-height:1.6;color:var(--text-2);max-width:620px}
+    .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+    /* header */
+    .w-head{position:sticky;top:0;z-index:50;background:rgba(8,12,22,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .w-head .w-wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .w-head img{height:40px;width:auto;border-radius:8px}
+    .w-head a.w-txt{font-weight:600;color:var(--white);font-size:.95rem;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1px solid var(--border-acc);border-radius:999px}
+
+    /* buttons */
+    .w-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .w-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font-weight:700;font-size:1rem;text-decoration:none;transition:transform var(--t-fast) var(--ease),background var(--t-fast)}
+    .w-btn:hover{transform:translateY(-1px)}
+    .w-btn:focus-visible,.w-faq summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+    .w-btn-p{background:var(--grad);color:#04121A}
+    .w-btn-g{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.22)}
+    .w-btn-g:hover{border-color:var(--blue)}
+    .w-btn svg{width:20px;height:20px;flex:none}
+    @media (max-width:520px){.w-btns .w-btn{flex:1 1 100%}}
+
+    /* hero */
+    .w-hero{padding:56px 0 64px;background:radial-gradient(ellipse 80% 60% at 70% 0%,rgba(0,180,216,.14),transparent 70%)}
+    .w-tag{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--teal);background:var(--teal-dim);padding:6px 12px;border-radius:999px;margin-bottom:20px}
+    .w-hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,9vw,4rem);line-height:1.05;color:var(--white);letter-spacing:-.02em;max-width:760px}
+    .w-hero p{font-size:clamp(1.0625rem,2.6vw,1.25rem);line-height:1.6;color:var(--text-1);max-width:640px;margin-top:20px}
+
+    /* portfolio */
+    .w-grid{display:grid;gap:20px;margin-top:36px;grid-template-columns:1fr}
+    @media (min-width:640px){.w-grid{grid-template-columns:1fr 1fr}}
+    @media (min-width:1000px){.w-grid{grid-template-columns:repeat(4,1fr)}}
+    .w-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column}
+    .w-shot{background:var(--bg-0);padding:20px 20px 0;display:block}
+    .w-shot img{width:100%!important;max-width:260px;height:auto!important;margin:0 auto;border-radius:18px 18px 0 0;border:6px solid #1f2937;border-bottom:0;display:block}
+    .w-card-b{padding:20px;display:flex;flex-direction:column;flex:1}
+    .w-card h3{font-size:1.2rem;color:var(--white);margin-bottom:4px}
+    .w-meta{font-size:.875rem;color:var(--teal);font-weight:600;margin-bottom:10px}
+    .w-card p{font-size:.975rem;line-height:1.55;color:var(--text-2);flex:1}
+    .w-card .w-btn{margin-top:18px;min-height:48px;font-size:.95rem}
+    .w-after{margin-top:28px;font-size:1.0625rem;color:var(--text-1)}
+
+    /* steps */
+    .w-steps{display:grid;gap:16px;margin-top:36px;counter-reset:s}
+    @media (min-width:800px){.w-steps{grid-template-columns:repeat(4,1fr)}}
+    .w-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px}
+    .w-step .n{font-family:var(--font-display);font-size:3.25rem;line-height:1;font-weight:800;display:block;margin-bottom:12px}
+    .w-step b{display:block;color:var(--white);font-size:1.0625rem;margin-bottom:6px}
+    .w-step span.d{color:var(--text-2);font-size:.975rem;line-height:1.55}
+
+    /* outcomes */
+    .w-out{display:grid;gap:16px;margin-top:36px}
+    @media (min-width:800px){.w-out{grid-template-columns:repeat(3,1fr)}}
+    .w-out div{border-left:3px solid var(--teal);padding:8px 0 8px 18px;font-size:1.2rem;line-height:1.45;color:var(--white);font-weight:600}
+
+    /* more */
+    .w-more{display:grid;gap:16px;margin-top:36px}
+    @media (min-width:800px){.w-more{grid-template-columns:repeat(3,1fr)}}
+    .w-mc{background:var(--grad-card);border:1px solid var(--border-acc);border-radius:var(--r-lg);padding:24px}
+    .w-mc .ic{width:48px;height:48px;border-radius:12px;background:var(--blue-dim);display:grid;place-items:center;margin-bottom:16px}
+    .w-mc .ic svg{width:24px;height:24px;stroke:var(--blue)}
+    .w-mc h3{color:var(--white);font-size:1.2rem;margin-bottom:8px}
+    .w-mc p{color:var(--text-2);line-height:1.55}
+    .w-note{margin-top:28px;color:var(--text-1);font-size:1.0625rem}
+
+    /* about */
+    .w-about{display:grid;gap:32px;align-items:center}
+    @media (min-width:800px){.w-about{grid-template-columns:320px 1fr;gap:56px}}
+    .w-photo{position:relative;width:100%;max-width:320px;aspect-ratio:4/5;border-radius:var(--r-xl);overflow:hidden;background:linear-gradient(160deg,#13213a,#0b1424);border:1px solid var(--border-acc);margin:0 auto}
+    .w-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .w-photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--text-2);font-size:.9rem}
+    .w-photo .ph i{width:96px;height:96px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-style:normal;font-family:var(--font-display);font-size:2.5rem;font-weight:800;color:#04121A}
+    .w-about p{font-size:1.15rem;line-height:1.65;color:var(--text-1);max-width:600px}
+
+    /* faq */
+    .w-faq{margin-top:32px;max-width:760px}
+    .w-faq details{border-bottom:1px solid var(--border)}
+    .w-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:600;font-size:1.0625rem;color:var(--white)}
+    .w-faq summary::-webkit-details-marker{display:none}
+    .w-faq summary::after{content:'+';font-size:1.6rem;color:var(--teal);transition:transform var(--t-fast)}
+    .w-faq details[open] summary::after{transform:rotate(45deg)}
+    .w-faq p{padding:0 0 18px;color:var(--text-2);line-height:1.6}
+
+    /* final */
+    .w-final{text-align:center;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(6,214,160,.12),transparent 70%)}
+    .w-final .w-btns{justify-content:center}
+    .w-area{margin-top:24px;font-size:.9rem;color:var(--text-2)}
+
+    footer.w-foot{padding:32px 0 32px;border-top:1px solid var(--border);font-size:.875rem;color:var(--text-3);text-align:center}
+    footer.w-foot a{color:var(--text-2)}
+
+    /* sticky mobile bar */
+    .w-bar{display:none}
+    @media (max-width:767px){
+      .w-bar{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(8,12,22,.96);border-top:1px solid var(--border);backdrop-filter:blur(10px)}
+      .w-bar .w-btn{flex:1;min-height:48px;padding:0 12px}
+      body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+    }
+    @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+
+<header class="w-head">
+  <div class="w-wrap">
+    <a href="/" aria-label="ThumbsUp Digital home"><img src="/assets/images/logo.jpeg" alt="ThumbsUp Digital" width="120" height="40" /></a>
+    <a class="w-txt" href="sms:+19196565857" data-contact="sms">Text me</a>
+  </div>
+</header>
+
+<main>
+  <!-- 1. Hero -->
+  <section class="w-hero">
+    <div class="w-wrap">
+      <span class="w-tag">Cary, NC · Serving the Triangle</span>
+      <h1>Your business, online in <span class="grad">72 hours.</span></h1>
+      <p>I'm Samuel, a local in Cary. I build websites that put your best work up front and make it one tap to reach you, for business owners across the Triangle.</p>
+      <div class="w-btns">
+        <a class="w-btn w-btn-p" href="#work">See my work</a>
+        <a class="w-btn w-btn-g" href="https://www.instagram.com/thethumbsup/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          Follow me on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Portfolio -->
+  <section class="w-sec" id="work">
+    <div class="w-wrap">
+      <h2 class="w-h2">Real websites for real local businesses.</h2>
+      <div class="w-grid">
+        <article class="w-card">
+          <div class="w-shot"><img src="/assets/portfolio/ylconcrete-mobile.webp" alt="Y&amp;L Concrete website on a phone" width="600" height="1040" loading="lazy" decoding="async" /></div>
+          <div class="w-card-b">
+            <h3>Y&amp;L Concrete</h3>
+            <div class="w-meta">Concrete contractor · Raleigh, Durham &amp; Cary</div>
+            <p>A before &amp; after gallery of their jobs, a free estimate request, and call or WhatsApp in one tap.</p>
+            <a class="w-btn w-btn-g" href="https://ylconcrete.com/" target="_blank" rel="noopener noreferrer">View website</a>
+          </div>
+        </article>
+        <article class="w-card">
+          <div class="w-shot"><img src="/assets/portfolio/delgadofence-mobile.webp" alt="Delgado Fence website on a phone" width="600" height="1040" loading="lazy" decoding="async" /></div>
+          <div class="w-card-b">
+            <h3>Delgado Fence</h3>
+            <div class="w-meta">Fence installation &amp; repair · Raleigh</div>
+            <p>Every type of fence they build, before &amp; after photos, and a quick way to ask for an estimate.</p>
+            <a class="w-btn w-btn-g" href="https://delgadofence.com/" target="_blank" rel="noopener noreferrer">View website</a>
+          </div>
+        </article>
+        <article class="w-card">
+          <div class="w-shot"><img src="/assets/portfolio/prontosales-mobile.webp" alt="Pronto Auto Sales website on a phone" width="600" height="1040" loading="lazy" decoding="async" /></div>
+          <div class="w-card-b">
+            <h3>Pronto Auto Sales</h3>
+            <div class="w-meta">Used car dealer · Dunn</div>
+            <p>Their car inventory with filters, a financing application, and the whole site in English and Spanish.</p>
+            <a class="w-btn w-btn-g" href="https://prontosalesllc.com/" target="_blank" rel="noopener noreferrer">View website</a>
+          </div>
+        </article>
+        <article class="w-card">
+          <div class="w-shot"><img src="/assets/portfolio/boysdetailing-mobile.webp" alt="Boys Detailing website on a phone" width="600" height="1040" loading="lazy" decoding="async" /></div>
+          <div class="w-card-b">
+            <h3>Boys Detailing</h3>
+            <div class="w-meta">Mobile car detailing · North Carolina</div>
+            <p>Detail packages laid out clearly, a before &amp; after slider, and online booking.</p>
+            <a class="w-btn w-btn-g" href="https://www.boysdetailing.com/" target="_blank" rel="noopener noreferrer">View website</a>
+          </div>
+        </article>
+      </div>
+      <p class="w-after">Concrete, fence, auto, detailing… and the list goes on. <strong class="grad">Yours could be next.</strong></p>
+    </div>
+  </section>
+
+  <!-- 3. How it works -->
+  <section class="w-sec">
+    <div class="w-wrap">
+      <h2 class="w-h2">How it works</h2>
+      <div class="w-steps">
+        <div class="w-step"><span class="n grad">1</span><b>You fill out a short form.</b><span class="d">Less than 2 minutes.</span></div>
+        <div class="w-step"><span class="n grad">2</span><b>I call you myself.</b><span class="d">We talk about your business and what you actually need.</span></div>
+        <div class="w-step"><span class="n grad">3</span><b>You send me your photos and your info.</b></div>
+        <div class="w-step"><span class="n grad">4</span><b>In 72 hours, your business is online.</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. What changes -->
+  <section class="w-sec">
+    <div class="w-wrap">
+      <h2 class="w-h2">What changes for you</h2>
+      <div class="w-out">
+        <div>People who look you up see your best work first.</div>
+        <div>Customers reach you in one tap: call, text or form.</div>
+        <div>Your Google profile and custom QR codes send people straight to you.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. More than a website -->
+  <section class="w-sec">
+    <div class="w-wrap">
+      <h2 class="w-h2">More than a website</h2>
+      <p class="w-lead">A website is where it starts. When you're ready to grow, I can help with more.</p>
+      <div class="w-more">
+        <div class="w-mc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8v18L3 13z"/><path d="M7 12v6a2 2 0 004 0v-5"/></svg></div>
+          <h3>Meta Ads</h3>
+          <p>Ads on Facebook and Instagram that bring local customers to you, managed by me.</p>
+        </div>
+        <div class="w-mc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <h3>Digital marketing</h3>
+          <p>Your Google profile, reviews and online presence working together, so more people find you and trust you.</p>
+        </div>
+        <div class="w-mc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg></div>
+          <h3>AI &amp; automation</h3>
+          <p>Simple tools that answer customers fast, follow up for you and save you hours every week.</p>
+        </div>
+      </div>
+      <p class="w-note">No packages you don't need. We start with what makes sense for your business.</p>
+    </div>
+  </section>
+
+  <!-- 6. About -->
+  <section class="w-sec">
+    <div class="w-wrap w-about">
+      <div class="w-photo">
+        <div class="ph" aria-hidden="true"><i>S</i><span>Samuel Pulgar · Cary, NC</span></div>
+        <img src="/assets/images/samuel.jpg" alt="Samuel Pulgar, founder of ThumbsUp Digital" loading="lazy" onerror="this.remove()" />
+      </div>
+      <div>
+        <h2 class="w-h2">Who you'll work with</h2>
+        <p>I'm Samuel. I live here in Cary and I work directly with every client. No call center, no sales team, no middlemen. When you reach out, you talk to me. <em>Se habla español.</em></p>
+        <div class="w-btns">
+          <a class="w-btn w-btn-g" href="https://www.instagram.com/thethumbsup/" target="_blank" rel="noopener noreferrer">Follow me on Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="w-sec">
+    <div class="w-wrap">
+      <h2 class="w-h2">Questions</h2>
+      <div class="w-faq">
+        <details><summary>Does 72 hours really mean 72 hours?</summary><p>Yes. The clock starts once you send me your photos and info.</p></details>
+        <details><summary>What do I need to send you?</summary><p>Photos of your work, your services, your logo if you have one, and how customers can reach you. I'll guide you on the call.</p></details>
+        <details><summary>I already have a website. Can you help?</summary><p>Yes. I can rebuild it or make it work better. We'll talk about it on the call.</p></details>
+        <details><summary>Can I make changes later?</summary><p>Yes, minor changes and support are included. Just reach out.</p></details>
+        <details><summary>How much does it cost?</summary><p>It depends on what your business needs. I'll give you a clear price on our first call, no surprises after.</p></details>
+        <details><summary>Do you work in Spanish?</summary><p>Sí. Hablo español.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Final CTA -->
+  <section class="w-sec w-final">
+    <div class="w-wrap">
+      <h2 class="w-h2">Ready to get your business online?</h2>
+      <div class="w-btns">
+        <a class="w-btn w-btn-p" href="sms:+19196565857" data-contact="sms">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Text me</a>
+        <a class="w-btn w-btn-g" href="tel:+19196565857" data-contact="phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>Call me</a>
+        <a class="w-btn w-btn-g" href="https://www.instagram.com/thethumbsup/" target="_blank" rel="noopener noreferrer">Follow me on Instagram</a>
+      </div>
+      <p class="w-area">Serving Cary, Raleigh, Apex, Holly Springs, Wake Forest and Durham.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="w-foot">
+  <div class="w-wrap">© 2026 ThumbsUp Digital · <a href="/">Home</a> · <a href="/privacy">Privacy Policy</a></div>
+</footer>
+
+<nav class="w-bar" aria-label="Quick contact">
+  <a class="w-btn w-btn-p" href="sms:+19196565857" data-contact="sms">Text me</a>
+  <a class="w-btn w-btn-g" href="https://www.instagram.com/thethumbsup/" target="_blank" rel="noopener noreferrer">Instagram</a>
+</nav>
+
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[data-contact]');
+    if (a && window.fbq) fbq('track', 'Contact', { contact_method: a.getAttribute('data-contact'), content_name: 'Websites landing' });
+  });
+</script>
+</body>
+</html>
